@@ -1,0 +1,6 @@
+framework module Pods_SmashKit {
+  umbrella header "Pods-SmashKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

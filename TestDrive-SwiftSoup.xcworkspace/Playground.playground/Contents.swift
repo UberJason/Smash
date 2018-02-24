@@ -3,16 +3,48 @@ import SwiftSoup
 
 enum TableTennisError: Error {
     case missingName
+    case mismatchedWinsAndPointsMatrices
 }
 
-struct Player {
-    var name: String
+struct Player: Equatable {
+    static func ==(lhs: Player, rhs: Player) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+    let name: String
 }
+
 struct Match {
-    var player1: Player
-    var player2: Player
-    var player1Wins: Int
-    var player2Wins: Int
+    let player1: Player
+    let player2: Player
+    let player1Wins: Int
+    let player2Wins: Int
+    
+    let ratingChange: Int
+    
+    var winner: Player {
+        return player1Wins > player2Wins ? player1 : player2
+    }
+    var loser: Player {
+        return player1Wins > player2Wins ? player2 : player1
+    }
+    
+    var score: String {
+        return player1Wins > player2Wins ? "\(player1Wins)-\(player2Wins)" : "\(player2Wins)-\(player1Wins)"
+    }
+    
+    var p1RatingChange: Int {
+        return winner == player1 ? ratingChange : -1*ratingChange
+    }
+    var p2RatingChange: Int {
+        return winner == player2 ? ratingChange : -1*ratingChange
+    }
+}
+
+extension Match: CustomStringConvertible {
+    var description: String {
+        return "\(winner.name) def. \(loser.name) \(score); \(player1.name) \(p1RatingChange), \(player2.name) \(p2RatingChange)\n"
+    }
 }
 
 struct GroupMatrix {
@@ -31,12 +63,36 @@ struct GroupMatrix {
 struct GroupResult {
     let winsMatrix: GroupMatrix
     let pointsMatrix: GroupMatrix
+    
+    var matches = [Match]()
+    
+    init(winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix) throws {
+        self.winsMatrix = winsMatrix
+        self.pointsMatrix = pointsMatrix
+        try extractMatches()
+    }
+    
+    private mutating func extractMatches() throws {
+        guard winsMatrix.results.count == pointsMatrix.results.count,
+            winsMatrix.players == pointsMatrix.players else { throw TableTennisError.mismatchedWinsAndPointsMatrices }
+        
+        matches = [Match]()
+        let players = winsMatrix.players
+        
+        for i in 0 ..< winsMatrix.results.count {
+            for j in i + 1 ..< winsMatrix.results[i].count {
+                let player1 = players[i]
+                let player2 = players[j]
+                let player1Wins = winsMatrix.results[i][j]
+                let player2Wins = winsMatrix.results[j][i]
+                let ratingChange =  pointsMatrix.results[i][j]
+                
+                let match = Match(player1: player1, player2: player2, player1Wins: player1Wins, player2Wins: player2Wins, ratingChange: ratingChange)
+                matches.append(match)
+            }
+        }
+    }
 }
-
-let p1 = Player(name: "Jason Ji")
-let p2 = Player(name: "Tausif Ullah")
-let match = Match(player1: p1, player2: p2, player1Wins: 3, player2Wins: 0)
-
 
 func parseGameTables(_ doc: Document) throws -> [GroupResult] {
     var tables = try doc.select("table").array()
@@ -52,9 +108,7 @@ func parseGameTables(_ doc: Document) throws -> [GroupResult] {
         let rows = try table.select("tr").array()
         for row in rows {
             guard let name = try row.getElementsByClass("datacolumn1").first()?.text() else { throw TableTennisError.missingName }
-            let wins = try row.getElementsByClass("gameswlcolumn").array()[0].text()
-            let losses = try row.getElementsByClass("gameswlcolumn").array()[1].text()
-            
+
             winsGroupMatrix.players.append(Player(name: name))
             pointsGroupMatrix.players.append(Player(name: name))
             
@@ -65,7 +119,7 @@ func parseGameTables(_ doc: Document) throws -> [GroupResult] {
             pointsGroupMatrix.results.append(pointsWon)
         }
         
-        groupResults.append(GroupResult(winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix))
+        groupResults.append(try GroupResult(winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix))
     }
     
     return groupResults
@@ -79,6 +133,13 @@ func tableTennisElementToInt(_ element: Element) throws -> Int {
     return -99
 }
 
+
+
+
+
+
+
+
 do {
     let url = URL(fileURLWithPath: Bundle.main.path(forResource: "SessionGroupReport", ofType: "html")!)
     let html = try! String(contentsOf: url)
@@ -86,9 +147,10 @@ do {
     let doc: Document = try SwiftSoup.parse(html)
     
     let results = try parseGameTables(doc)
-    print(results[2].winsMatrix)
+    print(results[2].matches)
     
 } catch Exception.Error(let type, let message) {
+    print(type)
     print(message)
 } catch {
     print("error")

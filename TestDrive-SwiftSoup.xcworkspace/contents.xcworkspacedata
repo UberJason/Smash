@@ -1,1 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><Workspace version="1.0">    <FileRef location="group:/Users/qgg747/Desktop/TestDrive-SwiftSoup.xcworkspace/Playground.playground/"></FileRef>    <FileRef location="group:TestDrive-SwiftSoup.xcworkspace/Projects/swiftsoup/SwiftSoup.xcodeproj"></FileRef></Workspace>
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:TestDrive-SwiftSoup.xcworkspace/Playground.playground">
+   </FileRef>
+   <FileRef
+      location = "group:TestDrive-SwiftSoup.xcworkspace/Projects/swiftsoup/SwiftSoup.xcodeproj">
+   </FileRef>
+</Workspace>

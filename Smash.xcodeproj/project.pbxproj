@@ -1,0 +1,674 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B48652A9B9CCD725D88943B /* Pods_Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */; };
+		3A10FC51499789E5F40A6C90 /* Pods_SmashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */; };
+		9646637A2040E6B20011C908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663792040E6B20011C908 /* AppDelegate.swift */; };
+		9646637C2040E6B20011C908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646637B2040E6B20011C908 /* ViewController.swift */; };
+		9646637F2040E6B20011C908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9646637D2040E6B20011C908 /* Main.storyboard */; };
+		964663822040E6B20011C908 /* Smash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 964663802040E6B20011C908 /* Smash.xcdatamodeld */; };
+		964663842040E6B20011C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964663832040E6B20011C908 /* Assets.xcassets */; };
+		964663872040E6B20011C908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964663852040E6B20011C908 /* LaunchScreen.storyboard */; };
+		964663972040E7F20011C908 /* SmashKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 964663952040E7F20011C908 /* SmashKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9646639A2040E7F20011C908 /* SmashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964663932040E7F20011C908 /* SmashKit.framework */; };
+		9646639B2040E7F20011C908 /* SmashKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 964663932040E7F20011C908 /* SmashKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		964663A22040E8570011C908 /* TableTennisError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A12040E8570011C908 /* TableTennisError.swift */; };
+		964663A42040E8620011C908 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A32040E8620011C908 /* Player.swift */; };
+		964663A62040E8700011C908 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A52040E8700011C908 /* Match.swift */; };
+		964663A82040E8830011C908 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A72040E8830011C908 /* Group.swift */; };
+		964663AA2040E8AB0011C908 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A92040E8AB0011C908 /* Parser.swift */; };
+		964663AC2040E8D30011C908 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663AB2040E8D30011C908 /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		964663982040E7F20011C908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9646636E2040E6B20011C908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 964663922040E7F20011C908;
+			remoteInfo = SmashKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9646639F2040E7F20011C908 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9646639B2040E7F20011C908 /* SmashKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0F2A091F09B58E6526ACE7E5 /* Pods-SmashKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit.release.xcconfig"; sourceTree = "<group>"; };
+		10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmashKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66795013838C4CDCF7DD0259 /* Pods-Smash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smash/Pods-Smash.release.xcconfig"; sourceTree = "<group>"; };
+		8B1CE01F9736D4E4CF66584E /* Pods-Smash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smash/Pods-Smash.debug.xcconfig"; sourceTree = "<group>"; };
+		964663762040E6B20011C908 /* Smash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		964663792040E6B20011C908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9646637B2040E6B20011C908 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9646637E2040E6B20011C908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		964663812040E6B20011C908 /* Smash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Smash.xcdatamodel; sourceTree = "<group>"; };
+		964663832040E6B20011C908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		964663862040E6B20011C908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		964663882040E6B20011C908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964663932040E7F20011C908 /* SmashKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmashKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964663952040E7F20011C908 /* SmashKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmashKit.h; sourceTree = "<group>"; };
+		964663962040E7F20011C908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964663A12040E8570011C908 /* TableTennisError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTennisError.swift; sourceTree = "<group>"; };
+		964663A32040E8620011C908 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		964663A52040E8700011C908 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		964663A72040E8830011C908 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		964663A92040E8AB0011C908 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		964663AB2040E8D30011C908 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		964663732040E6B20011C908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9646639A2040E7F20011C908 /* SmashKit.framework in Frameworks */,
+				0B48652A9B9CCD725D88943B /* Pods_Smash.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9646638F2040E7F20011C908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A10FC51499789E5F40A6C90 /* Pods_SmashKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9646636D2040E6B20011C908 = {
+			isa = PBXGroup;
+			children = (
+				964663782040E6B20011C908 /* Smash */,
+				964663942040E7F20011C908 /* SmashKit */,
+				964663772040E6B20011C908 /* Products */,
+				C3A5E3AEF29FDFD6975C9158 /* Pods */,
+				C2256BF1E7D71B04B5C91ED1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		964663772040E6B20011C908 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				964663762040E6B20011C908 /* Smash.app */,
+				964663932040E7F20011C908 /* SmashKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		964663782040E6B20011C908 /* Smash */ = {
+			isa = PBXGroup;
+			children = (
+				964663792040E6B20011C908 /* AppDelegate.swift */,
+				9646637B2040E6B20011C908 /* ViewController.swift */,
+				9646637D2040E6B20011C908 /* Main.storyboard */,
+				964663832040E6B20011C908 /* Assets.xcassets */,
+				964663852040E6B20011C908 /* LaunchScreen.storyboard */,
+				964663882040E6B20011C908 /* Info.plist */,
+				964663802040E6B20011C908 /* Smash.xcdatamodeld */,
+			);
+			path = Smash;
+			sourceTree = "<group>";
+		};
+		964663942040E7F20011C908 /* SmashKit */ = {
+			isa = PBXGroup;
+			children = (
+				964663952040E7F20011C908 /* SmashKit.h */,
+				964663962040E7F20011C908 /* Info.plist */,
+				964663A02040E8440011C908 /* Model */,
+			);
+			path = SmashKit;
+			sourceTree = "<group>";
+		};
+		964663A02040E8440011C908 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				964663A12040E8570011C908 /* TableTennisError.swift */,
+				964663AB2040E8D30011C908 /* Constants.swift */,
+				964663A32040E8620011C908 /* Player.swift */,
+				964663A52040E8700011C908 /* Match.swift */,
+				964663A72040E8830011C908 /* Group.swift */,
+				964663A92040E8AB0011C908 /* Parser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2256BF1E7D71B04B5C91ED1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */,
+				10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3A5E3AEF29FDFD6975C9158 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B1CE01F9736D4E4CF66584E /* Pods-Smash.debug.xcconfig */,
+				66795013838C4CDCF7DD0259 /* Pods-Smash.release.xcconfig */,
+				ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */,
+				0F2A091F09B58E6526ACE7E5 /* Pods-SmashKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		964663902040E7F20011C908 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964663972040E7F20011C908 /* SmashKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		964663752040E6B20011C908 /* Smash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9646638B2040E6B20011C908 /* Build configuration list for PBXNativeTarget "Smash" */;
+			buildPhases = (
+				4335217067E719E15B541C59 /* [CP] Check Pods Manifest.lock */,
+				964663722040E6B20011C908 /* Sources */,
+				964663732040E6B20011C908 /* Frameworks */,
+				964663742040E6B20011C908 /* Resources */,
+				9646639F2040E7F20011C908 /* Embed Frameworks */,
+				DCF95557CE54946F0139805D /* [CP] Embed Pods Frameworks */,
+				70877E93BB88EBBD4B1E2B75 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				964663992040E7F20011C908 /* PBXTargetDependency */,
+			);
+			name = Smash;
+			productName = Smash;
+			productReference = 964663762040E6B20011C908 /* Smash.app */;
+			productType = "com.apple.product-type.application";
+		};
+		964663922040E7F20011C908 /* SmashKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9646639E2040E7F20011C908 /* Build configuration list for PBXNativeTarget "SmashKit" */;
+			buildPhases = (
+				330756A21034BB863FEE97A0 /* [CP] Check Pods Manifest.lock */,
+				9646638E2040E7F20011C908 /* Sources */,
+				9646638F2040E7F20011C908 /* Frameworks */,
+				964663902040E7F20011C908 /* Headers */,
+				964663912040E7F20011C908 /* Resources */,
+				4E022FE1B2F0FF0567A29F23 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmashKit;
+			productName = SmashKit;
+			productReference = 964663932040E7F20011C908 /* SmashKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9646636E2040E6B20011C908 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Jason Ji";
+				TargetAttributes = {
+					964663752040E6B20011C908 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					964663922040E7F20011C908 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 964663712040E6B20011C908 /* Build configuration list for PBXProject "Smash" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9646636D2040E6B20011C908;
+			productRefGroup = 964663772040E6B20011C908 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				964663752040E6B20011C908 /* Smash */,
+				964663922040E7F20011C908 /* SmashKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		964663742040E6B20011C908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964663872040E6B20011C908 /* LaunchScreen.storyboard in Resources */,
+				964663842040E6B20011C908 /* Assets.xcassets in Resources */,
+				9646637F2040E6B20011C908 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		964663912040E7F20011C908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		330756A21034BB863FEE97A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmashKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4335217067E719E15B541C59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Smash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E022FE1B2F0FF0567A29F23 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70877E93BB88EBBD4B1E2B75 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smash/Pods-Smash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCF95557CE54946F0139805D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Smash/Pods-Smash-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smash/Pods-Smash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		964663722040E6B20011C908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964663822040E6B20011C908 /* Smash.xcdatamodeld in Sources */,
+				9646637C2040E6B20011C908 /* ViewController.swift in Sources */,
+				9646637A2040E6B20011C908 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9646638E2040E7F20011C908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964663A42040E8620011C908 /* Player.swift in Sources */,
+				964663A22040E8570011C908 /* TableTennisError.swift in Sources */,
+				964663AA2040E8AB0011C908 /* Parser.swift in Sources */,
+				964663A62040E8700011C908 /* Match.swift in Sources */,
+				964663A82040E8830011C908 /* Group.swift in Sources */,
+				964663AC2040E8D30011C908 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		964663992040E7F20011C908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 964663922040E7F20011C908 /* SmashKit */;
+			targetProxy = 964663982040E7F20011C908 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9646637D2040E6B20011C908 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9646637E2040E6B20011C908 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		964663852040E6B20011C908 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				964663862040E6B20011C908 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		964663892040E6B20011C908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9646638A2040E6B20011C908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9646638C2040E6B20011C908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B1CE01F9736D4E4CF66584E /* Pods-Smash.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				INFOPLIST_FILE = Smash/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9646638D2040E6B20011C908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66795013838C4CDCF7DD0259 /* Pods-Smash.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				INFOPLIST_FILE = Smash/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9646639C2040E7F20011C908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SmashKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9646639D2040E7F20011C908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F2A091F09B58E6526ACE7E5 /* Pods-SmashKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SmashKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		964663712040E6B20011C908 /* Build configuration list for PBXProject "Smash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				964663892040E6B20011C908 /* Debug */,
+				9646638A2040E6B20011C908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9646638B2040E6B20011C908 /* Build configuration list for PBXNativeTarget "Smash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9646638C2040E6B20011C908 /* Debug */,
+				9646638D2040E6B20011C908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9646639E2040E7F20011C908 /* Build configuration list for PBXNativeTarget "SmashKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9646639C2040E7F20011C908 /* Debug */,
+				9646639D2040E7F20011C908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		964663802040E6B20011C908 /* Smash.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				964663812040E6B20011C908 /* Smash.xcdatamodel */,
+			);
+			currentVersion = 964663812040E6B20011C908 /* Smash.xcdatamodel */;
+			path = Smash.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9646636E2040E6B20011C908 /* Project object */;
+}
