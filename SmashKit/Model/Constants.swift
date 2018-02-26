@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Strings {
-    static let table = "table"
-    static let tr = "tr"
-    static let td = "td"
-    static let datacolumn1 = "datacolumn1"
-    static let gamesemcolumn = "gamesemcolumn"
+public struct Strings {
+    public static let table = "table"
+    public static let tr = "tr"
+    public static let td = "td"
+    public static let datacolumn1 = "datacolumn1"
+    public static let gamesemcolumn = "gamesemcolumn"
 }

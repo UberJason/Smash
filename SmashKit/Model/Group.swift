@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GroupMatrix {
+public struct GroupMatrix {
     enum MatrixType {
         case wins, points
     }
@@ -21,13 +21,13 @@ struct GroupMatrix {
     }
 }
 
-struct GroupResult {
-    let winsMatrix: GroupMatrix
-    let pointsMatrix: GroupMatrix
+public struct GroupResult {
+    public let winsMatrix: GroupMatrix
+    public let pointsMatrix: GroupMatrix
     
-    var matches = [Match]()
+    public var matches = [Match]()
     
-    init(winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix) throws {
+    public init(winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix) throws {
         self.winsMatrix = winsMatrix
         self.pointsMatrix = pointsMatrix
         try extractMatches()

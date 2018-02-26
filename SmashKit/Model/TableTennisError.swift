@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TableTennisError: Error {
+public enum TableTennisError: Error {
     case missingName
     case mismatchedWinsAndPointsMatrices
 }

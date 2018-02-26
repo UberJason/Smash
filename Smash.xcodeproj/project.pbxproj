@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B48652A9B9CCD725D88943B /* Pods_Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */; };
 		3A10FC51499789E5F40A6C90 /* Pods_SmashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */; };
+		960948732043B318009086CE /* SessionGroupReport.html in Resources */ = {isa = PBXBuildFile; fileRef = 960948712043B200009086CE /* SessionGroupReport.html */; };
 		9646637A2040E6B20011C908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663792040E6B20011C908 /* AppDelegate.swift */; };
 		9646637C2040E6B20011C908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646637B2040E6B20011C908 /* ViewController.swift */; };
 		9646637F2040E6B20011C908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9646637D2040E6B20011C908 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmashKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66795013838C4CDCF7DD0259 /* Pods-Smash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smash/Pods-Smash.release.xcconfig"; sourceTree = "<group>"; };
 		8B1CE01F9736D4E4CF66584E /* Pods-Smash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smash/Pods-Smash.debug.xcconfig"; sourceTree = "<group>"; };
+		960948712043B200009086CE /* SessionGroupReport.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = SessionGroupReport.html; path = Smash/SessionGroupReport.html; sourceTree = SOURCE_ROOT; };
 		964663762040E6B20011C908 /* Smash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964663792040E6B20011C908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9646637B2040E6B20011C908 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		964663782040E6B20011C908 /* Smash */ = {
 			isa = PBXGroup;
 			children = (
+				960948712043B200009086CE /* SessionGroupReport.html */,
 				964663792040E6B20011C908 /* AppDelegate.swift */,
 				9646637B2040E6B20011C908 /* ViewController.swift */,
 				9646637D2040E6B20011C908 /* Main.storyboard */,
@@ -278,6 +281,7 @@
 				964663872040E6B20011C908 /* LaunchScreen.storyboard in Resources */,
 				964663842040E6B20011C908 /* Assets.xcassets in Resources */,
 				9646637F2040E6B20011C908 /* Main.storyboard in Resources */,
+				960948732043B318009086CE /* SessionGroupReport.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

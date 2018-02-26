@@ -9,8 +9,10 @@
 import Foundation
 import SwiftSoup
 
-class Parser {
-    func parseGameTables(_ doc: Document) throws -> [GroupResult] {
+public class Parser {
+    public init() {}
+    
+    public func parseGameTables(_ doc: Document) throws -> [GroupResult] {
         var tables = try doc.select(Strings.table).array()
         tables.remove(at: 0)
         tables.remove(at: 0)
