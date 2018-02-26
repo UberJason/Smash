@@ -10,6 +10,13 @@
 		0B48652A9B9CCD725D88943B /* Pods_Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */; };
 		3A10FC51499789E5F40A6C90 /* Pods_SmashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */; };
 		960948732043B318009086CE /* SessionGroupReport.html in Resources */ = {isa = PBXBuildFile; fileRef = 960948712043B200009086CE /* SessionGroupReport.html */; };
+		9609487E2043B3C3009086CE /* SmashUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9609487C2043B3C3009086CE /* SmashUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		960948812043B3C3009086CE /* SmashUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9609487A2043B3C3009086CE /* SmashUIKit.framework */; };
+		960948822043B3C3009086CE /* SmashUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9609487A2043B3C3009086CE /* SmashUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		960948882043B412009086CE /* MatchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948872043B412009086CE /* MatchResultCell.swift */; };
+		9609488A2043B41D009086CE /* MatchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960948892043B41D009086CE /* MatchResultCell.xib */; };
+		9609488C2043B63C009086CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9609488B2043B63C009086CE /* Assets.xcassets */; };
+		9609488F2043B991009086CE /* UIColor+ColorAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609488E2043B991009086CE /* UIColor+ColorAssets.swift */; };
 		9646637A2040E6B20011C908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663792040E6B20011C908 /* AppDelegate.swift */; };
 		9646637C2040E6B20011C908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646637B2040E6B20011C908 /* ViewController.swift */; };
 		9646637F2040E6B20011C908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9646637D2040E6B20011C908 /* Main.storyboard */; };
@@ -28,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9609487F2043B3C3009086CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9646636E2040E6B20011C908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 960948792043B3C3009086CE;
+			remoteInfo = SmashUIKit;
+		};
 		964663982040E7F20011C908 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9646636E2040E6B20011C908 /* Project object */;
@@ -44,6 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				960948822043B3C3009086CE /* SmashUIKit.framework in Embed Frameworks */,
 				9646639B2040E7F20011C908 /* SmashKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -57,6 +72,13 @@
 		66795013838C4CDCF7DD0259 /* Pods-Smash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smash/Pods-Smash.release.xcconfig"; sourceTree = "<group>"; };
 		8B1CE01F9736D4E4CF66584E /* Pods-Smash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smash/Pods-Smash.debug.xcconfig"; sourceTree = "<group>"; };
 		960948712043B200009086CE /* SessionGroupReport.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = SessionGroupReport.html; path = Smash/SessionGroupReport.html; sourceTree = SOURCE_ROOT; };
+		9609487A2043B3C3009086CE /* SmashUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmashUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9609487C2043B3C3009086CE /* SmashUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmashUIKit.h; sourceTree = "<group>"; };
+		9609487D2043B3C3009086CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		960948872043B412009086CE /* MatchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultCell.swift; sourceTree = "<group>"; };
+		960948892043B41D009086CE /* MatchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchResultCell.xib; sourceTree = "<group>"; };
+		9609488B2043B63C009086CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9609488E2043B991009086CE /* UIColor+ColorAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorAssets.swift"; sourceTree = "<group>"; };
 		964663762040E6B20011C908 /* Smash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964663792040E6B20011C908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9646637B2040E6B20011C908 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +101,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		960948762043B3C3009086CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		964663732040E6B20011C908 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960948812043B3C3009086CE /* SmashUIKit.framework in Frameworks */,
 				9646639A2040E7F20011C908 /* SmashKit.framework in Frameworks */,
 				0B48652A9B9CCD725D88943B /* Pods_Smash.framework in Frameworks */,
 			);
@@ -99,11 +129,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9609487B2043B3C3009086CE /* SmashUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9609487C2043B3C3009086CE /* SmashUIKit.h */,
+				9609487D2043B3C3009086CE /* Info.plist */,
+				9609488B2043B63C009086CE /* Assets.xcassets */,
+				960948862043B3DE009086CE /* Views */,
+				9609488D2043B981009086CE /* Extensions */,
+			);
+			path = SmashUIKit;
+			sourceTree = "<group>";
+		};
+		960948862043B3DE009086CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				960948872043B412009086CE /* MatchResultCell.swift */,
+				960948892043B41D009086CE /* MatchResultCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9609488D2043B981009086CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9609488E2043B991009086CE /* UIColor+ColorAssets.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9646636D2040E6B20011C908 = {
 			isa = PBXGroup;
 			children = (
 				964663782040E6B20011C908 /* Smash */,
 				964663942040E7F20011C908 /* SmashKit */,
+				9609487B2043B3C3009086CE /* SmashUIKit */,
 				964663772040E6B20011C908 /* Products */,
 				C3A5E3AEF29FDFD6975C9158 /* Pods */,
 				C2256BF1E7D71B04B5C91ED1 /* Frameworks */,
@@ -115,6 +175,7 @@
 			children = (
 				964663762040E6B20011C908 /* Smash.app */,
 				964663932040E7F20011C908 /* SmashKit.framework */,
+				9609487A2043B3C3009086CE /* SmashUIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +241,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		960948772043B3C3009086CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9609487E2043B3C3009086CE /* SmashUIKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		964663902040E7F20011C908 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +260,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		960948792043B3C3009086CE /* SmashUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 960948832043B3C3009086CE /* Build configuration list for PBXNativeTarget "SmashUIKit" */;
+			buildPhases = (
+				960948752043B3C3009086CE /* Sources */,
+				960948762043B3C3009086CE /* Frameworks */,
+				960948772043B3C3009086CE /* Headers */,
+				960948782043B3C3009086CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmashUIKit;
+			productName = SmashUIKit;
+			productReference = 9609487A2043B3C3009086CE /* SmashUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		964663752040E6B20011C908 /* Smash */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9646638B2040E6B20011C908 /* Build configuration list for PBXNativeTarget "Smash" */;
@@ -207,6 +294,7 @@
 			);
 			dependencies = (
 				964663992040E7F20011C908 /* PBXTargetDependency */,
+				960948802043B3C3009086CE /* PBXTargetDependency */,
 			);
 			name = Smash;
 			productName = Smash;
@@ -243,6 +331,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Jason Ji";
 				TargetAttributes = {
+					960948792043B3C3009086CE = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
 					964663752040E6B20011C908 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -269,11 +362,21 @@
 			targets = (
 				964663752040E6B20011C908 /* Smash */,
 				964663922040E7F20011C908 /* SmashKit */,
+				960948792043B3C3009086CE /* SmashUIKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		960948782043B3C3009086CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9609488C2043B63C009086CE /* Assets.xcassets in Resources */,
+				9609488A2043B41D009086CE /* MatchResultCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		964663742040E6B20011C908 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +485,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		960948752043B3C3009086CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9609488F2043B991009086CE /* UIColor+ColorAssets.swift in Sources */,
+				960948882043B412009086CE /* MatchResultCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		964663722040E6B20011C908 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +520,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		960948802043B3C3009086CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 960948792043B3C3009086CE /* SmashUIKit */;
+			targetProxy = 9609487F2043B3C3009086CE /* PBXContainerItemProxy */;
+		};
 		964663992040E7F20011C908 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 964663922040E7F20011C908 /* SmashKit */;
@@ -435,6 +552,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		960948842043B3C3009086CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SmashUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		960948852043B3C3009086CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SmashUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		964663892040E6B20011C908 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -632,6 +800,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		960948832043B3C3009086CE /* Build configuration list for PBXNativeTarget "SmashUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				960948842043B3C3009086CE /* Debug */,
+				960948852043B3C3009086CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		964663712040E6B20011C908 /* Build configuration list for PBXProject "Smash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
