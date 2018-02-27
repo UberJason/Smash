@@ -10,6 +10,10 @@ import Foundation
 
 public struct Player: Equatable {
     public let name: String
+    
+    public init(name: String) {
+        self.name = name
+    }
 }
 
 public func ==(lhs: Player, rhs: Player) -> Bool {

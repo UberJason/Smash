@@ -10,10 +10,13 @@ import Foundation
 
 public extension UIColor {
     public static var victoryGreen: UIColor {
-        return UIColor(named: "victoryGreen", in: Bundle(for: self), compatibleWith: nil)!
+        return UIColor(named: "victoryGreen", in: Bundle.smashUIKit, compatibleWith: nil)!
     }
     public static var defeatRed: UIColor {
-        return UIColor(named: "defeatRed", in: Bundle(for: self), compatibleWith: nil)!
+        return UIColor(named: "defeatRed", in: Bundle.smashUIKit, compatibleWith: nil)!
+    }
+    public static var defeatGray: UIColor {
+        return UIColor(named: "defeatGray", in: Bundle.smashUIKit, compatibleWith: nil)!
     }
 }
 

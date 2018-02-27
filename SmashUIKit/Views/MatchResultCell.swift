@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum MatchResultStyle {
+public enum MatchArrowStyle {
     case upperArrow, lowerArrow
 }
 
@@ -19,17 +19,21 @@ public struct MatchResultCellParams {
     public let lowerScore: Int
     public let upperFont: UIFont
     public let lowerFont: UIFont
+    public let upperTextColor: UIColor
+    public let lowerTextColor: UIColor
     public let ratingChangeString: String
     public let ratingChangeColor: UIColor
-    public let matchResultStyle: MatchResultStyle
+    public let matchResultStyle: MatchArrowStyle
     
-    public init(upperPlayerName: String, lowerPlayerName: String, upperScore: Int, lowerScore: Int, upperFont: UIFont, lowerFont: UIFont, ratingChangeString: String, ratingChangeColor: UIColor = .victoryGreen, matchResultStyle: MatchResultStyle = .upperArrow) {
+    public init(upperPlayerName: String, lowerPlayerName: String, upperScore: Int, lowerScore: Int, upperFont: UIFont, lowerFont: UIFont, upperTextColor: UIColor = .black, lowerTextColor: UIColor = .defeatGray, ratingChangeString: String, ratingChangeColor: UIColor = .victoryGreen, matchResultStyle: MatchArrowStyle = .upperArrow) {
         self.upperPlayerName = upperPlayerName
         self.lowerPlayerName = lowerPlayerName
         self.upperScore = upperScore
         self.lowerScore = lowerScore
         self.upperFont = upperFont
         self.lowerFont = lowerFont
+        self.upperTextColor = upperTextColor
+        self.lowerTextColor = lowerTextColor
         self.ratingChangeString = ratingChangeString
         self.ratingChangeColor = ratingChangeColor
         self.matchResultStyle = matchResultStyle
@@ -49,15 +53,15 @@ public class MatchResultCell: UITableViewCell {
     @IBOutlet weak var upperArrowConstraint: NSLayoutConstraint!
     @IBOutlet weak var lowerArrowConstraint: NSLayoutConstraint!
     
-    func configure(with params: MatchResultCellParams) {
+    public func configure(with params: MatchResultCellParams) {
         upperPlayerLabel.text = params.upperPlayerName
         lowerPlayerLabel.text = params.lowerPlayerName
         
         upperScoreLabel.text = "\(params.upperScore)"
         lowerScoreLabel.text = "\(params.lowerScore)"
         
-        [upperPlayerLabel, upperScoreLabel].forEach { $0?.font = params.upperFont }
-        [lowerPlayerLabel, lowerScoreLabel].forEach { $0?.font = params.lowerFont }
+        [upperPlayerLabel, upperScoreLabel].forEach { $0?.font = params.upperFont; $0?.textColor = params.upperTextColor }
+        [lowerPlayerLabel, lowerScoreLabel].forEach { $0?.font = params.lowerFont; $0?.textColor = params.lowerTextColor }
         
         ratingLabel.text = params.ratingChangeString
         ratingLabel.textColor = params.ratingChangeColor

@@ -15,6 +15,14 @@ public struct Match {
     public let player2Wins: Int
     
     public let ratingChange: Int
+    
+    public init(player1: Player, player2: Player, player1Wins: Int, player2Wins: Int, ratingChange: Int) {
+        self.player1 = player1
+        self.player2 = player2
+        self.player1Wins = player1Wins
+        self.player2Wins = player2Wins
+        self.ratingChange = ratingChange
+    }
 }
 
 public extension Match {
