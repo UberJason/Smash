@@ -8,7 +8,9 @@
 
 import Foundation
 
-public struct Player: Equatable {
+public struct Player: Equatable, Hashable {
+    public var hashValue: Int { return name.hashValue }
+    
     public let name: String
     
     public init(name: String) {
