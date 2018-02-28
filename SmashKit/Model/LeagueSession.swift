@@ -8,17 +8,25 @@
 
 import Foundation
 
-public struct LeagueSession {
-    public var numberOfGroups: Int { return groupResults.count }
-    public var numberOfPlayers: Int { return groupResults.map { $0.players }.flatMap { $0 }.count }
+public class LeagueSession {
+    public var numberOfGroups: Int { return groupResults?.count ?? 0 }
+    public var numberOfPlayers: Int { return groupResults?.map { $0.players }.flatMap { $0 }.count ?? 0 }
     
-    public var groupResults: [GroupResult]
+    public var date: Date?
+    public var groupResults: [GroupResult]?
     
-    init(groupResults: [GroupResult]) {
+    public init() {}
+    
+    public init(date: Date) {
+        self.date = date
+    }
+    
+    public init(date: Date, groupResults: [GroupResult]) {
+        self.date = date
         self.groupResults = groupResults
     }
     
     public func group(for player: Player) -> GroupResult? {
-        return groupResults.filter { $0.players.contains(player) }.first
+        return groupResults?.filter { $0.players.contains(player) }.first
     }
 }

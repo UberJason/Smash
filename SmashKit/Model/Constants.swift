@@ -12,13 +12,9 @@ public struct Strings {
     public static let table = "table"
     public static let tr = "tr"
     public static let td = "td"
+    public static let date = "date"
     public static let datacolumn1 = "datacolumn1"
     public static let gamesemcolumn = "gamesemcolumn"
     public static let frcolumn = "frcolumn"
     public static let nracolumn = "nracolumn"
-}
-
-public struct Constants {
-    public static let underscoreValue = -99
-    public static let forfeitValue = -100
 }
