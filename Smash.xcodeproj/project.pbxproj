@@ -32,6 +32,7 @@
 		964663A62040E8700011C908 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A52040E8700011C908 /* Match.swift */; };
 		964663AA2040E8AB0011C908 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A92040E8AB0011C908 /* Parser.swift */; };
 		964663AC2040E8D30011C908 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663AB2040E8D30011C908 /* Constants.swift */; };
+		96700EAF20460BF50029F7C1 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 96700EAE20460BF50029F7C1 /* TODO.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		964663A92040E8AB0011C908 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		964663AB2040E8D30011C908 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96700EAE20460BF50029F7C1 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +174,7 @@
 		9646636D2040E6B20011C908 = {
 			isa = PBXGroup;
 			children = (
+				96700EAE20460BF50029F7C1 /* TODO.md */,
 				964663782040E6B20011C908 /* Smash */,
 				964663942040E7F20011C908 /* SmashKit */,
 				9609487B2043B3C3009086CE /* SmashUIKit */,
@@ -393,6 +396,7 @@
 				964663842040E6B20011C908 /* Assets.xcassets in Resources */,
 				9646637F2040E6B20011C908 /* Main.storyboard in Resources */,
 				960948732043B318009086CE /* SessionGroupReport.html in Resources */,
+				96700EAF20460BF50029F7C1 /* TODO.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

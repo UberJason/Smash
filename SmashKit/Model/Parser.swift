@@ -19,9 +19,11 @@ public class Parser {
         
         var groupResults = [GroupResult]()
         
-        for table in tables {
+        for (index, table) in tables.enumerated() {
             var winsGroupMatrix = GroupMatrix(type: .wins)
             var pointsGroupMatrix = GroupMatrix(type: .points)
+            var netRatingChanges = [String:Int]()
+            var finalRatings = [String:Int]()
             
             let rows = try table.select(Strings.tr).array()
             for row in rows {
@@ -30,25 +32,43 @@ public class Parser {
                 winsGroupMatrix.players.append(Player(name: name))
                 pointsGroupMatrix.players.append(Player(name: name))
                 
-                let gamesWon = try row.getElementsByClass(Strings.gamesemcolumn).array().map(tableTennisElementToInt)
+                let gamesWon = try row.getElementsByClass(Strings.gamesemcolumn).array().map(tableTennisElementToMatrixValue)
                 winsGroupMatrix.results.append(gamesWon)
                 
-                let pointsWon = try row.select(Strings.td).array().filter { try $0.className() == "" }.map(tableTennisElementToInt)
+                let pointsWon = try row.select(Strings.td).array().filter { try $0.className() == "" }.map(tableTennisElementToMatrixValue)
                 pointsGroupMatrix.results.append(pointsWon)
+                
+                guard let netRatingChangeText = try row.getElementsByClass(Strings.nracolumn).first()?.text(),
+                    let netRatingChange = Int(netRatingChangeText) else { throw TableTennisError.missingNetRatingChange }
+                netRatingChanges[name] = netRatingChange
+                
+                guard let finalRatingText = try row.getElementsByClass(Strings.frcolumn).first()?.text(),
+                    let finalRating = Int(finalRatingText) else { throw TableTennisError.missingFinalRating }
+                finalRatings[name] = finalRating
             }
             
-            groupResults.append(try GroupResult(winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix))
+            groupResults.append(try GroupResult(groupNumber: index, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings))
         }
         
         return groupResults
     }
     
-    func tableTennisElementToInt(_ element: Element) throws -> Int {
+    func tableTennisElementToMatrixValue(_ element: Element) throws -> MatrixValue {
         let text = try element.text()
-        if let int = Int(text) {
-            return int
+        if text == "_" { return MatrixValue.none }
+        if text == "F" { return MatrixValue.forfeit }
+        if let int = Int(text) { return MatrixValue.value(int) }
+        throw TableTennisError.unrecognizedMatrixValue
+    }
+}
+
+enum MatrixValue {
+    case value(Int), forfeit, none
+    var intValue: Int {
+        switch self {
+        case .value(let val): return val
+        case .forfeit, .none: return 0
         }
-        return -99
     }
 }
 
@@ -57,7 +77,7 @@ struct GroupMatrix {
         case wins, points
     }
     var players: [Player] = []
-    var results: [[Int]] = []
+    var results: [[MatrixValue]] = []
     var type: MatrixType
     
     init(type: MatrixType) {
@@ -69,18 +89,32 @@ public struct GroupResult {
     private let winsMatrix: GroupMatrix
     private let pointsMatrix: GroupMatrix
     
-    private var ratings: [Player:Int] = [:]
+    private var finalRatings: [String:Int]
+    private var netRatingChanges: [String:Int]
     
     public var matches = [Match]()
     public var players = [Player]()
+    public var groupNumber: Int
     
-    public func rating(for player: Player) -> Int? {
-        return ratings[player]
+    public func finalRating(for player: Player) -> Int? {
+        return finalRatings[player.name]
     }
     
-    internal init(winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix) throws {
+    public func initialRating(for player: Player) -> Int? {
+        guard let net = netRatingChange(for: player), let final = finalRating(for: player) else { return nil }
+        return final - net
+    }
+    
+    public func netRatingChange(for player: Player) -> Int? {
+        return netRatingChanges[player.name]
+    }
+    
+    internal init(groupNumber: Int, winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, netRatingChanges: [String:Int], finalRatings: [String:Int]) throws {
+        self.groupNumber = groupNumber
         self.winsMatrix = winsMatrix
         self.pointsMatrix = pointsMatrix
+        self.netRatingChanges = netRatingChanges
+        self.finalRatings = finalRatings
         try extractMatches()
     }
     
@@ -95,9 +129,9 @@ public struct GroupResult {
             for j in i + 1 ..< winsMatrix.results[i].count {
                 let player1 = players[i]
                 let player2 = players[j]
-                let player1Wins = winsMatrix.results[i][j]
-                let player2Wins = winsMatrix.results[j][i]
-                let ratingChange =  pointsMatrix.results[i][j]
+                let player1Wins = winsMatrix.results[i][j].intValue
+                let ratingChange = pointsMatrix.results[i][j].intValue
+                let player2Wins = winsMatrix.results[j][i].intValue
                 
                 let match = Match(player1: player1, player2: player2, player1Wins: player1Wins, player2Wins: player2Wins, ratingChange: ratingChange)
                 matches.append(match)

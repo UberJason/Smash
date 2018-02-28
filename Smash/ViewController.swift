@@ -62,11 +62,7 @@ extension Match {
     var lowerTextColor: UIColor {
         return winner == player2 ? UIColor.black : UIColor.defeatGray
     }
-    
-    func contains(player: Player) -> Bool {
-        return player1 == player || player2 == player
-    }
-    
+
     func ratingChangeString(for player: Player) -> String? {
         guard contains(player: player) else { return nil }
         if player1 == player {

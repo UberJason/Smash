@@ -10,5 +10,8 @@ import Foundation
 
 public enum TableTennisError: Error {
     case missingName
+    case missingFinalRating
+    case missingNetRatingChange
     case mismatchedWinsAndPointsMatrices
+    case unrecognizedMatrixValue
 }
