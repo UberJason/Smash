@@ -9,8 +9,16 @@
 import Foundation
 
 public struct LeagueSession {
-    public var numberOfGroups: Int { return 0 }
-    public var numberOfPlayers: Int { return 0 }
+    public var numberOfGroups: Int { return groupResults.count }
+    public var numberOfPlayers: Int { return groupResults.map { $0.players }.flatMap { $0 }.count }
     
     public var groupResults: [GroupResult]
+    
+    init(groupResults: [GroupResult]) {
+        self.groupResults = groupResults
+    }
+    
+    public func group(for player: Player) -> GroupResult? {
+        return groupResults.filter { $0.players.contains(player) }.first
+    }
 }

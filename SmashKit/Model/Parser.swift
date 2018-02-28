@@ -12,7 +12,7 @@ import SwiftSoup
 public class Parser {
     public init() {}
     
-    func parseGameTables(_ doc: Document) throws -> [GroupResult] {
+    public func parseGameTables(_ doc: Document) throws -> LeagueSession {
         var tables = try doc.select(Strings.table).array()
         tables.remove(at: 0)
         tables.remove(at: 0)
@@ -47,10 +47,10 @@ public class Parser {
                 finalRatings[name] = finalRating
             }
             
-            groupResults.append(try GroupResult(groupNumber: index, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings))
+            groupResults.append(try GroupResult(groupNumber: index + 1, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings))
         }
         
-        return groupResults
+        return LeagueSession(groupResults: groupResults)
     }
     
     func tableTennisElementToMatrixValue(_ element: Element) throws -> MatrixValue {
@@ -93,7 +93,7 @@ public struct GroupResult {
     private var netRatingChanges: [String:Int]
     
     public var matches = [Match]()
-    public var players = [Player]()
+    public var players: [Player]
     public var groupNumber: Int
     
     public func finalRating(for player: Player) -> Int? {
@@ -115,6 +115,8 @@ public struct GroupResult {
         self.pointsMatrix = pointsMatrix
         self.netRatingChanges = netRatingChanges
         self.finalRatings = finalRatings
+        self.players = winsMatrix.players
+        
         try extractMatches()
     }
     

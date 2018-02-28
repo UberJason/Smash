@@ -9,23 +9,37 @@
 import UIKit
 import SmashKit
 import SmashUIKit
+import SwiftSoup
+
+class FauxModel {
+    
+    init() {
+        
+    }
+}
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let preferredPlayer = Player(name: "Jason Ji")
-    let matches = [Match(player1: Player(name: "Jason Ji"), player2: Player(name: "Eric Manning"), player1Wins: 3, player2Wins: 0, ratingChange: 1),
-                   Match(player1: Player(name: "Jason Ji"), player2: Player(name: "Anmol Karan"), player1Wins: 0, player2Wins: 3, ratingChange: 5),
-                   Match(player1: Player(name: "Jason Ji"), player2: Player(name: "Chuong Hyunh"), player1Wins: 3, player2Wins: 2, ratingChange: 30),
-                   Match(player1: Player(name: "Jason Ji"), player2: Player(name: "Jay Wang"), player1Wins: 3, player2Wins: 1, ratingChange: 25),
-                   Match(player1: Player(name: "Jason Ji"), player2: Player(name: "Praneeth Polavarapu "), player1Wins: 1, player2Wins: 3, ratingChange: 5),
-                   Match(player1: Player(name: "Jason Ji"), player2: Player(name: "Michael Wu"), player1Wins: 1, player2Wins: 3, ratingChange: 4)]
+    var session: LeagueSession?
+    var matches: [Match]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
         tableView.register(UINib(nibName: "MatchResultCell", bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: "matchResultCell")
+        
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "SessionGroupReport", ofType: "html")!)
+        let html = try! String(contentsOf: url)
+        let parser = Parser()
+        let doc: Document = try! SwiftSoup.parse(html)
+        
+        session = try! parser.parseGameTables(doc)
+        matches = session?.group(for: preferredPlayer)?.matches.filter { $0.contains(player: preferredPlayer) }
+        tableView.reloadData()
+        
     }
 }
 
@@ -34,14 +48,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matches.count
+        return matches?.count ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let match = matches?[indexPath.row] else { fatalError("No match") }
         let cell = tableView.dequeueReusableCell(withIdentifier: "matchResultCell", for: indexPath) as! MatchResultCell
-        cell.configure(with: matches[indexPath.row], preferredPlayer: preferredPlayer)
+        cell.configure(with: match, preferredPlayer: preferredPlayer)
         return cell
     }
 }
