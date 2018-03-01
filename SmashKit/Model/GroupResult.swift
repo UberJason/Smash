@@ -10,24 +10,60 @@ import Foundation
 
 enum MatrixValue {
     case value(Int), forfeit, none
+    
+    init(text: String) throws {
+        if text == "_" { self = MatrixValue.none }
+        if text == "F" { self = MatrixValue.forfeit }
+        if let int = Int(text) { self = MatrixValue.value(int) }
+        throw TableTennisError.unrecognizedMatrixValue
+    }
+    
     var intValue: Int {
         switch self {
         case .value(let val): return val
         case .forfeit, .none: return 0
         }
     }
+    
+    var textValue: String {
+        switch self {
+        case .value(let val): return "\(val)"
+        case .forfeit: return "F"
+        case .none: return "_"
+        }
+    }
 }
 
-struct GroupMatrix {
-    enum MatrixType {
+struct GroupMatrix: Codable {
+    enum MatrixType: String {
         case wins, points
     }
-    var players: [Player] = []
-    var results: [[MatrixValue]] = []
+    private enum CodingKeys: CodingKey {
+        case type, results
+    }
+    
     var type: MatrixType
+    var results: [[MatrixValue]] = []
     
     init(type: MatrixType) {
         self.type = type
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let typeString = try container.decode(String.self, forKey: .type)
+        type = MatrixType(rawValue: typeString) ?? .wins
+        
+        let resultsStringMatrix = try container.decode([[String]].self, forKey: .results)
+        results = try resultsStringMatrix.map { try $0.map { try MatrixValue(text: $0) } }
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(type.rawValue, forKey: .type)
+        try container.encode(results.map { $0.map { $0.textValue } }, forKey: .results)
     }
 }
 
@@ -55,23 +91,21 @@ public struct GroupResult {
         return netRatingChanges[player.name]
     }
     
-    internal init(groupNumber: Int, winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, netRatingChanges: [String:Int], finalRatings: [String:Int]) throws {
+    internal init(groupNumber: Int, players: [Player], winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, netRatingChanges: [String:Int], finalRatings: [String:Int]) throws {
         self.groupNumber = groupNumber
         self.winsMatrix = winsMatrix
         self.pointsMatrix = pointsMatrix
         self.netRatingChanges = netRatingChanges
         self.finalRatings = finalRatings
-        self.players = winsMatrix.players
+        self.players = players
         
         try extractMatches()
     }
     
     private mutating func extractMatches() throws {
-        guard winsMatrix.results.count == pointsMatrix.results.count,
-            winsMatrix.players == pointsMatrix.players else { throw TableTennisError.mismatchedWinsAndPointsMatrices }
+        guard winsMatrix.results.count == pointsMatrix.results.count else { throw TableTennisError.mismatchedWinsAndPointsMatrices }
         
         matches = [Match]()
-        let players = winsMatrix.players
         
         for i in 0 ..< winsMatrix.results.count {
             for j in i + 1 ..< winsMatrix.results[i].count {

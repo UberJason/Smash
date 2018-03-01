@@ -67,6 +67,7 @@ public class Parser {
         var groupResults = [GroupResult]()
         
         for (index, table) in tables.enumerated() {
+            var players = [Player]()
             var winsGroupMatrix = GroupMatrix(type: .wins)
             var pointsGroupMatrix = GroupMatrix(type: .points)
             var netRatingChanges = [String:Int]()
@@ -76,8 +77,7 @@ public class Parser {
             for row in rows {
                 guard let name = try row.getElementsByClass(Strings.datacolumn1).first()?.text() else { throw TableTennisError.missingName }
                 
-                winsGroupMatrix.players.append(Player(name: name))
-                pointsGroupMatrix.players.append(Player(name: name))
+                players.append(Player(name: name))
                 
                 let gamesWon = try row.getElementsByClass(Strings.gamesemcolumn).array().map(tableTennisElementToMatrixValue)
                 winsGroupMatrix.results.append(gamesWon)
@@ -94,7 +94,7 @@ public class Parser {
                 finalRatings[name] = finalRating
             }
             
-            groupResults.append(try GroupResult(groupNumber: index + 1, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings))
+            groupResults.append(try GroupResult(groupNumber: index + 1, players: players, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings))
         }
         leagueSession = leagueSession ?? LeagueSession()
         leagueSession?.date = sessionDate
@@ -103,9 +103,7 @@ public class Parser {
     
     func tableTennisElementToMatrixValue(_ element: Element) throws -> MatrixValue {
         let text = try element.text()
-        if text == "_" { return MatrixValue.none }
-        if text == "F" { return MatrixValue.forfeit }
-        if let int = Int(text) { return MatrixValue.value(int) }
-        throw TableTennisError.unrecognizedMatrixValue
+        let matrixValue = try MatrixValue(text: text)
+        return matrixValue
     }
 }

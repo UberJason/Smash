@@ -43,6 +43,7 @@
 		96C29DCD20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DCC20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift */; };
 		96C29DCF20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DCE20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift */; };
 		96C29DD120479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD020479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift */; };
+		96C29DD32048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD22048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		96C29DCC20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseLeagueSessionsOperation.swift; sourceTree = "<group>"; };
 		96C29DCE20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSessionDetailsOperation.swift; sourceTree = "<group>"; };
 		96C29DD020479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseSessionDetailsOperation.swift; sourceTree = "<group>"; };
+		96C29DD22048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PreferredPlayer.swift"; sourceTree = "<group>"; };
 		ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 			children = (
 				9641A598204747FD008AC39F /* MatchExtension.swift */,
 				9641A59A20474805008AC39F /* MatchResultCellExtension.swift */,
+				96C29DD22048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				9641A59B20474805008AC39F /* MatchResultCellExtension.swift in Sources */,
 				9641A599204747FD008AC39F /* MatchExtension.swift in Sources */,
 				9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */,
+				96C29DD32048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift in Sources */,
 				9641A59F204748B4008AC39F /* Nibs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
