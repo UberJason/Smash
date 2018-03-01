@@ -31,21 +31,18 @@ class ViewController: UIViewController {
         
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
         
-        let url = URL(string: "http://www.tabletennisleague.com/SmashTT/SessionGroupReportArchive/SessionGroupReport2018February23.HTM")!
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let data = data {
-                let html = String(data: data, encoding: .utf8)
-                DispatchQueue.main.async {
-                    let parser = try! Parser(html: html)
-                    
-                    try! parser.parseGameTables(leagueSession: &self.session)
-                    self.matches = self.session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
-                    self.tableView.reloadData()
-                }
-            }
+        NetworkController.sharedInstance.fetchLeagueSessions { (sessions) in
+            print(sessions.count)
         }
-        task.resume()        
+        
+//                DispatchQueue.main.async {
+//                    let parser = try! Parser(html: html)
+//
+//                    try! parser.parseGameTables(leagueSession: &self.session)
+//                    self.matches = self.session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
+//                    self.tableView.reloadData()
+//                }
+        
     }
 }
 

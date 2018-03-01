@@ -20,5 +20,5 @@ public struct Strings {
 }
 
 public struct Constants {
-    public static let reportArchiveURL = NSURL(string: "http://www.tabletennisleague.com/smashtt/SessionGroupReportArchiveList.aspx")!
+    public static let reportArchiveURL = URL(string: "http://www.tabletennisleague.com/smashtt/SessionGroupReportArchiveList.aspx")!
 }

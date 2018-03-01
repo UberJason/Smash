@@ -18,7 +18,14 @@ public class Parser {
     }
     
     public func parseLeagueReports() throws -> [LeagueSession] {
-        return []
+        print("WARNING: faking parseLeagueReports() for now")
+        let leagueSessions = [
+            LeagueSession(date: Parser.sessionDateFormatter.date(from: "27-Feb-18")!),
+            LeagueSession(date: Parser.sessionDateFormatter.date(from: "23-Feb-18")!),
+            LeagueSession(date: Parser.sessionDateFormatter.date(from: "20-Feb-18")!)
+        ]
+        
+        return leagueSessions
     }
     
     private static let sessionDateFormatter: DateFormatter = {

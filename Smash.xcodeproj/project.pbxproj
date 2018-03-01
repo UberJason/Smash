@@ -38,6 +38,7 @@
 		964663AA2040E8AB0011C908 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A92040E8AB0011C908 /* Parser.swift */; };
 		964663AC2040E8D30011C908 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663AB2040E8D30011C908 /* Constants.swift */; };
 		96700EAF20460BF50029F7C1 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 96700EAE20460BF50029F7C1 /* TODO.md */; };
+		96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DC720478F9900E1FBC1 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		964663AB2040E8D30011C908 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96700EAE20460BF50029F7C1 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		96C29DC720478F9900E1FBC1 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,12 +201,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		9641A5A020474949008AC39F /* Parsing */ = {
+		9641A5A020474949008AC39F /* Networking & Parsing */ = {
 			isa = PBXGroup;
 			children = (
 				964663A92040E8AB0011C908 /* Parser.swift */,
+				96C29DC720478F9900E1FBC1 /* NetworkController.swift */,
 			);
-			path = Parsing;
+			path = "Networking & Parsing";
 			sourceTree = "<group>";
 		};
 		9641A5A12047495F008AC39F /* Dummy Data */ = {
@@ -268,7 +271,7 @@
 				964663962040E7F20011C908 /* Info.plist */,
 				9641A5A12047495F008AC39F /* Dummy Data */,
 				964663A02040E8440011C908 /* Model */,
-				9641A5A020474949008AC39F /* Parsing */,
+				9641A5A020474949008AC39F /* Networking & Parsing */,
 			);
 			path = SmashKit;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */,
 				9609489420450A5F009086CE /* LeagueSession.swift in Sources */,
 				9641A5A420474989008AC39F /* GroupResult.swift in Sources */,
 				964663A42040E8620011C908 /* Player.swift in Sources */,
