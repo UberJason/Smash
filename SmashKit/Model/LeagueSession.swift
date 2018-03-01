@@ -13,6 +13,7 @@ public class LeagueSession {
     public var numberOfPlayers: Int { return groupResults?.map { $0.players }.flatMap { $0 }.count ?? 0 }
     
     public var date: Date?
+    public var reportURL: String?
     public var groupResults: [GroupResult]?
     
     public init() {}

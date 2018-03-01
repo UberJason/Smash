@@ -39,6 +39,10 @@
 		964663AC2040E8D30011C908 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663AB2040E8D30011C908 /* Constants.swift */; };
 		96700EAF20460BF50029F7C1 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 96700EAE20460BF50029F7C1 /* TODO.md */; };
 		96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DC720478F9900E1FBC1 /* NetworkController.swift */; };
+		96C29DCB20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DCA20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift */; };
+		96C29DCD20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DCC20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift */; };
+		96C29DCF20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DCE20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift */; };
+		96C29DD120479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD020479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +116,10 @@
 		964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96700EAE20460BF50029F7C1 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		96C29DC720478F9900E1FBC1 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		96C29DCA20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadLeagueSessionsOperation.swift; sourceTree = "<group>"; };
+		96C29DCC20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseLeagueSessionsOperation.swift; sourceTree = "<group>"; };
+		96C29DCE20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSessionDetailsOperation.swift; sourceTree = "<group>"; };
+		96C29DD020479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseSessionDetailsOperation.swift; sourceTree = "<group>"; };
 		ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +212,7 @@
 		9641A5A020474949008AC39F /* Networking & Parsing */ = {
 			isa = PBXGroup;
 			children = (
+				96C29DC920479B1B00E1FBC1 /* Operations */,
 				964663A92040E8AB0011C908 /* Parser.swift */,
 				96C29DC720478F9900E1FBC1 /* NetworkController.swift */,
 			);
@@ -287,6 +296,17 @@
 				9641A5A320474989008AC39F /* GroupResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		96C29DC920479B1B00E1FBC1 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				96C29DCA20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift */,
+				96C29DCE20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift */,
+				96C29DCC20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift */,
+				96C29DD020479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		C2256BF1E7D71B04B5C91ED1 /* Frameworks */ = {
@@ -586,12 +606,16 @@
 			files = (
 				96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */,
 				9609489420450A5F009086CE /* LeagueSession.swift in Sources */,
+				96C29DCF20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift in Sources */,
 				9641A5A420474989008AC39F /* GroupResult.swift in Sources */,
 				964663A42040E8620011C908 /* Player.swift in Sources */,
 				964663A22040E8570011C908 /* TableTennisError.swift in Sources */,
+				96C29DCB20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift in Sources */,
 				964663AA2040E8AB0011C908 /* Parser.swift in Sources */,
+				96C29DCD20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift in Sources */,
 				964663A62040E8700011C908 /* Match.swift in Sources */,
 				964663AC2040E8D30011C908 /* Constants.swift in Sources */,
+				96C29DD120479BCC00E1FBC1 /* ParseSessionDetailsOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
