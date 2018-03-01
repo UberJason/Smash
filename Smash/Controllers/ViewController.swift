@@ -28,17 +28,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
+        
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
         
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "SessionGroupReport", ofType: "html")!)
-        let html = try! String(contentsOf: url)
-        let parser = try! Parser(html: html)
+        let url = URL(string: "http://www.tabletennisleague.com/SmashTT/SessionGroupReportArchive/SessionGroupReport2018February23.HTM")!
         
-        try! parser.parseGameTables(leagueSession: &session)
-        matches = session?.group(for: preferredPlayer)?.matches.filter { $0.contains(player: preferredPlayer) }
-        tableView.reloadData()
-        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                let html = String(data: data, encoding: .utf8)
+                DispatchQueue.main.async {
+                    let parser = try! Parser(html: html)
+                    
+                    try! parser.parseGameTables(leagueSession: &self.session)
+                    self.matches = self.session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        task.resume()        
     }
 }
 

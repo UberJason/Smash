@@ -12,7 +12,8 @@ import SwiftSoup
 public class Parser {
     var document: Document
     
-    public init(html: String) throws {
+    public init(html: String?) throws {
+        guard let html = html else { throw TableTennisError.invalidHtml }
         document = try SwiftSoup.parse(html)
     }
     

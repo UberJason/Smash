@@ -18,3 +18,7 @@ public struct Strings {
     public static let frcolumn = "frcolumn"
     public static let nracolumn = "nracolumn"
 }
+
+public struct Constants {
+    public static let reportArchiveURL = NSURL(string: "http://www.tabletennisleague.com/smashtt/SessionGroupReportArchiveList.aspx")!
+}

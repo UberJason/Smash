@@ -81,7 +81,7 @@ public struct GroupResult {
                 let ratingChange = pointsMatrix.results[i][j].intValue
                 let player2Wins = winsMatrix.results[j][i].intValue
                 
-                let match = Match(player1: player1, player2: player2, player1Wins: player1Wins, player2Wins: player2Wins, ratingChange: ratingChange)
+                let match = Match(player1: player1, player2: player2, player1Wins: player1Wins, player2Wins: player2Wins, ratingChange: abs(ratingChange))
                 matches.append(match)
             }
         }
