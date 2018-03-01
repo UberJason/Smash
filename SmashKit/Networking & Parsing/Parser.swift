@@ -47,8 +47,10 @@ public class Parser {
     public func parseLeagueReports() throws -> [LeagueSession] {
         guard let links = try document.getElementById(Strings.MainCPH_BulletedList1)?.getElementsByTag(Strings.a).array().map({ LeagueSessionLink(url: try $0.attr(Strings.href), title: try $0.text()) }) else { throw TableTennisError.missingLeagueSessionLinks }
         
-        let leagueSessions = links.map { LeagueSession(date: $0.sessionDate, reportURL: $0.url) }
-
+        var leagueSessions = links.map { LeagueSession(date: $0.sessionDate, reportURL: $0.url) }
+        // There are sometimes duplicate reports. Remove them.
+        leagueSessions = Array(Set<LeagueSession>(leagueSessions)).filter({$0.date != nil }).sorted(by: {$0.date! > $1.date! })
+        
         return leagueSessions
     }
     

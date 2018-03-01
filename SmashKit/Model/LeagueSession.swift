@@ -30,3 +30,14 @@ public class LeagueSession {
         return groupResults?.filter { $0.players.contains(player) }.first
     }
 }
+
+extension LeagueSession: Hashable {
+    public var hashValue: Int {
+        return date?.hashValue ?? 0
+    }
+    
+    public static func ==(lhs: LeagueSession, rhs: LeagueSession) -> Bool {
+        return lhs.date == rhs.date && lhs.reportURL == rhs.reportURL
+    }
+}
+
