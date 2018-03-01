@@ -12,32 +12,50 @@ import SwiftSoup
 public class Parser {
     var document: Document
     
+    struct LeagueSessionLink {
+        let url: String
+        let title: String
+        
+        var sessionDate: Date? {
+            // "Session Group Report for February 23, 2018", relevant data starts at index 26
+            let dateString = String(title.dropFirst(25))
+            return Parser.sessionLongDateFormatter.date(from: dateString)
+        }
+        
+        init(url: String, title: String) {
+            self.url = url
+            self.title = title
+        }
+    }
+    
+    private static let sessionShortDateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "dd-MMM-yy"
+        return f
+    }()
+    private static let sessionLongDateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        return f
+    }()
+    
     public init(html: String?) throws {
         guard let html = html else { throw TableTennisError.invalidHtml }
         document = try SwiftSoup.parse(html)
     }
     
     public func parseLeagueReports() throws -> [LeagueSession] {
-        print("WARNING: faking parseLeagueReports() for now")
-        let leagueSessions = [
-            LeagueSession(date: Parser.sessionDateFormatter.date(from: "27-Feb-18")!),
-            LeagueSession(date: Parser.sessionDateFormatter.date(from: "23-Feb-18")!),
-            LeagueSession(date: Parser.sessionDateFormatter.date(from: "20-Feb-18")!)
-        ]
+        guard let links = try document.getElementById(Strings.MainCPH_BulletedList1)?.getElementsByTag(Strings.a).array().map({ LeagueSessionLink(url: try $0.attr(Strings.href), title: try $0.text()) }) else { throw TableTennisError.missingLeagueSessionLinks }
         
+        let leagueSessions = links.map { LeagueSession(date: $0.sessionDate, reportURL: $0.url) }
+
         return leagueSessions
     }
     
-    private static let sessionDateFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "dd-MMM-yy"
-        return f
-    }()
-    
     public func parseGameTables(leagueSession: inout LeagueSession?) throws {
-        // "Session Date: 20-Feb-18", relevant data starts at index 12
+        // "Session Date: 20-Feb-18", relevant data starts at index 14
         guard let sessionDateText = try document.getElementsByClass(Strings.date).array().first?.text(),
-            let sessionDate = Parser.sessionDateFormatter.date(from: String(sessionDateText.dropFirst(13)))
+            let sessionDate = Parser.sessionShortDateFormatter.date(from: String(sessionDateText.dropFirst(13)))
             else { throw TableTennisError.missingDate }
         
         var tables = try document.select(Strings.table).array()

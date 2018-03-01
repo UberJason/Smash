@@ -16,13 +16,12 @@ public class LeagueSession {
     public var reportURL: String?
     public var groupResults: [GroupResult]?
     
-    public init() {}
-    
-    public init(date: Date) {
+    public init(date: Date? = nil, reportURL: String? = nil) {
         self.date = date
+        self.reportURL = reportURL
     }
     
-    public init(date: Date, groupResults: [GroupResult]) {
+    public init(date: Date?, groupResults: [GroupResult]) {
         self.date = date
         self.groupResults = groupResults
     }

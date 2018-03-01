@@ -10,6 +10,7 @@ import Foundation
 
 public enum TableTennisError: Error {
     case invalidHtml
+    case missingLeagueSessionLinks
     case missingName
     case missingDate
     case missingFinalRating
