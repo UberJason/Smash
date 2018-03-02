@@ -72,20 +72,20 @@ public class GroupResult: NSManagedObject {
     private static let decoder = JSONDecoder()
     private static let encoder = JSONEncoder()
     
-    private var winsMatrix: GroupMatrix {
+    var winsMatrix: GroupMatrix {
         get {
             let data = winsMatrixCD!.data(using: .utf8)!
-            return try! GroupResult.decoder.decode(GroupMatrix.self, from: data)
+            return try! type(of: self).decoder.decode(GroupMatrix.self, from: data)
         }
         set {
             let data = try! type(of: self).encoder.encode(newValue)
             winsMatrixCD = String(data: data, encoding: .utf8)
         }
     }
-    private var pointsMatrix: GroupMatrix {
+    var pointsMatrix: GroupMatrix {
         get {
             let data = pointsMatrixCD!.data(using: .utf8)!
-            return try! GroupResult.decoder.decode(GroupMatrix.self, from: data)
+            return try! type(of: self).decoder.decode(GroupMatrix.self, from: data)
         }
         set {
             let data = try! type(of: self).encoder.encode(newValue)
@@ -93,8 +93,26 @@ public class GroupResult: NSManagedObject {
         }
     }
     
-    private var finalRatings: [String:Int] = [:]
-    private var netRatingChanges: [String:Int] = [:]
+    private var finalRatings: [String:Int] {
+        get {
+            let data = finalRatingsCD!.data(using: .utf8)!
+            return try! type(of: self).decoder.decode([String:Int].self, from: data)
+        }
+        set {
+            let data = try! type(of: self).encoder.encode(newValue)
+            finalRatingsCD = String(data: data, encoding: .utf8)
+        }
+    }
+    private var netRatingChanges: [String:Int] {
+        get {
+            let data = netRatingChangesCD!.data(using: .utf8)!
+            return try! type(of: self).decoder.decode([String:Int].self, from: data)
+        }
+        set {
+            let data = try! type(of: self).encoder.encode(newValue)
+            netRatingChangesCD = String(data: data, encoding: .utf8)
+        }
+    }
     
     public var matches: [Match] {
         get {

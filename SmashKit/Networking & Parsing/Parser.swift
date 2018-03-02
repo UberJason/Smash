@@ -62,15 +62,19 @@ public class Parser {
         // There are sometimes duplicate reports. Remove them.
         links = Array(Set<LeagueSessionLink>(links))
         
-        let leagueSessions = links.map {
-            LeagueSession(date: $0.sessionDate, reportURL: $0.url, managedObjectContext: managedObjectContext)
-            }.filter {
-                $0.date != nil
-            }.sorted {
-                $0.date! > $1.date!
-            }
+        // Ensure we don't create duplicate LeagueSessions.
+        var existingLeagueSessions: [LeagueSession] = try {
+            let fetchRequest: NSFetchRequest<LeagueSession> = LeagueSession.fetchRequest()
+            return try managedObjectContext.fetch(fetchRequest)
+        }()
         
-        return leagueSessions
+        links.forEach { link in
+            if existingLeagueSessions.filter({ $0.reportURL == link.url }).count == 0 {
+                existingLeagueSessions.append(LeagueSession(date: link.sessionDate, reportURL: link.url, managedObjectContext: managedObjectContext))
+            }
+        }
+
+        return existingLeagueSessions.sorted { $0.date! > $1.date! }
     }
     
     public func parseGameTables(leagueSession: inout LeagueSession?) throws {
