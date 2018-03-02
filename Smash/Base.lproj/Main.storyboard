@@ -95,9 +95,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HBK-J5-j3s">
-                                <rect key="frame" x="0.0" y="154" width="375" height="513"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBK-J5-j3s">
+                                <rect key="frame" x="0.0" y="174" width="375" height="493"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="bLl-no-F7c" id="BPn-cK-UFR"/>
                                     <outlet property="delegate" destination="bLl-no-F7c" id="gPz-4y-1CN"/>
@@ -118,7 +118,7 @@
                             <constraint firstItem="HBK-J5-j3s" firstAttribute="leading" secondItem="zxq-cm-QI8" secondAttribute="leading" id="Qk0-tI-5LX"/>
                             <constraint firstItem="Y2v-BF-Ihl" firstAttribute="trailing" secondItem="zxq-cm-QI8" secondAttribute="trailing" id="eb8-Mp-gy6"/>
                             <constraint firstItem="zxq-cm-QI8" firstAttribute="trailing" secondItem="HBK-J5-j3s" secondAttribute="trailing" id="rTA-Vr-xZf"/>
-                            <constraint firstItem="HBK-J5-j3s" firstAttribute="top" secondItem="Y2v-BF-Ihl" secondAttribute="bottom" id="tWk-J2-Lde"/>
+                            <constraint firstItem="HBK-J5-j3s" firstAttribute="top" secondItem="Y2v-BF-Ihl" secondAttribute="bottom" constant="20" id="tWk-J2-Lde"/>
                             <constraint firstItem="Y2v-BF-Ihl" firstAttribute="leading" secondItem="zxq-cm-QI8" secondAttribute="leading" id="uf1-5x-t97"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zxq-cm-QI8"/>

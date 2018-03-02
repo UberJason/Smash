@@ -47,7 +47,6 @@ class PlayerSessionDetailsViewController: UIViewController {
         r.addTarget(self, action: #selector(refreshSessionDetails(_:)), for: .valueChanged)
         return r
     }()
-    
 
     var model: PlayerSessionDetailsModel?
     
@@ -70,6 +69,7 @@ class PlayerSessionDetailsViewController: UIViewController {
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
         
         tableView.refreshControl = refreshControl
+        tableView.tableFooterView = UIView()
         
         playerDetailsView.configure(with: model?.groupResult, player: model?.player)
         
@@ -79,11 +79,6 @@ class PlayerSessionDetailsViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-
     @objc func refreshSessionDetails(_ refreshControl: UIRefreshControl? = nil) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         NetworkController.sharedInstance.fetchLeagueSessionDetails(model?.session) { (session) in
@@ -108,6 +103,28 @@ extension PlayerSessionDetailsViewController: UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let model = model, let groupResult = model.groupResult, let numberOfGroups = model.session.numberOfGroups else {
+            return nil
+        }
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 35.0))
+        
+        label.backgroundColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.text = "Group \(groupResult.groupNumber) of \(numberOfGroups)"
+        
+        let dividerLine = UIView(frame: CGRect(x: 0, y: 34.5, width: tableView.frame.width, height: 0.5))
+        dividerLine.backgroundColor = UIColor.dividerGray
+        label.addSubview(dividerLine)
+        
+        return label
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let match = model?.matches?[indexPath.row], let player = model?.player else { fatalError("No match or preferred Player") }
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.matchResultCell, for: indexPath) as! MatchResultCell
@@ -115,4 +132,3 @@ extension PlayerSessionDetailsViewController: UITableViewDelegate, UITableViewDa
         return cell
     }
 }
-

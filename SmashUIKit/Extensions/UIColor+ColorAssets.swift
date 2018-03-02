@@ -18,5 +18,8 @@ public extension UIColor {
     public static var defeatGray: UIColor {
         return UIColor(named: "defeatGray", in: Bundle.smashUIKit, compatibleWith: nil)!
     }
+    public static var dividerGray: UIColor {
+        return UIColor(named: "dividerGray", in: Bundle.smashUIKit, compatibleWith: nil)!
+    }
 }
 

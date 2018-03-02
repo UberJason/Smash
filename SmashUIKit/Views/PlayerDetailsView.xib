@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +43,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecD-U2-m1p" userLabel="Divider Line">
                     <rect key="frame" x="0.0" y="99.5" width="375" height="0.5"/>
-                    <color key="backgroundColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" name="dividerGray"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="qzj-xy-6UZ"/>
                     </constraints>
@@ -149,5 +150,8 @@
     <resources>
         <image name="jason" width="1931" height="1932"/>
         <image name="rightArrow" width="16" height="5"/>
+        <namedColor name="dividerGray">
+            <color red="0.77999997138977051" green="0.77999997138977051" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
