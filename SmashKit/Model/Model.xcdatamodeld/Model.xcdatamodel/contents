@@ -25,7 +25,9 @@
         <relationship name="player2CD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="matchesAsPlayer2CD" inverseEntity="Player" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName=".Player" syncable="YES" codeGenerationType="category">
+        <attribute name="initialsCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nameCD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImageCD" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="groupResultsCD" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroupResult" inverseName="playersCD" inverseEntity="GroupResult" syncable="YES"/>
         <relationship name="matchesAsPlayer1CD" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Match" inverseName="player1CD" inverseEntity="Match" syncable="YES"/>
         <relationship name="matchesAsPlayer2CD" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Match" inverseName="player2CD" inverseEntity="Match" syncable="YES"/>
@@ -34,6 +36,6 @@
         <element name="GroupResult" positionX="351" positionY="77" width="128" height="165"/>
         <element name="LeagueSession" positionX="144" positionY="81" width="128" height="90"/>
         <element name="Match" positionX="387" positionY="215" width="128" height="150"/>
-        <element name="Player" positionX="592" positionY="233" width="128" height="105"/>
+        <element name="Player" positionX="592" positionY="233" width="128" height="135"/>
     </elements>
 </model>

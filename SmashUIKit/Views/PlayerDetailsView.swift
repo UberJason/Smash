@@ -19,6 +19,7 @@ public class PlayerDetailsView: UIView {
     @IBOutlet weak var netRatingChangeLabel: UILabel!
     @IBOutlet weak var matchRecordLabel: UILabel!
     @IBOutlet weak var gameRecordLabel: UILabel!
+    @IBOutlet weak var arrowImageView: UIImageView!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,4 +36,18 @@ public class PlayerDetailsView: UIView {
         addSubviewFullFrame(contentView)
     }
 
+    public func configure(image: UIImage? = nil, initials: String? = nil, name: String, initialRating: String, finalRating: String, netRatingChange: String, netRatingLabelColor: UIColor, matchRecord: String, gameRecord: String, hideArrow: Bool = false) {
+        profileImageView.image = image
+        profileImageView.fallbackText = initials
+        nameLabel.text = name
+        initialRatingLabel.text = initialRating
+        finalRatingLabel.text = finalRating
+        netRatingChangeLabel.text = netRatingChange
+        netRatingChangeLabel.textColor = netRatingLabelColor
+        matchRecordLabel.text = matchRecord
+        gameRecordLabel.text = gameRecord
+        arrowImageView.alpha = hideArrow ? 0.0 : 1.0
+    }
+    
+    
 }

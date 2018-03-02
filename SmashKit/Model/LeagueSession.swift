@@ -42,6 +42,10 @@ public class LeagueSession: NSManagedObject {
         }
     }
     
+    public var containsResults: Bool {
+        return groupResults != nil
+    }
+    
     public convenience init(date: Date? = nil, reportURL: String? = nil, managedObjectContext: NSManagedObjectContext) {
         self.init(context: managedObjectContext)
         self.date = date
@@ -55,7 +59,7 @@ public class LeagueSession: NSManagedObject {
     }
     
     public func group(for player: Player) -> GroupResult? {
-        return groupResults?.filter { $0.players.map { $0.name }.contains(player.name) }.first
+        return groupResults?.filter { $0.players.contains { $0 == player } }.first
     }
 }
 

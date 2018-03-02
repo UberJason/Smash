@@ -28,6 +28,7 @@
 		960948A22049DB13009086CE /* IconFallbackImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A12049DB13009086CE /* IconFallbackImageView.swift */; };
 		960948A42049DB5F009086CE /* IconFallbackImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960948A32049DB5F009086CE /* IconFallbackImageView.xib */; };
 		960948A62049DB99009086CE /* UIView+AddSubviewFullFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */; };
+		960948A82049E868009086CE /* PlayerDetailsViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A72049E868009086CE /* PlayerDetailsViewExtension.swift */; };
 		9641A599204747FD008AC39F /* MatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A598204747FD008AC39F /* MatchExtension.swift */; };
 		9641A59B20474805008AC39F /* MatchResultCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59A20474805008AC39F /* MatchResultCellExtension.swift */; };
 		9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59C2047484E008AC39F /* CellIdentifiers.swift */; };
@@ -113,6 +114,7 @@
 		960948A12049DB13009086CE /* IconFallbackImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconFallbackImageView.swift; sourceTree = "<group>"; };
 		960948A32049DB5F009086CE /* IconFallbackImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconFallbackImageView.xib; sourceTree = "<group>"; };
 		960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviewFullFrame.swift"; sourceTree = "<group>"; };
+		960948A72049E868009086CE /* PlayerDetailsViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewExtension.swift; sourceTree = "<group>"; };
 		9641A598204747FD008AC39F /* MatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchExtension.swift; sourceTree = "<group>"; };
 		9641A59A20474805008AC39F /* MatchResultCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultCellExtension.swift; sourceTree = "<group>"; };
 		9641A59C2047484E008AC39F /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				9641A59A20474805008AC39F /* MatchResultCellExtension.swift */,
 				960948972049B753009086CE /* LeagueSessionCellExtension.swift */,
 				96C29DD22048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift */,
+				960948A72049E868009086CE /* PlayerDetailsViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				9641A599204747FD008AC39F /* MatchExtension.swift in Sources */,
 				9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */,
 				9609489C2049C1AC009086CE /* PlayerSessionDetailsViewController.swift in Sources */,
+				960948A82049E868009086CE /* PlayerDetailsViewExtension.swift in Sources */,
 				96C29DD32048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift in Sources */,
 				960948982049B753009086CE /* LeagueSessionCellExtension.swift in Sources */,
 				9641A59F204748B4008AC39F /* Nibs.swift in Sources */,

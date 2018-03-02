@@ -79,10 +79,7 @@ public class Parser {
     
     public func parseGameTables() throws -> [GroupResult] {
         // "Session Date: 20-Feb-18", relevant data starts at index 14
-//        guard let sessionDateText = try document.getElementsByClass(Strings.date).array().first?.text(),
-//            let sessionDate = Parser.sessionShortDateFormatter.date(from: String(sessionDateText.dropFirst(13)))
-//            else { throw TableTennisError.missingDate }
-//        
+
         var tables = try document.select(Strings.table).array()
         tables.remove(at: 0)
         tables.remove(at: 0)

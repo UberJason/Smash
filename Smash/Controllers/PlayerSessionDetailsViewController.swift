@@ -40,11 +40,14 @@ class PlayerSessionDetailsModel {
 class PlayerSessionDetailsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var playerDetailsView: PlayerDetailsView!
+    
     private lazy var refreshControl: UIRefreshControl = {
         let r = UIRefreshControl()
         r.addTarget(self, action: #selector(refreshSessionDetails(_:)), for: .valueChanged)
         return r
     }()
+    
 
     var model: PlayerSessionDetailsModel?
     
@@ -53,7 +56,9 @@ class PlayerSessionDetailsViewController: UIViewController {
             return nil
         }
         set {
-            if let newValue = newValue {
+            if let newValue = newValue, let date = newValue.date {
+                title = Parser.sessionLongDateFormatter.string(from: date)
+                
                 model = PlayerSessionDetailsModel(session: newValue, playerName: UserDefaults.standard.preferredPlayer ?? "", managedObjectContext: SmashStackManager.shared.managedObjectContext)
             }
         }
@@ -61,11 +66,22 @@ class PlayerSessionDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
         
         tableView.refreshControl = refreshControl
-        refreshSessionDetails()
+        
+        playerDetailsView.configure(with: model?.groupResult, player: model?.player)
+        
+        if let model = model, !model.session.containsResults {
+            playerDetailsView.alpha = 0.0
+            refreshSessionDetails()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
 
     @objc func refreshSessionDetails(_ refreshControl: UIRefreshControl? = nil) {
@@ -73,6 +89,8 @@ class PlayerSessionDetailsViewController: UIViewController {
         NetworkController.sharedInstance.fetchLeagueSessionDetails(model?.session) { (session) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.session = session
+            self.playerDetailsView.alpha = 1.0
+            self.playerDetailsView.configure(with: self.model?.groupResult, player: self.model?.player)
             self.tableView.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         }
