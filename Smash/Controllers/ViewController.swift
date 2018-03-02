@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     lazy var preferredPlayer: Player = {
         let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "nameCD == %@", UserDefaults.standard.preferredPlayer!)
         return try! SmashStackManager.shared.managedObjectContext.fetch(fetchRequest).first!
     }()
     var session: LeagueSession?
@@ -34,36 +35,27 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
-        
-        
-        // 1. No GroupResults - fetch them, ensure saved
-        // 2. With GroupResults - ensure saved, fetch them, ensure no duplicates
-        
+      
+        let session = check()
+        self.matches = session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
+        tableView.reloadData()
+
         NetworkController.sharedInstance.fetchLeagueSessions { (sessions) in
             NetworkController.sharedInstance.fetchLeagueSessionDetails(sessions.first!, completionHandler: { (session) in
-                for result in session!.groupResults! {
-//                    print(result)
-                }
-                
-                let allResults = try! SmashStackManager.shared.managedObjectContext.fetch(GroupResult.fetchRequest())
-                print(allResults.count)
+                self.matches = session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
+                self.tableView.reloadData()
             })
         }
-        
-        
-        
-        
-        
-        
-        
-//                DispatchQueue.main.async {
-//                    let parser = try! Parser(html: html)
-//
-//                    try! parser.parseGameTables(leagueSession: &self.session)
-//                    self.matches = self.session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
-//                    self.tableView.reloadData()
-//                }
-        
+
+    }
+    
+    func check() -> LeagueSession? {
+        let fetchRequest: NSFetchRequest<LeagueSession> = LeagueSession.fetchRequest()
+        let sessions = try! SmashStackManager.shared.managedObjectContext.fetch(fetchRequest).sorted { $0.date! > $1.date! }
+        print("sessions count: \(sessions.count)")
+        let session = sessions.first
+        print("group results: \(session?.groupResults)")
+        return session
     }
 }
 

@@ -162,10 +162,10 @@ public class GroupResult: NSManagedObject {
         self.finalRatings = finalRatings
         self.players = players
         
-        try extractMatches(winsMatrix: winsMatrix, pointsMatrix: pointsMatrix, managedObjectContext: managedObjectContext)
+        try extractMatches(players: players, winsMatrix: winsMatrix, pointsMatrix: pointsMatrix, managedObjectContext: managedObjectContext)
     }
     
-    private func extractMatches(winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, managedObjectContext: NSManagedObjectContext) throws {
+    private func extractMatches(players: [Player], winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, managedObjectContext: NSManagedObjectContext) throws {
         guard winsMatrix.results.count == pointsMatrix.results.count else { throw TableTennisError.mismatchedWinsAndPointsMatrices }
         
         var matches = [Match]()

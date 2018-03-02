@@ -54,7 +54,7 @@ public class LeagueSession: NSManagedObject {
     }
     
     public func group(for player: Player) -> GroupResult? {
-        return groupResults?.filter { $0.players.contains(player) }.first
+        return groupResults?.filter { $0.players.map { $0.name }.contains(player.name) }.first
     }
 }
 
