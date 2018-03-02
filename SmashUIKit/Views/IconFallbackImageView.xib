@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Optimist-Regular.ttf">
+            <string>Optimist-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IconFallbackImageView" customModule="GiftgramKit" customModuleProvider="target">
+            <connections>
+                <outlet property="circleView" destination="Duy-55-BLb" id="pRq-xe-DOu"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="QFR-yd-y7Z"/>
+                <outlet property="imageView" destination="doQ-xR-qQF" id="tIl-xb-KPE"/>
+                <outlet property="textLabel" destination="Uql-fa-USS" id="Czk-ap-wuO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-xR-qQF">
+                    <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Duy-55-BLb">
+                    <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uql-fa-USS">
+                            <rect key="frame" x="6.5" y="6" width="16" height="18.5"/>
+                            <fontDescription key="fontDescription" name="Optimist-Regular" family="Optimist" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Uql-fa-USS" firstAttribute="centerX" secondItem="Duy-55-BLb" secondAttribute="centerX" id="ROg-L6-L2g"/>
+                        <constraint firstItem="Uql-fa-USS" firstAttribute="centerY" secondItem="Duy-55-BLb" secondAttribute="centerY" id="yKy-Rm-Odf"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="doQ-xR-qQF" secondAttribute="trailing" id="22N-gq-G5Q"/>
+                <constraint firstItem="Duy-55-BLb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4AQ-aV-mKk"/>
+                <constraint firstItem="Duy-55-BLb" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="5o1-li-TTO"/>
+                <constraint firstItem="doQ-xR-qQF" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Fzp-ZC-ldz"/>
+                <constraint firstItem="Duy-55-BLb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Kuy-Sh-IJa"/>
+                <constraint firstItem="Duy-55-BLb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="NLG-QC-CU9"/>
+                <constraint firstItem="doQ-xR-qQF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pkC-Sh-vyJ"/>
+                <constraint firstItem="doQ-xR-qQF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zW2-nY-Zap"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

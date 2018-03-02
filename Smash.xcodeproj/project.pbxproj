@@ -23,6 +23,11 @@
 		960948982049B753009086CE /* LeagueSessionCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948972049B753009086CE /* LeagueSessionCellExtension.swift */; };
 		9609489A2049BA1B009086CE /* LeagueSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948992049BA1B009086CE /* LeagueSessionsViewController.swift */; };
 		9609489C2049C1AC009086CE /* PlayerSessionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609489B2049C1AC009086CE /* PlayerSessionDetailsViewController.swift */; };
+		9609489E2049DA3E009086CE /* PlayerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609489D2049DA3E009086CE /* PlayerDetailsView.swift */; };
+		960948A02049DA44009086CE /* PlayerDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9609489F2049DA44009086CE /* PlayerDetailsView.xib */; };
+		960948A22049DB13009086CE /* IconFallbackImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A12049DB13009086CE /* IconFallbackImageView.swift */; };
+		960948A42049DB5F009086CE /* IconFallbackImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960948A32049DB5F009086CE /* IconFallbackImageView.xib */; };
+		960948A62049DB99009086CE /* UIView+AddSubviewFullFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */; };
 		9641A599204747FD008AC39F /* MatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A598204747FD008AC39F /* MatchExtension.swift */; };
 		9641A59B20474805008AC39F /* MatchResultCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59A20474805008AC39F /* MatchResultCellExtension.swift */; };
 		9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59C2047484E008AC39F /* CellIdentifiers.swift */; };
@@ -103,6 +108,11 @@
 		960948972049B753009086CE /* LeagueSessionCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSessionCellExtension.swift; sourceTree = "<group>"; };
 		960948992049BA1B009086CE /* LeagueSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSessionsViewController.swift; sourceTree = "<group>"; };
 		9609489B2049C1AC009086CE /* PlayerSessionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSessionDetailsViewController.swift; sourceTree = "<group>"; };
+		9609489D2049DA3E009086CE /* PlayerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; };
+		9609489F2049DA44009086CE /* PlayerDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsView.xib; sourceTree = "<group>"; };
+		960948A12049DB13009086CE /* IconFallbackImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconFallbackImageView.swift; sourceTree = "<group>"; };
+		960948A32049DB5F009086CE /* IconFallbackImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconFallbackImageView.xib; sourceTree = "<group>"; };
+		960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviewFullFrame.swift"; sourceTree = "<group>"; };
 		9641A598204747FD008AC39F /* MatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchExtension.swift; sourceTree = "<group>"; };
 		9641A59A20474805008AC39F /* MatchResultCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultCellExtension.swift; sourceTree = "<group>"; };
 		9641A59C2047484E008AC39F /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
@@ -183,8 +193,12 @@
 			isa = PBXGroup;
 			children = (
 				960948872043B412009086CE /* MatchResultCell.swift */,
-				960948952049B6D0009086CE /* LeagueSessionCell.swift */,
 				960948892043B41D009086CE /* MatchResultCell.xib */,
+				9609489D2049DA3E009086CE /* PlayerDetailsView.swift */,
+				9609489F2049DA44009086CE /* PlayerDetailsView.xib */,
+				960948952049B6D0009086CE /* LeagueSessionCell.swift */,
+				960948A12049DB13009086CE /* IconFallbackImageView.swift */,
+				960948A32049DB5F009086CE /* IconFallbackImageView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				9609488E2043B991009086CE /* UIColor+ColorAssets.swift */,
+				960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -484,6 +499,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960948A02049DA44009086CE /* PlayerDetailsView.xib in Resources */,
+				960948A42049DB5F009086CE /* IconFallbackImageView.xib in Resources */,
 				9609488C2043B63C009086CE /* Assets.xcassets in Resources */,
 				9609488A2043B41D009086CE /* MatchResultCell.xib in Resources */,
 			);
@@ -604,8 +621,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9609489E2049DA3E009086CE /* PlayerDetailsView.swift in Sources */,
+				960948A62049DB99009086CE /* UIView+AddSubviewFullFrame.swift in Sources */,
 				9609488F2043B991009086CE /* UIColor+ColorAssets.swift in Sources */,
 				960948962049B6D0009086CE /* LeagueSessionCell.swift in Sources */,
+				960948A22049DB13009086CE /* IconFallbackImageView.swift in Sources */,
 				960948882043B412009086CE /* MatchResultCell.swift in Sources */,
 				96094892204504E6009086CE /* Constants.swift in Sources */,
 			);
