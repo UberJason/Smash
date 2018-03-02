@@ -35,28 +35,28 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
-      
-        let session = check()
-        self.matches = session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
-        tableView.reloadData()
+//      
+//        let session = check()
+//        self.matches = session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
+//        tableView.reloadData()
 
-        NetworkController.sharedInstance.fetchLeagueSessions { (sessions) in
-            NetworkController.sharedInstance.fetchLeagueSessionDetails(sessions.first!, completionHandler: { (session) in
-                self.matches = session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
-                self.tableView.reloadData()
-            })
-        }
+//        NetworkController.sharedInstance.fetchLeagueSessions { (sessions) in
+//            NetworkController.sharedInstance.fetchLeagueSessionDetails(sessions.first!, completionHandler: { (session) in
+//                self.matches = session?.group(for: self.preferredPlayer)?.matches.filter { $0.contains(player: self.preferredPlayer) }
+//                self.tableView.reloadData()
+//            })
+//        }
 
     }
     
-    func check() -> LeagueSession? {
-        let fetchRequest: NSFetchRequest<LeagueSession> = LeagueSession.fetchRequest()
-        let sessions = try! SmashStackManager.shared.managedObjectContext.fetch(fetchRequest).sorted { $0.date! > $1.date! }
-        print("sessions count: \(sessions.count)")
-        let session = sessions.first
-        print("group results: \(session?.groupResults)")
-        return session
-    }
+//    func check() -> LeagueSession? {
+//        let fetchRequest: NSFetchRequest<LeagueSession> = LeagueSession.fetchRequest()
+//        let sessions = try! SmashStackManager.shared.managedObjectContext.fetch(fetchRequest).sorted { $0.date! > $1.date! }
+//        print("sessions count: \(sessions.count)")
+//        let session = sessions.first
+//        print("group results: \(session?.groupResults)")
+//        return session
+//    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

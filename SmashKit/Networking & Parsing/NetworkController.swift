@@ -15,7 +15,7 @@ public class NetworkController {
     
     private init() {}
     
-    public func fetchLeagueSessions(_ completionHandler: @escaping ([LeagueSession]) -> Void) {
+    public func fetchLeagueSessions(_ completionHandler: @escaping () -> ()) {
         let context = SmashStackManager.shared.createTemporaryContext()
         
         let downloadLeagueSessionsOperation = DownloadLeagueSessionsOperation()
@@ -26,7 +26,9 @@ public class NetworkController {
         
         let finalOperation = BlockOperation {
             SmashStackManager.shared.saveWithTemporaryContext(context)
-            completionHandler(parseLeagueSessionsOperation.leagueSessions ?? [])
+            DispatchQueue.main.async {
+                completionHandler()
+            }
         }
         finalOperation.addDependency(parseLeagueSessionsOperation)
         

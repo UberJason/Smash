@@ -38,12 +38,12 @@ public class Parser {
         }
     }
     
-    private static let sessionShortDateFormatter: DateFormatter = {
+    public static let sessionShortDateFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "dd-MMM-yy"
         return f
     }()
-    private static let sessionLongDateFormatter: DateFormatter = {
+    public static let sessionLongDateFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .long
         return f
@@ -74,15 +74,15 @@ public class Parser {
             }
         }
 
-        return existingLeagueSessions.sorted { $0.date! > $1.date! }
+        return existingLeagueSessions.filter { $0.date != nil }.sorted { $0.date! > $1.date! }
     }
     
     public func parseGameTables() throws -> [GroupResult] {
         // "Session Date: 20-Feb-18", relevant data starts at index 14
-        guard let sessionDateText = try document.getElementsByClass(Strings.date).array().first?.text(),
-            let sessionDate = Parser.sessionShortDateFormatter.date(from: String(sessionDateText.dropFirst(13)))
-            else { throw TableTennisError.missingDate }
-        
+//        guard let sessionDateText = try document.getElementsByClass(Strings.date).array().first?.text(),
+//            let sessionDate = Parser.sessionShortDateFormatter.date(from: String(sessionDateText.dropFirst(13)))
+//            else { throw TableTennisError.missingDate }
+//        
         var tables = try document.select(Strings.table).array()
         tables.remove(at: 0)
         tables.remove(at: 0)

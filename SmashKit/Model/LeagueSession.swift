@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 
 public class LeagueSession: NSManagedObject {
-    public var numberOfGroups: Int { return groupResults?.count ?? 0 }
-    public var numberOfPlayers: Int { return groupResults?.map { $0.players }.flatMap { $0 }.count ?? 0 }
+    public var numberOfGroups: Int? { return groupResults?.count }
+    public var numberOfPlayers: Int? { return groupResults?.map { $0.players }.flatMap { $0 }.count }
     
     public var date: Date? {
         get {
@@ -32,7 +32,8 @@ public class LeagueSession: NSManagedObject {
     
     public var groupResults: [GroupResult]? {
         get {
-            return groupResultsCD?.allObjects as? [GroupResult]
+            let results = groupResultsCD?.allObjects as? [GroupResult]
+            return results?.count == 0 ? nil : results
         }
         set {
             if let newValue = newValue {
