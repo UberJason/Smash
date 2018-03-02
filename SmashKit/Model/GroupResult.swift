@@ -14,9 +14,9 @@ enum MatrixValue {
     
     init(text: String) throws {
         if text == "_" { self = MatrixValue.none }
-        if text == "F" { self = MatrixValue.forfeit }
-        if let int = Int(text) { self = MatrixValue.value(int) }
-        throw TableTennisError.unrecognizedMatrixValue
+        else if text == "F" { self = MatrixValue.forfeit }
+        else if let int = Int(text) { self = MatrixValue.value(int) }
+        else { throw TableTennisError.unrecognizedMatrixValue }
     }
     
     var intValue: Int {

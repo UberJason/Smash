@@ -77,7 +77,7 @@ public class Parser {
         return existingLeagueSessions.sorted { $0.date! > $1.date! }
     }
     
-    public func parseGameTables(leagueSession: inout LeagueSession?) throws {
+    public func parseGameTables() throws -> [GroupResult] {
         // "Session Date: 20-Feb-18", relevant data starts at index 14
         guard let sessionDateText = try document.getElementsByClass(Strings.date).array().first?.text(),
             let sessionDate = Parser.sessionShortDateFormatter.date(from: String(sessionDateText.dropFirst(13)))
@@ -119,9 +119,8 @@ public class Parser {
             
             groupResults.append(try GroupResult(groupNumber: index + 1, players: players, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings, managedObjectContext: managedObjectContext))
         }
-        leagueSession = leagueSession ?? LeagueSession()
-        leagueSession?.date = sessionDate
-        leagueSession?.groupResults = groupResults
+        
+        return groupResults
     }
     
     func tableTennisElementToMatrixValue(_ element: Element) throws -> MatrixValue {

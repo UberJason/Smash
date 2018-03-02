@@ -35,8 +35,8 @@ public class NetworkController {
         operationQueue.isSuspended = false
     }
     
-    public func fetchLeagueSessionDetails(_ sessionURL: String, completionHandler: @escaping (LeagueSession?) -> Void) {
-        guard let url = URL(string: sessionURL) else {
+    public func fetchLeagueSessionDetails(_ leagueSession: LeagueSession, completionHandler: @escaping (LeagueSession?) -> Void) {
+        guard let sessionURL = leagueSession.reportURL, let url = URL(string: sessionURL) else {
             print("Invalid session URL.")
             completionHandler(nil)
             return
@@ -45,14 +45,17 @@ public class NetworkController {
         let context = SmashStackManager.shared.createTemporaryContext()
         
         let downloadSessionDetailsOperation = DownloadSessionDetailsOperation(sessionDownloadURL: url)
-        let parseSessionDetailsOperation = ParseSessionDetailsOperation(managedObjectContext: context)
+        let parseSessionDetailsOperation = ParseSessionDetailsOperation(managedObjectContext: context, leagueSessionObjectID: leagueSession.objectID)
         
         downloadSessionDetailsOperation.delegate = parseSessionDetailsOperation
         parseSessionDetailsOperation.addDependency(downloadSessionDetailsOperation)
         
         let finalOperation = BlockOperation {
             SmashStackManager.shared.saveWithTemporaryContext(context)
-            completionHandler(parseSessionDetailsOperation.leagueSession)
+            DispatchQueue.main.async {
+                let leagueSession = SmashStackManager.shared.managedObjectContext.object(with: parseSessionDetailsOperation.leagueSessionObjectID) as! LeagueSession
+                completionHandler(leagueSession)
+            }
         }
         finalOperation.addDependency(parseSessionDetailsOperation)
         

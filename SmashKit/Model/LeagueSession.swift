@@ -38,9 +38,6 @@ public class LeagueSession: NSManagedObject {
             if let newValue = newValue {
                 addToGroupResultsCD(NSSet(array: newValue))
             }
-            else {
-                removeFromGroupResultsCD(groupResultsCD ?? NSSet())
-            }
         }
     }
     

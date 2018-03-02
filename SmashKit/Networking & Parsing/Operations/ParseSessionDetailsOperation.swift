@@ -10,18 +10,22 @@ import Foundation
 import CoreData
 
 class ParseSessionDetailsOperation: Operation {
-    var leagueSession: LeagueSession?
     var html: String?
     var managedObjectContext: NSManagedObjectContext
+    var leagueSessionObjectID: NSManagedObjectID
     
-    init(managedObjectContext: NSManagedObjectContext) {
+    init(managedObjectContext: NSManagedObjectContext, leagueSessionObjectID: NSManagedObjectID) {
         self.managedObjectContext = managedObjectContext
+        self.leagueSessionObjectID = leagueSessionObjectID
     }
     
     override func main() {
         do {
             let parser = try Parser(html: html, managedObjectContext: managedObjectContext)
-            try parser.parseGameTables(leagueSession: &leagueSession)
+            let leagueSession = managedObjectContext.object(with: leagueSessionObjectID) as! LeagueSession
+            let groupResults = try parser.parseGameTables()
+            leagueSession.groupResults?.forEach { managedObjectContext.delete($0) }
+            leagueSession.groupResults = groupResults
             
         } catch {
             print("Unknown error parsing - maybe rewrite this code and catch individual TableTennisErrors...")

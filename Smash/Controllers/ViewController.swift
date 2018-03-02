@@ -35,9 +35,26 @@ class ViewController: UIViewController {
         
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
         
+        
+        // 1. No GroupResults - fetch them, ensure saved
+        // 2. With GroupResults - ensure saved, fetch them, ensure no duplicates
+        
         NetworkController.sharedInstance.fetchLeagueSessions { (sessions) in
-            print(sessions.count)
+            NetworkController.sharedInstance.fetchLeagueSessionDetails(sessions.first!, completionHandler: { (session) in
+                for result in session!.groupResults! {
+//                    print(result)
+                }
+                
+                let allResults = try! SmashStackManager.shared.managedObjectContext.fetch(GroupResult.fetchRequest())
+                print(allResults.count)
+            })
         }
+        
+        
+        
+        
+        
+        
         
 //                DispatchQueue.main.async {
 //                    let parser = try! Parser(html: html)
