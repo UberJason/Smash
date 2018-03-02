@@ -41,6 +41,7 @@ class PlayerSessionDetailsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var playerDetailsView: PlayerDetailsView!
+    @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     
     private lazy var refreshControl: UIRefreshControl = {
         let r = UIRefreshControl()
@@ -75,7 +76,9 @@ class PlayerSessionDetailsViewController: UIViewController {
         
         if let model = model, !model.session.containsResults {
             playerDetailsView.alpha = 0.0
+            tableView.alpha = 0.0
             refreshSessionDetails()
+            spinnerView.startAnimating()
         }
     }
     
@@ -85,7 +88,9 @@ class PlayerSessionDetailsViewController: UIViewController {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.session = session
             self.playerDetailsView.alpha = 1.0
+            self.tableView.alpha = 1.0
             self.playerDetailsView.configure(with: self.model?.groupResult, player: self.model?.player)
+            self.spinnerView.stopAnimating()
             self.tableView.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         }
@@ -105,6 +110,7 @@ extension PlayerSessionDetailsViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let model = model, let _ = model.groupResult, let _ = model.session.numberOfGroups else { return 0 }
         return 35.0
     }
     

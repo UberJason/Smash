@@ -110,12 +110,22 @@
                                     <constraint firstAttribute="height" constant="90" id="xLY-Bg-WWM"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="e7T-DP-amg">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="L5u-B9-Bfn"/>
+                                    <constraint firstAttribute="height" constant="50" id="j9n-dx-TrZ"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Y2v-BF-Ihl" firstAttribute="top" secondItem="zxq-cm-QI8" secondAttribute="top" id="4J5-u3-7j5"/>
+                            <constraint firstItem="e7T-DP-amg" firstAttribute="centerY" secondItem="tJq-dK-ea8" secondAttribute="centerY" id="Bpg-w5-0SI"/>
                             <constraint firstItem="zxq-cm-QI8" firstAttribute="bottom" secondItem="HBK-J5-j3s" secondAttribute="bottom" id="Pb6-hb-CH4"/>
                             <constraint firstItem="HBK-J5-j3s" firstAttribute="leading" secondItem="zxq-cm-QI8" secondAttribute="leading" id="Qk0-tI-5LX"/>
+                            <constraint firstItem="e7T-DP-amg" firstAttribute="centerX" secondItem="tJq-dK-ea8" secondAttribute="centerX" id="dvT-Wo-4K4"/>
                             <constraint firstItem="Y2v-BF-Ihl" firstAttribute="trailing" secondItem="zxq-cm-QI8" secondAttribute="trailing" id="eb8-Mp-gy6"/>
                             <constraint firstItem="zxq-cm-QI8" firstAttribute="trailing" secondItem="HBK-J5-j3s" secondAttribute="trailing" id="rTA-Vr-xZf"/>
                             <constraint firstItem="HBK-J5-j3s" firstAttribute="top" secondItem="Y2v-BF-Ihl" secondAttribute="bottom" constant="20" id="tWk-J2-Lde"/>
@@ -125,6 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="playerDetailsView" destination="Y2v-BF-Ihl" id="10c-Xm-FTa"/>
+                        <outlet property="spinnerView" destination="e7T-DP-amg" id="4er-6Q-kwK"/>
                         <outlet property="tableView" destination="HBK-J5-j3s" id="g1v-gE-FAJ"/>
                     </connections>
                 </viewController>
