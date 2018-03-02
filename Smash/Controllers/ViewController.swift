@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import SmashKit
 import SmashUIKit
 import SwiftSoup
@@ -21,7 +22,10 @@ class FauxModel {
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    let preferredPlayer = Player(name: "Jason Ji")
+    lazy var preferredPlayer: Player = {
+        let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
+        return try! SmashStackManager.shared.managedObjectContext.fetch(fetchRequest).first!
+    }()
     var session: LeagueSession?
     var matches: [Match]?
     

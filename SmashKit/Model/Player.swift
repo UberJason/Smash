@@ -7,13 +7,20 @@
 //
 
 import Foundation
+import CoreData
 
-public struct Player: Hashable {
-    public var hashValue: Int { return name.hashValue }
+public class Player: NSManagedObject {
+    public var name: String {
+        get {
+            return nameCD ?? ""
+        }
+        set {
+            nameCD = newValue
+        }
+    }
     
-    public let name: String
-    
-    public init(name: String) {
+    public convenience init(name: String, managedObjectContext: NSManagedObjectContext) {
+        self.init(context: managedObjectContext)
         self.name = name
     }
 }

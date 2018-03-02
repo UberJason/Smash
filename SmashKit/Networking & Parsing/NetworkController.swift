@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 public class NetworkController {
     private var operationQueue = OperationQueue()
@@ -15,13 +16,16 @@ public class NetworkController {
     private init() {}
     
     public func fetchLeagueSessions(_ completionHandler: @escaping ([LeagueSession]) -> Void) {
+        let context = SmashStackManager.shared.createTemporaryContext()
+        
         let downloadLeagueSessionsOperation = DownloadLeagueSessionsOperation()
-        let parseLeagueSessionsOperation = ParseLeagueSessionsOperation()
+        let parseLeagueSessionsOperation = ParseLeagueSessionsOperation(managedObjectContext: context)
         
         downloadLeagueSessionsOperation.delegate = parseLeagueSessionsOperation
         parseLeagueSessionsOperation.addDependency(downloadLeagueSessionsOperation)
         
         let finalOperation = BlockOperation {
+            SmashStackManager.shared.saveWithTemporaryContext(context)
             completionHandler(parseLeagueSessionsOperation.leagueSessions ?? [])
         }
         finalOperation.addDependency(parseLeagueSessionsOperation)
@@ -38,13 +42,16 @@ public class NetworkController {
             return
         }
         
+        let context = SmashStackManager.shared.createTemporaryContext()
+        
         let downloadSessionDetailsOperation = DownloadSessionDetailsOperation(sessionDownloadURL: url)
-        let parseSessionDetailsOperation = ParseSessionDetailsOperation()
+        let parseSessionDetailsOperation = ParseSessionDetailsOperation(managedObjectContext: context)
         
         downloadSessionDetailsOperation.delegate = parseSessionDetailsOperation
         parseSessionDetailsOperation.addDependency(downloadSessionDetailsOperation)
         
         let finalOperation = BlockOperation {
+            SmashStackManager.shared.saveWithTemporaryContext(context)
             completionHandler(parseSessionDetailsOperation.leagueSession)
         }
         finalOperation.addDependency(parseSessionDetailsOperation)

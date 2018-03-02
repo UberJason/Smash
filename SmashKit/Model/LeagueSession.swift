@@ -7,23 +7,53 @@
 //
 
 import Foundation
+import CoreData
 
-public class LeagueSession {
+public class LeagueSession: NSManagedObject {
     public var numberOfGroups: Int { return groupResults?.count ?? 0 }
     public var numberOfPlayers: Int { return groupResults?.map { $0.players }.flatMap { $0 }.count ?? 0 }
     
-    public var date: Date?
-    public var reportURL: String?
-    public var groupResults: [GroupResult]?
+    public var date: Date? {
+        get {
+            return dateCD
+        }
+        set {
+            dateCD = newValue
+        }
+    }
+    public var reportURL: String? {
+        get {
+            return reportURLCD
+        }
+        set {
+            reportURLCD = newValue
+        }
+    }
     
-    public init(date: Date? = nil, reportURL: String? = nil) {
+    public var groupResults: [GroupResult]? {
+        get {
+            return groupResultsCD?.allObjects as? [GroupResult]
+        }
+        set {
+            if let newValue = newValue {
+                addToGroupResultsCD(NSSet(array: newValue))
+            }
+            else {
+                groupResultsCD = nil
+            }
+        }
+    }
+    
+    public convenience init(date: Date? = nil, reportURL: String? = nil, managedObjectContext: NSManagedObjectContext) {
+        self.init(context: managedObjectContext)
         self.date = date
         self.reportURL = reportURL
     }
     
-    public init(date: Date?, groupResults: [GroupResult]) {
+    public convenience init(date: Date?, groupResults: [GroupResult], managedObjectContext: NSManagedObjectContext) {
+        self.init(context: managedObjectContext)
         self.date = date
-        self.groupResults = groupResults
+        addToGroupResultsCD(NSSet(array: groupResults))
     }
     
     public func group(for player: Player) -> GroupResult? {
@@ -31,11 +61,7 @@ public class LeagueSession {
     }
 }
 
-extension LeagueSession: Hashable {
-    public var hashValue: Int {
-        return date?.hashValue ?? 0
-    }
-    
+extension LeagueSession {
     public static func ==(lhs: LeagueSession, rhs: LeagueSession) -> Bool {
         return lhs.date == rhs.date && lhs.reportURL == rhs.reportURL
     }

@@ -7,14 +7,20 @@
 //
 
 import Foundation
+import CoreData
 
 class ParseSessionDetailsOperation: Operation {
     var leagueSession: LeagueSession?
     var html: String?
+    var managedObjectContext: NSManagedObjectContext
+    
+    init(managedObjectContext: NSManagedObjectContext) {
+        self.managedObjectContext = managedObjectContext
+    }
     
     override func main() {
         do {
-            let parser = try Parser(html: html)
+            let parser = try Parser(html: html, managedObjectContext: managedObjectContext)
             try parser.parseGameTables(leagueSession: &leagueSession)
             
         } catch {

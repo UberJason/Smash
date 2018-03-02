@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum MatrixValue {
     case value(Int), forfeit, none
@@ -67,16 +68,58 @@ struct GroupMatrix: Codable {
     }
 }
 
-public struct GroupResult {
-    private let winsMatrix: GroupMatrix
-    private let pointsMatrix: GroupMatrix
+public class GroupResult: NSManagedObject {
+    private static let decoder = JSONDecoder()
+    private static let encoder = JSONEncoder()
     
-    private var finalRatings: [String:Int]
-    private var netRatingChanges: [String:Int]
+    private var winsMatrix: GroupMatrix {
+        get {
+            let data = winsMatrixCD!.data(using: .utf8)!
+            return try! GroupResult.decoder.decode(GroupMatrix.self, from: data)
+        }
+        set {
+            let data = try! type(of: self).encoder.encode(newValue)
+            winsMatrixCD = String(data: data, encoding: .utf8)
+        }
+    }
+    private var pointsMatrix: GroupMatrix {
+        get {
+            let data = pointsMatrixCD!.data(using: .utf8)!
+            return try! GroupResult.decoder.decode(GroupMatrix.self, from: data)
+        }
+        set {
+            let data = try! type(of: self).encoder.encode(newValue)
+            pointsMatrixCD = String(data: data, encoding: .utf8)
+        }
+    }
     
-    public var matches = [Match]()
-    public var players: [Player]
-    public var groupNumber: Int
+    private var finalRatings: [String:Int] = [:]
+    private var netRatingChanges: [String:Int] = [:]
+    
+    public var matches: [Match] {
+        get {
+            return matchesCD?.allObjects as? [Match] ?? []
+        }
+        set {
+            matchesCD = NSSet(array: newValue)
+        }
+    }
+    public var players: [Player] {
+        get {
+            return playersCD?.allObjects as? [Player] ?? []
+        }
+        set {
+            playersCD = NSSet(array: newValue)
+        }
+    }
+    public var groupNumber: Int {
+        get {
+            return Int(groupNumberCD)
+        }
+        set {
+            groupNumberCD = Int32(newValue)
+        }
+    }
     
     public func finalRating(for player: Player) -> Int? {
         return finalRatings[player.name]
@@ -91,7 +134,9 @@ public struct GroupResult {
         return netRatingChanges[player.name]
     }
     
-    internal init(groupNumber: Int, players: [Player], winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, netRatingChanges: [String:Int], finalRatings: [String:Int]) throws {
+    convenience init(groupNumber: Int, players: [Player], winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, netRatingChanges: [String:Int], finalRatings: [String:Int], managedObjectContext: NSManagedObjectContext) throws {
+        self.init(context: managedObjectContext)
+        
         self.groupNumber = groupNumber
         self.winsMatrix = winsMatrix
         self.pointsMatrix = pointsMatrix
@@ -99,13 +144,13 @@ public struct GroupResult {
         self.finalRatings = finalRatings
         self.players = players
         
-        try extractMatches()
+        try extractMatches(winsMatrix: winsMatrix, pointsMatrix: pointsMatrix, managedObjectContext: managedObjectContext)
     }
     
-    private mutating func extractMatches() throws {
+    private func extractMatches(winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, managedObjectContext: NSManagedObjectContext) throws {
         guard winsMatrix.results.count == pointsMatrix.results.count else { throw TableTennisError.mismatchedWinsAndPointsMatrices }
         
-        matches = [Match]()
+        var matches = [Match]()
         
         for i in 0 ..< winsMatrix.results.count {
             for j in i + 1 ..< winsMatrix.results[i].count {
@@ -115,9 +160,11 @@ public struct GroupResult {
                 let ratingChange = pointsMatrix.results[i][j].intValue
                 let player2Wins = winsMatrix.results[j][i].intValue
                 
-                let match = Match(player1: player1, player2: player2, player1Wins: player1Wins, player2Wins: player2Wins, ratingChange: abs(ratingChange))
+                let match = Match(player1: player1, player2: player2, player1Wins: player1Wins, player2Wins: player2Wins, ratingChange: abs(ratingChange), managedObjectContext: managedObjectContext)
                 matches.append(match)
             }
         }
+        
+        self.matches = matches
     }
 }

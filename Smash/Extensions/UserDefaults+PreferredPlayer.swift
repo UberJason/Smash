@@ -11,15 +11,15 @@ import SmashKit
 
 extension UserDefaults {
     static let preferredPlayerKey = "preferredPlayer"
-    var preferredPlayer: Player? {
+    var preferredPlayer: String? {
         get {
             if let name = string(forKey: UserDefaults.preferredPlayerKey) {
-                return Player(name: name)
+                return name
             }
             return nil
         }
         set {
-            set(newValue?.name, forKey: UserDefaults.preferredPlayerKey)
+            set(newValue, forKey: UserDefaults.preferredPlayerKey)
             synchronize()
         }
     }

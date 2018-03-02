@@ -3,6 +3,7 @@ use_frameworks!
 
 def shared_pods
 	pod 'SwiftSoup'
+	pod 'CoreDataStackManager'
 end
 
 target 'Smash' do

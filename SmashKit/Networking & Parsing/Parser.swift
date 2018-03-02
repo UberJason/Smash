@@ -7,12 +7,22 @@
 //
 
 import Foundation
+import CoreData
 import SwiftSoup
 
 public class Parser {
     var document: Document
+    var managedObjectContext: NSManagedObjectContext
     
-    struct LeagueSessionLink {
+    struct LeagueSessionLink: Hashable {
+        static func ==(lhs: Parser.LeagueSessionLink, rhs: Parser.LeagueSessionLink) -> Bool {
+            return lhs.url == rhs.url && lhs.title == rhs.title
+        }
+        
+        var hashValue: Int {
+            return (url+title).hashValue
+        }
+        
         let url: String
         let title: String
         
@@ -39,17 +49,26 @@ public class Parser {
         return f
     }()
     
-    public init(html: String?) throws {
+    public init(html: String?, managedObjectContext: NSManagedObjectContext) throws {
         guard let html = html else { throw TableTennisError.invalidHtml }
+        self.managedObjectContext = managedObjectContext
+        
         document = try SwiftSoup.parse(html)
     }
     
     public func parseLeagueReports() throws -> [LeagueSession] {
-        guard let links = try document.getElementById(Strings.MainCPH_BulletedList1)?.getElementsByTag(Strings.a).array().map({ LeagueSessionLink(url: try $0.attr(Strings.href), title: try $0.text()) }) else { throw TableTennisError.missingLeagueSessionLinks }
+        guard var links = try document.getElementById(Strings.MainCPH_BulletedList1)?.getElementsByTag(Strings.a).array().map({ LeagueSessionLink(url: try $0.attr(Strings.href), title: try $0.text()) }) else { throw TableTennisError.missingLeagueSessionLinks }
         
-        var leagueSessions = links.map { LeagueSession(date: $0.sessionDate, reportURL: $0.url) }
         // There are sometimes duplicate reports. Remove them.
-        leagueSessions = Array(Set<LeagueSession>(leagueSessions)).filter({$0.date != nil }).sorted(by: {$0.date! > $1.date! })
+        links = Array(Set<LeagueSessionLink>(links))
+        
+        let leagueSessions = links.map {
+            LeagueSession(date: $0.sessionDate, reportURL: $0.url, managedObjectContext: managedObjectContext)
+            }.filter {
+                $0.date != nil
+            }.sorted {
+                $0.date! > $1.date!
+            }
         
         return leagueSessions
     }
@@ -77,7 +96,7 @@ public class Parser {
             for row in rows {
                 guard let name = try row.getElementsByClass(Strings.datacolumn1).first()?.text() else { throw TableTennisError.missingName }
                 
-                players.append(Player(name: name))
+                players.append(Player(name: name, managedObjectContext: managedObjectContext))
                 
                 let gamesWon = try row.getElementsByClass(Strings.gamesemcolumn).array().map(tableTennisElementToMatrixValue)
                 winsGroupMatrix.results.append(gamesWon)
@@ -94,7 +113,7 @@ public class Parser {
                 finalRatings[name] = finalRating
             }
             
-            groupResults.append(try GroupResult(groupNumber: index + 1, players: players, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings))
+            groupResults.append(try GroupResult(groupNumber: index + 1, players: players, winsMatrix: winsGroupMatrix, pointsMatrix: pointsGroupMatrix, netRatingChanges: netRatingChanges, finalRatings: finalRatings, managedObjectContext: managedObjectContext))
         }
         leagueSession = leagueSession ?? LeagueSession()
         leagueSession?.date = sessionDate
