@@ -152,6 +152,10 @@ public class GroupResult: NSManagedObject {
         return netRatingChanges[player.name]
     }
     
+    public func matches(for player: Player) -> [Match]? {
+        return matches.filter { $0.players.map { $0.name }.contains(player.name) }
+    }
+    
     convenience init(groupNumber: Int, players: [Player], winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, netRatingChanges: [String:Int], finalRatings: [String:Int], managedObjectContext: NSManagedObjectContext) throws {
         self.init(context: managedObjectContext)
         

@@ -22,6 +22,7 @@
 		960948962049B6D0009086CE /* LeagueSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948952049B6D0009086CE /* LeagueSessionCell.swift */; };
 		960948982049B753009086CE /* LeagueSessionCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948972049B753009086CE /* LeagueSessionCellExtension.swift */; };
 		9609489A2049BA1B009086CE /* LeagueSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948992049BA1B009086CE /* LeagueSessionsViewController.swift */; };
+		9609489C2049C1AC009086CE /* PlayerSessionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609489B2049C1AC009086CE /* PlayerSessionDetailsViewController.swift */; };
 		9641A599204747FD008AC39F /* MatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A598204747FD008AC39F /* MatchExtension.swift */; };
 		9641A59B20474805008AC39F /* MatchResultCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59A20474805008AC39F /* MatchResultCellExtension.swift */; };
 		9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59C2047484E008AC39F /* CellIdentifiers.swift */; };
@@ -101,6 +102,7 @@
 		960948952049B6D0009086CE /* LeagueSessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSessionCell.swift; sourceTree = "<group>"; };
 		960948972049B753009086CE /* LeagueSessionCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSessionCellExtension.swift; sourceTree = "<group>"; };
 		960948992049BA1B009086CE /* LeagueSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSessionsViewController.swift; sourceTree = "<group>"; };
+		9609489B2049C1AC009086CE /* PlayerSessionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSessionDetailsViewController.swift; sourceTree = "<group>"; };
 		9641A598204747FD008AC39F /* MatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchExtension.swift; sourceTree = "<group>"; };
 		9641A59A20474805008AC39F /* MatchResultCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultCellExtension.swift; sourceTree = "<group>"; };
 		9641A59C2047484E008AC39F /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				9646637B2040E6B20011C908 /* ViewController.swift */,
 				960948992049BA1B009086CE /* LeagueSessionsViewController.swift */,
+				9609489B2049C1AC009086CE /* PlayerSessionDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				9641A59B20474805008AC39F /* MatchResultCellExtension.swift in Sources */,
 				9641A599204747FD008AC39F /* MatchExtension.swift in Sources */,
 				9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */,
+				9609489C2049C1AC009086CE /* PlayerSessionDetailsViewController.swift in Sources */,
 				96C29DD32048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift in Sources */,
 				960948982049B753009086CE /* LeagueSessionCellExtension.swift in Sources */,
 				9641A59F204748B4008AC39F /* Nibs.swift in Sources */,

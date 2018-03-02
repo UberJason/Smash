@@ -24,8 +24,10 @@ class LeagueSessionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.refreshControl = refreshControl
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         refreshSessions()
     }
     
@@ -38,6 +40,16 @@ class LeagueSessionsViewController: UIViewController {
                     self.tableView.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
                 }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let selectedRowIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedRowIndexPath, animated: true)
+            
+            let session = leagueSessions?[selectedRowIndexPath.row]
+            let destination = segue.destination as? PlayerSessionDetailsViewController
+            destination?.session = session
         }
     }
 }

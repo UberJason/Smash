@@ -26,6 +26,11 @@ public class Match: NSManagedObject {
             player2CD = newValue
         }
     }
+    
+    public var players: [Player] {
+        return [player1, player2]
+    }
+    
     public var player1Wins: Int {
         get {
             return Int(player1WinsCD)

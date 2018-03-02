@@ -57,6 +57,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="gqS-dU-9Ev" id="HIy-pl-1oo"/>
                                             <outlet property="subtitleLabel" destination="WAq-5P-PRx" id="d3J-Aj-Vfd"/>
+                                            <segue destination="bLl-no-F7c" kind="show" id="47m-Fc-kpw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -75,7 +76,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gEb-QT-gKr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="League Session Reports" id="M4T-W6-l7Q"/>
+                    <navigationItem key="navigationItem" title="League Session Reports" id="M4T-W6-l7Q">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qK2-tD-LV1"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0OA-Cv-mHQ" id="6D0-eS-SAq"/>
                     </connections>
@@ -83,6 +86,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMP-1I-beg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="598" y="-256"/>
+        </scene>
+        <!--Player Session Details View Controller-->
+        <scene sceneID="9eL-JK-AIL">
+            <objects>
+                <viewController id="bLl-no-F7c" customClass="PlayerSessionDetailsViewController" customModule="Smash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tJq-dK-ea8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBK-J5-j3s">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bLl-no-F7c" id="BPn-cK-UFR"/>
+                                    <outlet property="delegate" destination="bLl-no-F7c" id="gPz-4y-1CN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zxq-cm-QI8" firstAttribute="bottom" secondItem="HBK-J5-j3s" secondAttribute="bottom" id="Pb6-hb-CH4"/>
+                            <constraint firstItem="HBK-J5-j3s" firstAttribute="leading" secondItem="zxq-cm-QI8" secondAttribute="leading" id="Qk0-tI-5LX"/>
+                            <constraint firstItem="HBK-J5-j3s" firstAttribute="top" secondItem="zxq-cm-QI8" secondAttribute="top" id="esc-Og-pSY"/>
+                            <constraint firstItem="zxq-cm-QI8" firstAttribute="trailing" secondItem="HBK-J5-j3s" secondAttribute="trailing" id="rTA-Vr-xZf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zxq-cm-QI8"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="HBK-J5-j3s" id="g1v-gE-FAJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Jg-3Q-GEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1399" y="-256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9i8-EG-DI8">
