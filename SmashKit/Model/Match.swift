@@ -39,6 +39,7 @@ public class Match: NSManagedObject {
             player1WinsCD = Int32(newValue)
         }
     }
+    
     public var player2Wins: Int {
         get {
             return Int(player2WinsCD)
@@ -56,12 +57,22 @@ public class Match: NSManagedObject {
             isForfeitCD = newValue
         }
     }
+    
     public var ratingChange: Int {
         get {
             return Int(ratingChangeCD)
         }
         set {
             ratingChangeCD = Int32(newValue)
+        }
+    }
+    
+    public var groupResult: GroupResult? {
+        get {
+            return groupResultCD
+        }
+        set {
+            groupResultCD = newValue
         }
     }
     

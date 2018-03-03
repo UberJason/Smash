@@ -124,10 +124,10 @@ public class GroupResult: NSManagedObject {
     }
     public var players: [Player] {
         get {
-            return playersCD?.allObjects as? [Player] ?? []
+            return playersCD?.array as? [Player] ?? []
         }
         set {
-            playersCD = NSSet(array: newValue)
+            playersCD = NSOrderedSet(array: newValue)
         }
     }
     public var groupNumber: Int {
@@ -153,7 +153,21 @@ public class GroupResult: NSManagedObject {
     }
     
     public func matches(for player: Player) -> [Match]? {
-        return matches.filter { $0.players.contains { $0 == player } }
+        var playerMatches = matches.filter { $0.players.contains { $0 == player } }
+        
+        playerMatches.sort { (match1, match2) -> Bool in
+            let match1OtherPlayer = match1.players.filter { $0 != player }.first!
+            let match2OtherPlayer = match2.players.filter { $0 != player }.first!
+            
+            return ranking(for: match1OtherPlayer)! < ranking(for: match2OtherPlayer)!
+        }
+        
+        return playerMatches
+    }
+    
+    public func ranking(for player: Player) -> Int? {
+        guard players.contains(player) else { return nil }
+        return players.index(of: player)! + 1    // Rankings are 1-indexed, arrays are 0-indexed
     }
     
     convenience init(groupNumber: Int, players: [Player], winsMatrix: GroupMatrix, pointsMatrix: GroupMatrix, netRatingChanges: [String:Int], finalRatings: [String:Int], managedObjectContext: NSManagedObjectContext) throws {

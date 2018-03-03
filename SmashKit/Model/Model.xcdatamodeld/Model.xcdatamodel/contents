@@ -8,7 +8,7 @@
         <attribute name="winsMatrixCD" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="leagueSessionCD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LeagueSession" inverseName="groupResultsCD" inverseEntity="LeagueSession" syncable="YES"/>
         <relationship name="matchesCD" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Match" inverseName="groupResultCD" inverseEntity="Match" syncable="YES"/>
-        <relationship name="playersCD" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="groupResultsCD" inverseEntity="Player" syncable="YES"/>
+        <relationship name="playersCD" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Player" inverseName="groupResultsCD" inverseEntity="Player" syncable="YES"/>
     </entity>
     <entity name="LeagueSession" representedClassName=".LeagueSession" syncable="YES" codeGenerationType="category">
         <attribute name="dateCD" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>

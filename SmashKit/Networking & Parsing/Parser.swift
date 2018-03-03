@@ -97,7 +97,7 @@ public class Parser {
             for row in rows {
                 guard let name = try row.getElementsByClass(Strings.datacolumn1).first()?.text() else { throw TableTennisError.missingName }
                 
-                players.append(Player(name: name, managedObjectContext: managedObjectContext))
+                players.append(try Player.newOrExistingPlayer(name: name, managedObjectContext: managedObjectContext))
                 
                 let gamesWon = try row.getElementsByClass(Strings.gamesemcolumn).array().map(tableTennisElementToMatrixValue)
                 winsGroupMatrix.results.append(gamesWon)

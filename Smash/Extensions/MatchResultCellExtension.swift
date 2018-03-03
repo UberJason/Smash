@@ -12,12 +12,18 @@ import SmashUIKit
 
 extension MatchResultCell {
     func configure(with match: Match, preferredPlayer player: Player) {
-        guard let ratingChangeString = match.ratingChangeString(for: player),
-            let ratingChangeColor = match.ratingChangeColor(for: player)
+        guard let groupResult = match.groupResult,
+            let ratingChangeString = match.ratingChangeString(for: player),
+            let ratingChangeColor = match.ratingChangeColor(for: player),
+            let p1FinalRating = groupResult.finalRating(for: match.player1),
+            let p2FinalRating = groupResult.finalRating(for: match.player2)
             else { fatalError("This match doesn't contain this player, what are you doing??") }
         
-        let params = MatchResultCellParams(upperPlayerName: match.player1.name,
-                                           lowerPlayerName: match.player2.name,
+        let upperPlayerName = "\(match.player1.name) (\(p1FinalRating))"
+        let lowerPlayerName = "\(match.player2.name) (\(p2FinalRating))"
+        
+        let params = MatchResultCellParams(upperPlayerName: upperPlayerName,
+                                           lowerPlayerName: lowerPlayerName,
                                            upperScore: match.player1Wins,
                                            lowerScore: match.player2Wins,
                                            upperFont: match.upperFont,

@@ -1,7 +1,6 @@
 # Smash App To-Do List
-- Implement storage (probably Core Data) to save League reports.
-- Start thinking about overall app structure - saving preferred `Player`.name in `NSUserDefaults` perhaps.
-- Build a proper view controller that takes a `LeagueSession` and a `preferredPlayer` and shows the results, based on Sketch mock-up.
+- Fix tint colors
+- Think about UI for an entire session summary
 
 Player
 - name

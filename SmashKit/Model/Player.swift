@@ -44,6 +44,12 @@ public class Player: NSManagedObject {
         }
     }
     
+    public static func newOrExistingPlayer(name: String, managedObjectContext: NSManagedObjectContext) throws -> Player {
+        let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
+        let players = try managedObjectContext.fetch(fetchRequest)
+        return players.filter { $0.name == name }.first ?? Player(name: name, managedObjectContext: managedObjectContext)
+    }
+    
     public convenience init(name: String, managedObjectContext: NSManagedObjectContext) {
         self.init(context: managedObjectContext)
         self.name = name
