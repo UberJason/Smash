@@ -34,6 +34,8 @@ public class PlayerDetailsView: UIView {
         Bundle(for: type(of: self)).loadNibNamed("PlayerDetailsView", owner: self, options: nil)
         guard let contentView = contentView else { return }
         addSubviewFullFrame(contentView)
+        
+        profileImageView.fallbackFont = UIFont.systemFont(ofSize: 22, weight: .medium)
     }
 
     public func configure(image: UIImage? = nil, initials: String? = nil, name: String, initialRating: String, finalRating: String, netRatingChange: String, netRatingLabelColor: UIColor, matchRecord: String, gameRecord: String, hideArrow: Bool = false) {

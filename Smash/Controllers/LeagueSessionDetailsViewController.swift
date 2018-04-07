@@ -76,6 +76,7 @@ class LeagueSessionDetailsViewController: UIViewController {
         
         tableView.refreshControl = refreshControl
         tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20.0))
         
         if let model = model, !model.session.containsResults {
             tableView.alpha = 0.0
@@ -148,7 +149,8 @@ extension LeagueSessionDetailsViewController: UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let player = model?.group(indexPath.section, playerAtIndex: indexPath.row) else { return }
-        performSegue(withIdentifier: "playerDetailsSegue", sender: player)
+        guard let (_, player) = model?.group(indexPath.section, playerAtIndex: indexPath.row) else { return }
+        performSegue(withIdentifier: Segues.playerDetails, sender: player)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

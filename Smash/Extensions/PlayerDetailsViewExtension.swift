@@ -34,7 +34,9 @@ extension PlayerDetailsView {
         let totalLosses = groupResult.gameLosses(for: player)
         let gameRecord = "\(totalWins) – \(totalLosses)"
         
-        configure(image: player.profileImage, name: player.name, initialRating: "\(initialRating)", finalRating: "\(finalRating)", netRatingChange: netRatingChangeString, netRatingLabelColor: netRatingLabelColor, matchRecord: matchRecord, gameRecord: gameRecord)
+        let initials = String(player.name.split(separator: " ").map({ $0.first }).compactMap({ $0 }))
+        
+        configure(image: player.profileImage, initials: initials, name: player.name, initialRating: "\(initialRating)", finalRating: "\(finalRating)", netRatingChange: netRatingChangeString, netRatingLabelColor: netRatingLabelColor, matchRecord: matchRecord, gameRecord: gameRecord)
     }
     
     func configureForAbsence(player: Player?) {
