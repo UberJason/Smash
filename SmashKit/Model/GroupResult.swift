@@ -152,6 +152,26 @@ public class GroupResult: NSManagedObject {
         return netRatingChanges[player.name]
     }
     
+    public func matchWins(for player: Player) -> Int {
+        guard let matches = self.matches(for: player) else { return 0 }
+        return matches.filter { $0.winner == player }.count
+    }
+    
+    public func matchLosses(for player: Player) -> Int {
+        guard let matches = self.matches(for: player) else { return 0 }
+        return matches.filter { $0.winner != player }.count
+    }
+    
+    public func gameWins(for player: Player) -> Int {
+        guard let matches = self.matches(for: player) else { return 0 }
+        return matches.map { $0.wins(for: player) }.compactMap { $0 }.reduce(0, +)
+    }
+    
+    public func gameLosses(for player: Player) -> Int {
+        guard let matches = self.matches(for: player) else { return 0 }
+        return matches.map { $0.losses(for: player) }.compactMap { $0 }.reduce(0, +)
+    }
+    
     public func matches(for player: Player) -> [Match]? {
         var playerMatches = matches.filter { $0.players.contains { $0 == player } }
         

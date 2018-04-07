@@ -48,7 +48,7 @@ class LeagueSessionsViewController: UIViewController {
             tableView.deselectRow(at: selectedRowIndexPath, animated: true)
             
             let session = leagueSessions?[selectedRowIndexPath.row]
-            let destination = segue.destination as? PlayerSessionDetailsViewController
+            let destination = segue.destination as? LeagueSessionDetailsViewController
             destination?.session = session
         }
     }

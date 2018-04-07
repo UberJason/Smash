@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yb7-VL-F29">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yb7-VL-F29">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +57,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="gqS-dU-9Ev" id="HIy-pl-1oo"/>
                                             <outlet property="subtitleLabel" destination="WAq-5P-PRx" id="d3J-Aj-Vfd"/>
-                                            <segue destination="bLl-no-F7c" kind="show" id="47m-Fc-kpw"/>
+                                            <segue destination="qpi-0e-N2s" kind="show" id="B0T-if-gkU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Jg-3Q-GEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397.5999999999999" y="-256.82158920539734"/>
+            <point key="canvasLocation" x="2223" y="-257"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9i8-EG-DI8">
@@ -160,6 +160,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBu-Ry-aL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-153.59999999999999" y="-255.47226386806599"/>
+        </scene>
+        <!--League Session Details View Controller-->
+        <scene sceneID="hnA-Ia-QXR">
+            <objects>
+                <viewController id="qpi-0e-N2s" customClass="LeagueSessionDetailsViewController" customModule="Smash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DNo-Mx-QRf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1fo-Bn-2t8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qpi-0e-N2s" id="mx9-ny-jX4"/>
+                                    <outlet property="delegate" destination="qpi-0e-N2s" id="H3b-W3-B18"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KcS-xS-hi4">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="KoH-G9-vyu"/>
+                                    <constraint firstAttribute="height" constant="50" id="nr5-Gb-1iu"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KcS-xS-hi4" firstAttribute="centerX" secondItem="DNo-Mx-QRf" secondAttribute="centerX" id="2wC-Gr-weE"/>
+                            <constraint firstItem="1fo-Bn-2t8" firstAttribute="leading" secondItem="2Qe-Cv-Wcp" secondAttribute="leading" id="BU5-7Z-EI7"/>
+                            <constraint firstItem="2Qe-Cv-Wcp" firstAttribute="bottom" secondItem="1fo-Bn-2t8" secondAttribute="bottom" id="fWP-FX-BmT"/>
+                            <constraint firstItem="2Qe-Cv-Wcp" firstAttribute="trailing" secondItem="1fo-Bn-2t8" secondAttribute="trailing" id="jTD-aa-gml"/>
+                            <constraint firstItem="KcS-xS-hi4" firstAttribute="centerY" secondItem="DNo-Mx-QRf" secondAttribute="centerY" id="kRj-i8-WL4"/>
+                            <constraint firstItem="1fo-Bn-2t8" firstAttribute="top" secondItem="2Qe-Cv-Wcp" secondAttribute="top" id="nm1-KL-bNK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Qe-Cv-Wcp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MZK-4c-LfH">
+                        <barButtonItem key="backBarButtonItem" title=" " id="3iF-f4-7Me"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="spinnerView" destination="KcS-xS-hi4" id="ppy-Hp-Y1g"/>
+                        <outlet property="tableView" destination="1fo-Bn-2t8" id="cuO-yS-pIX"/>
+                        <segue destination="bLl-no-F7c" kind="show" identifier="playerDetailsSegue" id="e4x-fC-Nyf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKy-r7-od3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408.8" y="-258.62068965517244"/>
         </scene>
     </scenes>
 </document>

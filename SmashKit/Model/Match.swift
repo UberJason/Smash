@@ -117,6 +117,13 @@ public extension Match {
         guard contains(player: player) else { return nil }
         return player == player1 ? p1RatingChange : p2RatingChange
     }
+
+    public func wins(for player: Player) -> Int? {
+        return player1 == player ? player1Wins : player2Wins
+    }
+    public func losses(for player: Player) -> Int? {
+        return player1 == player ? player2Wins : player1Wins
+    }
 }
 
 extension Match {

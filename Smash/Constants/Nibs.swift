@@ -10,4 +10,5 @@ import Foundation
 
 public struct Nibs {
     public static let matchResultCell = "MatchResultCell"
+    public static let playerResultCell = "PlayerResultCell"
 }

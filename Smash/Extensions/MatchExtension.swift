@@ -46,11 +46,4 @@ extension Match {
     var matchArrowStyle: MatchArrowStyle {
         return player1 == winner ? .upperArrow : .lowerArrow
     }
-    
-    func wins(for player: Player) -> Int? {
-        return player1 == player ? player1Wins : player2Wins
-    }
-    func losses(for player: Player) -> Int? {
-        return player1 == player ? player2Wins : player1Wins
-    }
 }

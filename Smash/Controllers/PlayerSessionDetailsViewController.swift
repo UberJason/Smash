@@ -19,22 +19,27 @@ class PlayerSessionDetailsModel {
     var matches: [Match]?
     var managedObjectContext: NSManagedObjectContext
     
-    init(session: LeagueSession, playerName: String, managedObjectContext: NSManagedObjectContext) {
+    init(session: LeagueSession, player: Player?, managedObjectContext: NSManagedObjectContext) {
         self.session = session
+        self.player = player
         self.managedObjectContext = managedObjectContext
-        self.player = { () -> Player? in
-            let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "nameCD == %@", playerName)
-            return try! managedObjectContext.fetch(fetchRequest).first
-        }()
-    
+        
         if let player = self.player {
             self.groupResult = session.group(for: player)
             self.matches = groupResult?.matches(for: player)
         }
     }
     
+    convenience init(session: LeagueSession, playerName: String, managedObjectContext: NSManagedObjectContext) {
+        
+        let player = { () -> Player? in
+            let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "nameCD == %@", playerName)
+            return try! managedObjectContext.fetch(fetchRequest).first
+        }()
     
+        self.init(session: session, player: player, managedObjectContext: managedObjectContext)
+    }
 }
 
 class PlayerSessionDetailsViewController: UIViewController {
@@ -50,7 +55,8 @@ class PlayerSessionDetailsViewController: UIViewController {
     }()
 
     var model: PlayerSessionDetailsModel?
-    
+
+    // TODO: refactor this - currently if you set session directly, it'll use saved preferredPlayer, and if you call setPlayer(_:session:) it will set the passed Player. Make this better.
     var session: LeagueSession? {
         get {
             return nil
@@ -61,6 +67,13 @@ class PlayerSessionDetailsViewController: UIViewController {
                 
                 model = PlayerSessionDetailsModel(session: newValue, playerName: UserDefaults.standard.preferredPlayer ?? "", managedObjectContext: SmashStackManager.shared.managedObjectContext)
             }
+        }
+    }
+    
+    func setPlayer(_ player: Player, session: LeagueSession) {
+        if let date = session.date {
+            title = Parser.sessionLongDateFormatter.string(from: date)
+            model = PlayerSessionDetailsModel(session: session, player: player, managedObjectContext: SmashStackManager.shared.managedObjectContext)
         }
     }
     
@@ -114,6 +127,10 @@ extension PlayerSessionDetailsViewController: UITableViewDelegate, UITableViewDa
         return 35.0
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20.0
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let model = model, let groupResult = model.groupResult, let numberOfGroups = model.session.numberOfGroups else {
             return nil
@@ -131,6 +148,7 @@ extension PlayerSessionDetailsViewController: UITableViewDelegate, UITableViewDa
         
         return label
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let match = model?.matches?[indexPath.row], let player = model?.player else { fatalError("No match or preferred Player") }
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.matchResultCell, for: indexPath) as! MatchResultCell

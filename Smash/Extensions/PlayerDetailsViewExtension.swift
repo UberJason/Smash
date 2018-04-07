@@ -17,8 +17,7 @@ extension PlayerDetailsView {
         
         guard let groupResult = groupResult,
             let initialRating = groupResult.initialRating(for: player),
-            let finalRating = groupResult.finalRating(for: player),
-            let matches = groupResult.matches(for: player) else {
+            let finalRating = groupResult.finalRating(for: player) else {
                 configureForAbsence(player: player)
                 return
         }
@@ -27,12 +26,12 @@ extension PlayerDetailsView {
         let netRatingChangeString = netRatingChange >= 0 ? "(+\(netRatingChange))" : "(–\(-1*netRatingChange))"
         let netRatingLabelColor = netRatingChange < 0 ? UIColor.defeatRed : UIColor.victoryGreen
         
-        let matchWins = matches.filter { $0.winner == player }.count
-        let matchLosses = matches.filter { $0.winner != player }.count
+        let matchWins = groupResult.matchWins(for: player)
+        let matchLosses = groupResult.matchLosses(for: player)
         let matchRecord = "\(matchWins) – \(matchLosses)"
         
-        let totalWins = matches.map { $0.wins(for: player) }.flatMap { $0 }.reduce(0, +)
-        let totalLosses = matches.map { $0.losses(for: player) }.flatMap { $0 }.reduce(0, +)
+        let totalWins = groupResult.gameWins(for: player)
+        let totalLosses = groupResult.gameLosses(for: player)
         let gameRecord = "\(totalWins) – \(totalLosses)"
         
         configure(image: player.profileImage, name: player.name, initialRating: "\(initialRating)", finalRating: "\(finalRating)", netRatingChange: netRatingChangeString, netRatingLabelColor: netRatingLabelColor, matchRecord: matchRecord, gameRecord: gameRecord)

@@ -11,5 +11,6 @@ import Foundation
 public struct CellIdentifiers {
     public static let matchResultCell = "matchResultCell"
     public static let leagueSessionCell = "leagueSessionCell"
+    public static let playerResultCell = "playerResultCell"
 }
 
