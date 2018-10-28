@@ -46,6 +46,7 @@ public class Parser {
     public static let sessionLongDateFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .long
+        f.locale = Locale(identifier: "en_US_POSIX")
         return f
     }()
     

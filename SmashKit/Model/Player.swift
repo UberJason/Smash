@@ -36,7 +36,7 @@ public class Player: NSManagedObject {
         }
         set {
             if let newValue = newValue {
-                profileImageCD = UIImageJPEGRepresentation(newValue, 1.0)
+                profileImageCD = newValue.jpegData(compressionQuality: 1.0)
             }
             else {
                 profileImageCD = nil

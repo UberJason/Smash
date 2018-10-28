@@ -15,7 +15,165 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "init(name:managedObjectContext:)"
+            landmarkName = "==(_:_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmashKit/Networking &amp; Parsing/Parser.swift"
+            timestampString = "562444317.509459"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "parseLeagueReports()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmashKit.Parser.parseLeagueReports() throws -&gt; Swift.Array&lt;SmashKit.LeagueSession&gt;"
+                  moduleName = "SmashKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Desktop/Developer/iOS/Smash/SmashKit/Networking%20&amp;%20Parsing/Parser.swift"
+                  timestampString = "562444274.87191"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1505">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (SmashKit.LeagueSession) -&gt; Swift.Bool in SmashKit.Parser.parseLeagueReports() throws -&gt; Swift.Array&lt;SmashKit.LeagueSession&gt;"
+                  moduleName = "SmashKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Desktop/Developer/iOS/Smash/SmashKit/Networking%20&amp;%20Parsing/Parser.swift"
+                  timestampString = "562444274.873806"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (SmashKit.LeagueSession, SmashKit.LeagueSession) -&gt; Swift.Bool in SmashKit.Parser.parseLeagueReports() throws -&gt; Swift.Array&lt;SmashKit.LeagueSession&gt;"
+                  moduleName = "SmashKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Desktop/Developer/iOS/Smash/SmashKit/Networking%20&amp;%20Parsing/Parser.swift"
+                  timestampString = "562444274.875913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmashKit/Networking &amp; Parsing/NetworkController.swift"
+            timestampString = "562443577.905354"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchLeagueSessions(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmashKit/Networking &amp; Parsing/Operations/ParseLeagueSessionsOperation.swift"
+            timestampString = "562443719.767208"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "main()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmashKit.ParseLeagueSessionsOperation.main() -&gt; ()"
+                  moduleName = "SmashKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Desktop/Developer/iOS/Smash/SmashKit/Networking%20&amp;%20Parsing/Operations/ParseLeagueSessionsOperation.swift"
+                  timestampString = "562444274.886362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "302">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmashKit.ParseLeagueSessionsOperation.main() -&gt; ()"
+                  moduleName = "SmashKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Desktop/Developer/iOS/Smash/SmashKit/Networking%20&amp;%20Parsing/Operations/ParseLeagueSessionsOperation.swift"
+                  timestampString = "562444274.887833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "571">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmashKit.ParseLeagueSessionsOperation.main() -&gt; ()"
+                  moduleName = "SmashKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Desktop/Developer/iOS/Smash/SmashKit/Networking%20&amp;%20Parsing/Operations/ParseLeagueSessionsOperation.swift"
+                  timestampString = "562444274.8892519"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "668">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmashKit/Networking &amp; Parsing/Operations/ParseLeagueSessionsOperation.swift"
+            timestampString = "562443725.360427"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "main()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
