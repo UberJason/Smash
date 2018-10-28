@@ -47,12 +47,6 @@ class PlayerSessionDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var playerDetailsView: PlayerDetailsView!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
-    
-    private lazy var refreshControl: UIRefreshControl = {
-        let r = UIRefreshControl()
-        r.addTarget(self, action: #selector(refreshSessionDetails(_:)), for: .valueChanged)
-        return r
-    }()
 
     var model: PlayerSessionDetailsModel?
 
@@ -82,7 +76,6 @@ class PlayerSessionDetailsViewController: UIViewController {
         
         tableView.register(UINib(nibName: Nibs.matchResultCell, bundle: Bundle(for: MatchResultCell.self)), forCellReuseIdentifier: CellIdentifiers.matchResultCell)
         
-        tableView.refreshControl = refreshControl
         tableView.tableFooterView = UIView()
         
         playerDetailsView.configure(with: model?.groupResult, player: model?.player)
@@ -99,7 +92,10 @@ class PlayerSessionDetailsViewController: UIViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         NetworkController.sharedInstance.fetchLeagueSessionDetails(model?.session) { (session) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.session = session
+            guard let player = self.model?.player, let session = session else { return }
+            
+            self.setPlayer(player, session: session)
+            
             self.playerDetailsView.alpha = 1.0
             self.tableView.alpha = 1.0
             self.playerDetailsView.configure(with: self.model?.groupResult, player: self.model?.player)
