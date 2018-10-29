@@ -88,7 +88,7 @@ class PlayerSessionDetailsViewController: UIViewController {
         }
     }
     
-    @objc func refreshSessionDetails(_ refreshControl: UIRefreshControl? = nil) {
+    func refreshSessionDetails() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         NetworkController.sharedInstance.fetchLeagueSessionDetails(model?.session) { (session) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
