@@ -34,6 +34,7 @@
 		960948A42049DB5F009086CE /* IconFallbackImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960948A32049DB5F009086CE /* IconFallbackImageView.xib */; };
 		960948A62049DB99009086CE /* UIView+AddSubviewFullFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */; };
 		960948A82049E868009086CE /* PlayerDetailsViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A72049E868009086CE /* PlayerDetailsViewExtension.swift */; };
+		961C8BDC218BED6900542CD6 /* NewMatchInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */; };
 		9641A599204747FD008AC39F /* MatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A598204747FD008AC39F /* MatchExtension.swift */; };
 		9641A59B20474805008AC39F /* MatchResultCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59A20474805008AC39F /* MatchResultCellExtension.swift */; };
 		9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59C2047484E008AC39F /* CellIdentifiers.swift */; };
@@ -52,6 +53,15 @@
 		964663AA2040E8AB0011C908 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A92040E8AB0011C908 /* Parser.swift */; };
 		964663AC2040E8D30011C908 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663AB2040E8D30011C908 /* Constants.swift */; };
 		96700EAF20460BF50029F7C1 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 96700EAE20460BF50029F7C1 /* TODO.md */; };
+		9698634B218BDE0500F78A1B /* ScorekeepingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */; };
+		96986352218BDF9700F78A1B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96986350218BDF9700F78A1B /* Interface.storyboard */; };
+		96986354218BDF9900F78A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96986353218BDF9900F78A1B /* Assets.xcassets */; };
+		9698635B218BDF9900F78A1B /* SmashWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		96986362218BDF9900F78A1B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96986361218BDF9900F78A1B /* ExtensionDelegate.swift */; };
+		96986366218BDF9900F78A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96986365218BDF9900F78A1B /* Assets.xcassets */; };
+		9698636B218BDF9900F78A1B /* SmashWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9698634E218BDF9700F78A1B /* SmashWatch.app */; };
+		96986375218BE17F00F78A1B /* GameScoreInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */; };
+		96986377218BE36300F78A1B /* WKPickerItem+InitWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96986376218BE36300F78A1B /* WKPickerItem+InitWithTitle.swift */; };
 		96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DC720478F9900E1FBC1 /* NetworkController.swift */; };
 		96C29DCB20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DCA20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift */; };
 		96C29DCD20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DCC20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift */; };
@@ -77,6 +87,20 @@
 			remoteGlobalIDString = 964663922040E7F20011C908;
 			remoteInfo = SmashKit;
 		};
+		9698635C218BDF9900F78A1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9646636E2040E6B20011C908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96986359218BDF9900F78A1B;
+			remoteInfo = "SmashWatch Extension";
+		};
+		96986369218BDF9900F78A1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9646636E2040E6B20011C908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9698634D218BDF9700F78A1B;
+			remoteInfo = SmashWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +114,28 @@
 				9646639B2040E7F20011C908 /* SmashKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9698636F218BDF9900F78A1B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9698635B218BDF9900F78A1B /* SmashWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96986373218BDF9900F78A1B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				9698636B218BDF9900F78A1B /* SmashWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -124,6 +170,7 @@
 		960948A32049DB5F009086CE /* IconFallbackImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconFallbackImageView.xib; sourceTree = "<group>"; };
 		960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviewFullFrame.swift"; sourceTree = "<group>"; };
 		960948A72049E868009086CE /* PlayerDetailsViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewExtension.swift; sourceTree = "<group>"; };
+		961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMatchInterfaceController.swift; sourceTree = "<group>"; };
 		9641A598204747FD008AC39F /* MatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchExtension.swift; sourceTree = "<group>"; };
 		9641A59A20474805008AC39F /* MatchResultCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultCellExtension.swift; sourceTree = "<group>"; };
 		9641A59C2047484E008AC39F /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
@@ -146,6 +193,17 @@
 		964663AB2040E8D30011C908 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96700EAE20460BF50029F7C1 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingSession.swift; sourceTree = "<group>"; };
+		9698634E218BDF9700F78A1B /* SmashWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96986351218BDF9700F78A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		96986353218BDF9900F78A1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96986355218BDF9900F78A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SmashWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96986361218BDF9900F78A1B /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		96986365218BDF9900F78A1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96986367218BDF9900F78A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreInterfaceController.swift; sourceTree = "<group>"; };
+		96986376218BE36300F78A1B /* WKPickerItem+InitWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKPickerItem+InitWithTitle.swift"; sourceTree = "<group>"; };
 		96C29DC720478F9900E1FBC1 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		96C29DCA20479B2B00E1FBC1 /* DownloadLeagueSessionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadLeagueSessionsOperation.swift; sourceTree = "<group>"; };
 		96C29DCC20479B4100E1FBC1 /* ParseLeagueSessionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseLeagueSessionsOperation.swift; sourceTree = "<group>"; };
@@ -180,6 +238,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A10FC51499789E5F40A6C90 /* Pods_SmashKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96986357218BDF9900F78A1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +359,8 @@
 				964663782040E6B20011C908 /* Smash */,
 				964663942040E7F20011C908 /* SmashKit */,
 				9609487B2043B3C3009086CE /* SmashUIKit */,
+				9698634F218BDF9700F78A1B /* SmashWatch */,
+				9698635E218BDF9900F78A1B /* SmashWatch Extension */,
 				964663772040E6B20011C908 /* Products */,
 				C3A5E3AEF29FDFD6975C9158 /* Pods */,
 				C2256BF1E7D71B04B5C91ED1 /* Frameworks */,
@@ -306,6 +373,8 @@
 				964663762040E6B20011C908 /* Smash.app */,
 				964663932040E7F20011C908 /* SmashKit.framework */,
 				9609487A2043B3C3009086CE /* SmashUIKit.framework */,
+				9698634E218BDF9700F78A1B /* SmashWatch.app */,
+				9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -344,9 +413,49 @@
 				964663A52040E8700011C908 /* Match.swift */,
 				9609489320450A5F009086CE /* LeagueSession.swift */,
 				9641A5A320474989008AC39F /* GroupResult.swift */,
+				9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */,
 				96C29DD42048CF7900E1FBC1 /* Model.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9698634F218BDF9700F78A1B /* SmashWatch */ = {
+			isa = PBXGroup;
+			children = (
+				96986350218BDF9700F78A1B /* Interface.storyboard */,
+				96986353218BDF9900F78A1B /* Assets.xcassets */,
+				96986355218BDF9900F78A1B /* Info.plist */,
+			);
+			path = SmashWatch;
+			sourceTree = "<group>";
+		};
+		9698635E218BDF9900F78A1B /* SmashWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				96986361218BDF9900F78A1B /* ExtensionDelegate.swift */,
+				96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */,
+				961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */,
+				96986379218BE38000F78A1B /* Extensions */,
+				96986378218BE37400F78A1B /* Utilities */,
+			);
+			path = "SmashWatch Extension";
+			sourceTree = "<group>";
+		};
+		96986378218BE37400F78A1B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				96986365218BDF9900F78A1B /* Assets.xcassets */,
+				96986367218BDF9900F78A1B /* Info.plist */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		96986379218BE38000F78A1B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96986376218BE36300F78A1B /* WKPickerItem+InitWithTitle.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		96C29DC920479B1B00E1FBC1 /* Operations */ = {
@@ -430,12 +539,14 @@
 				964663742040E6B20011C908 /* Resources */,
 				9646639F2040E7F20011C908 /* Embed Frameworks */,
 				DCF95557CE54946F0139805D /* [CP] Embed Pods Frameworks */,
+				96986373218BDF9900F78A1B /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				964663992040E7F20011C908 /* PBXTargetDependency */,
 				960948802043B3C3009086CE /* PBXTargetDependency */,
+				9698636A218BDF9900F78A1B /* PBXTargetDependency */,
 			);
 			name = Smash;
 			productName = Smash;
@@ -461,13 +572,47 @@
 			productReference = 964663932040E7F20011C908 /* SmashKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		9698634D218BDF9700F78A1B /* SmashWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96986370218BDF9900F78A1B /* Build configuration list for PBXNativeTarget "SmashWatch" */;
+			buildPhases = (
+				9698634C218BDF9700F78A1B /* Resources */,
+				9698636F218BDF9900F78A1B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9698635D218BDF9900F78A1B /* PBXTargetDependency */,
+			);
+			name = SmashWatch;
+			productName = SmashWatch;
+			productReference = 9698634E218BDF9700F78A1B /* SmashWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		96986359218BDF9900F78A1B /* SmashWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9698636C218BDF9900F78A1B /* Build configuration list for PBXNativeTarget "SmashWatch Extension" */;
+			buildPhases = (
+				96986356218BDF9900F78A1B /* Sources */,
+				96986357218BDF9900F78A1B /* Frameworks */,
+				96986358218BDF9900F78A1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SmashWatch Extension";
+			productName = "SmashWatch Extension";
+			productReference = 9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9646636E2040E6B20011C908 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Jason Ji";
 				TargetAttributes = {
@@ -484,6 +629,14 @@
 					964663922040E7F20011C908 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
+					9698634D218BDF9700F78A1B = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					96986359218BDF9900F78A1B = {
+						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -504,6 +657,8 @@
 				964663752040E6B20011C908 /* Smash */,
 				964663922040E7F20011C908 /* SmashKit */,
 				960948792043B3C3009086CE /* SmashUIKit */,
+				9698634D218BDF9700F78A1B /* SmashWatch */,
+				96986359218BDF9900F78A1B /* SmashWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -537,6 +692,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9698634C218BDF9700F78A1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96986354218BDF9900F78A1B /* Assets.xcassets in Resources */,
+				96986352218BDF9700F78A1B /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96986358218BDF9900F78A1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96986366218BDF9900F78A1B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +814,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */,
+				9698634B218BDE0500F78A1B /* ScorekeepingSession.swift in Sources */,
 				96C29DD82048DC8900E1FBC1 /* SmashStackManager.swift in Sources */,
 				9609489420450A5F009086CE /* LeagueSession.swift in Sources */,
 				96C29DCF20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift in Sources */,
@@ -658,6 +831,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96986356218BDF9900F78A1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961C8BDC218BED6900542CD6 /* NewMatchInterfaceController.swift in Sources */,
+				96986362218BDF9900F78A1B /* ExtensionDelegate.swift in Sources */,
+				96986375218BE17F00F78A1B /* GameScoreInterfaceController.swift in Sources */,
+				96986377218BE36300F78A1B /* WKPickerItem+InitWithTitle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -670,6 +854,16 @@
 			isa = PBXTargetDependency;
 			target = 964663922040E7F20011C908 /* SmashKit */;
 			targetProxy = 964663982040E7F20011C908 /* PBXContainerItemProxy */;
+		};
+		9698635D218BDF9900F78A1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96986359218BDF9900F78A1B /* SmashWatch Extension */;
+			targetProxy = 9698635C218BDF9900F78A1B /* PBXContainerItemProxy */;
+		};
+		9698636A218BDF9900F78A1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9698634D218BDF9700F78A1B /* SmashWatch */;
+			targetProxy = 96986369218BDF9900F78A1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -690,6 +884,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		96986350218BDF9700F78A1B /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96986351218BDF9700F78A1B /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -707,6 +909,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SmashUIKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -733,6 +936,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SmashUIKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -864,6 +1068,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = "$(SRCROOT)/Smash/Utilities/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -881,6 +1086,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = "$(SRCROOT)/Smash/Utilities/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -904,6 +1110,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SmashKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -931,6 +1138,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SmashKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -939,6 +1147,90 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9698636D218BDF9900F78A1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				INFOPLIST_FILE = "$(SRCROOT)/SmashWatch Extension/Utilities/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		9698636E218BDF9900F78A1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				INFOPLIST_FILE = "$(SRCROOT)/SmashWatch Extension/Utilities/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		96986371218BDF9900F78A1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				IBSC_MODULE = SmashWatch_Extension;
+				INFOPLIST_FILE = SmashWatch/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		96986372218BDF9900F78A1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				IBSC_MODULE = SmashWatch_Extension;
+				INFOPLIST_FILE = SmashWatch/Info.plist;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.Smash.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
@@ -977,6 +1269,24 @@
 			buildConfigurations = (
 				9646639C2040E7F20011C908 /* Debug */,
 				9646639D2040E7F20011C908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9698636C218BDF9900F78A1B /* Build configuration list for PBXNativeTarget "SmashWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9698636D218BDF9900F78A1B /* Debug */,
+				9698636E218BDF9900F78A1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96986370218BDF9900F78A1B /* Build configuration list for PBXNativeTarget "SmashWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96986371218BDF9900F78A1B /* Debug */,
+				96986372218BDF9900F78A1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

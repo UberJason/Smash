@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G3025" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="GroupResult" representedClassName=".GroupResult" syncable="YES" codeGenerationType="category">
         <attribute name="finalRatingsCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="groupNumberCD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -23,6 +23,7 @@
         <relationship name="groupResultCD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroupResult" inverseName="matchesCD" inverseEntity="GroupResult" syncable="YES"/>
         <relationship name="player1CD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="matchesAsPlayer1CD" inverseEntity="Player" syncable="YES"/>
         <relationship name="player2CD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="matchesAsPlayer2CD" inverseEntity="Player" syncable="YES"/>
+        <relationship name="scorekeepingSessionCD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScorekeepingSession" inverseName="matchesCD" inverseEntity="ScorekeepingSession" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName=".Player" syncable="YES" codeGenerationType="category">
         <attribute name="initialsCD" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,10 +33,15 @@
         <relationship name="matchesAsPlayer1CD" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Match" inverseName="player1CD" inverseEntity="Match" syncable="YES"/>
         <relationship name="matchesAsPlayer2CD" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Match" inverseName="player2CD" inverseEntity="Match" syncable="YES"/>
     </entity>
+    <entity name="ScorekeepingSession" representedClassName=".ScorekeepingSession" syncable="YES" codeGenerationType="category">
+        <attribute name="dateCD" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="matchesCD" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Match" inverseName="scorekeepingSessionCD" inverseEntity="Match" syncable="YES"/>
+    </entity>
     <elements>
         <element name="GroupResult" positionX="351" positionY="77" width="128" height="165"/>
         <element name="LeagueSession" positionX="144" positionY="81" width="128" height="90"/>
-        <element name="Match" positionX="387" positionY="215" width="128" height="150"/>
+        <element name="Match" positionX="387" positionY="215" width="128" height="165"/>
         <element name="Player" positionX="592" positionY="233" width="128" height="135"/>
+        <element name="ScorekeepingSession" positionX="351" positionY="207" width="128" height="75"/>
     </elements>
 </model>
