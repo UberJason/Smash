@@ -16,6 +16,7 @@ struct GameScoreModel {
 
 protocol GameScoreDelegate: class {
     func didSaveGame(_ game: Game)
+    func didDeleteGame(_ game: Game)
 }
 
 class GameScoreInterfaceController: WKInterfaceController {
@@ -27,6 +28,9 @@ class GameScoreInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var player1ScorePicker: WKInterfacePicker!
     @IBOutlet weak var player2ScorePicker: WKInterfacePicker!
+    
+    @IBOutlet weak var saveGameButton: WKInterfaceButton!
+    @IBOutlet weak var deleteGameButton: WKInterfaceButton!
     
     var model: GameScoreModel?
     
@@ -47,6 +51,15 @@ class GameScoreInterfaceController: WKInterfaceController {
             
             player1ScorePicker.setSelectedItemIndex(max(game.player1Score - 1, 0))
             player2ScorePicker.setSelectedItemIndex(max(game.player2Score - 1, 0))
+            
+            if game.player1Score == 0 && game.player2Score == 0 {
+                deleteGameButton.setHidden(true)
+                saveGameButton.setHidden(false)
+            }
+            else {
+                deleteGameButton.setHidden(false)
+                saveGameButton.setHidden(true)
+            }
         }
     }
 
@@ -78,9 +91,14 @@ class GameScoreInterfaceController: WKInterfaceController {
         model?.game.player2Score = value + 1
     }
     
-    
     @IBAction func saveGame() {
         guard let game = model?.game else { return }
         delegate?.didSaveGame(game)
     }
+    
+    @IBAction func deleteGame() {
+        guard let game = model?.game else { return }
+        delegate?.didDeleteGame(game)
+    }
+    
 }

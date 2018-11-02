@@ -131,20 +131,27 @@
                                     </items>
                                 </group>
                                 <group width="1" height="8" alignment="left" id="lSO-mH-WKl"/>
-                                <button width="1" alignment="left" title="Save" id="f6C-wk-lH1">
+                                <button width="1" alignment="left" title="Save Game" id="f6C-wk-lH1">
                                     <connections>
                                         <action selector="saveGame" destination="AgC-eL-Hgc" id="ieu-g5-1Zm"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="Delete Game" id="uR7-Hf-fez">
+                                    <connections>
+                                        <action selector="deleteGame" destination="AgC-eL-Hgc" id="NnB-iZ-SJu"/>
                                     </connections>
                                 </button>
                             </items>
                         </group>
                     </items>
                     <connections>
+                        <outlet property="deleteGameButton" destination="uR7-Hf-fez" id="SIp-LN-9kr"/>
                         <outlet property="gameLabel" destination="9gg-Rt-4bd" id="AlH-wv-UcE"/>
                         <outlet property="player1NameLabel" destination="zg2-C4-leY" id="nlg-jE-glJ"/>
                         <outlet property="player1ScorePicker" destination="pZA-v6-ZIy" id="iGs-z5-CDd"/>
                         <outlet property="player2NameLabel" destination="nUd-ea-H9D" id="XDu-cY-020"/>
                         <outlet property="player2ScorePicker" destination="JTI-it-XcT" id="VV0-Wp-B5o"/>
+                        <outlet property="saveGameButton" destination="f6C-wk-lH1" id="BvS-35-27k"/>
                     </connections>
                 </controller>
             </objects>

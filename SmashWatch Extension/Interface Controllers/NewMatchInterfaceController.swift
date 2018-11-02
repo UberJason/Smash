@@ -39,6 +39,12 @@ class NewMatchModel {
         match.games.remove(at: index)
     }
     
+    func delete(_ game: Game) {
+        if let index = match.games.firstIndex(where: { $0 == game }) {
+            delete(at: index)
+        }
+    }
+    
     var summaryDescription: String {
         return match.summaryDescription(for: primaryPlayer)
     }
@@ -55,7 +61,6 @@ class NewMatchInterfaceController: WKInterfaceController {
     @IBOutlet weak var matchLabel: WKInterfaceLabel!
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     @IBOutlet weak var table: WKInterfaceTable!
-    
     
     @IBOutlet weak var saveMatchButton: WKInterfaceButton!
     @IBOutlet weak var deleteMatchButton: WKInterfaceButton!
@@ -124,19 +129,24 @@ class NewMatchInterfaceController: WKInterfaceController {
     }
     
     @IBAction func saveMatch() {
-        guard let model = model else { return }
-        delegate?.didSaveMatch(model.match)
+        guard let match = model?.match else { return }
+        delegate?.didSaveMatch(match)
     }
     
     @IBAction func deleteMatch() {
-        guard let model = model else { return }
-        delegate?.didDeleteMatch(model.match)
+        guard let match = model?.match else { return }
+        delegate?.didDeleteMatch(match)
     }
 }
 
 extension NewMatchInterfaceController: GameScoreDelegate {
     func didSaveGame(_ game: Game) {
         model?.addGame(game)
+        pop()
+    }
+    
+    func didDeleteGame(_ game: Game) {
+        model?.delete(game)
         pop()
     }
 }
