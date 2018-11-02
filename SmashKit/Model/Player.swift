@@ -19,6 +19,12 @@ public class Player: NSManagedObject {
         }
     }
     
+    public var firstName: String {
+        get {
+            return String(name.split(separator: " ").first!)
+        }
+    }
+    
     public var initials: String? {
         get {
             return initialsCD

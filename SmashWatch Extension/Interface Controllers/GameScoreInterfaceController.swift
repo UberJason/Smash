@@ -42,8 +42,8 @@ class GameScoreInterfaceController: WKInterfaceController {
             model = GameScoreModel(gameNumber: number, game: game)
             
             gameLabel.setText("Game \(number)")
-            player1NameLabel.setText(game.player1.name)
-            player2NameLabel.setText(game.player2.name)
+            player1NameLabel.setText(game.player1.firstName)
+            player2NameLabel.setText(game.player2.firstName)
             
             player1ScorePicker.setSelectedItemIndex(max(game.player1Score - 1, 0))
             player2ScorePicker.setSelectedItemIndex(max(game.player2Score - 1, 0))

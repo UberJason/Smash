@@ -15,7 +15,7 @@ class MatchRowController: NSObject {
     @IBOutlet weak var secondaryLabel: WKInterfaceLabel!
     
     func configure(with match: ScorekeepingMatch, number: Int, primaryPlayer: Player) {
-        primaryLabel.setText("Match \(number)")
+        primaryLabel.setText("Match #\(number)")
         secondaryLabel.setText(match.summaryDescription(for: primaryPlayer))
     }
 }

@@ -66,13 +66,24 @@
                                                 </button>
                                             </items>
                                         </group>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="RtE-ua-Z2q">
+                                            <items>
+                                                <button width="1" alignment="left" verticalAlignment="bottom" hidden="YES" title="Delete Match" id="92T-kR-xE8">
+                                                    <connections>
+                                                        <action selector="deleteMatch" destination="GRf-LZ-5Mh" id="NgQ-O6-jhp"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
                                     </items>
                                 </group>
                             </items>
                         </group>
                     </items>
                     <connections>
+                        <outlet property="deleteMatchButton" destination="92T-kR-xE8" id="2ly-WF-tXS"/>
                         <outlet property="matchLabel" destination="MTB-BY-hGz" id="bYy-FS-xux"/>
+                        <outlet property="saveMatchButton" destination="gze-cg-Fd7" id="xsN-7a-Kfd"/>
                         <outlet property="summaryLabel" destination="USC-GI-Hke" id="Axm-vD-YPE"/>
                         <outlet property="table" destination="Mqa-4S-BTx" id="Kej-oS-c4B"/>
                     </connections>

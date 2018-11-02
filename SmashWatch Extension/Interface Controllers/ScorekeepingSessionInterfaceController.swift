@@ -35,6 +35,12 @@ class ScorekeepingSessionModel {
     func delete(at index: Int) {
         session.matches.remove(at: index)
     }
+    
+    func delete(_ match: ScorekeepingMatch) {
+        if let index = session.matches.firstIndex(where: { $0 == match }) {
+            delete(at: index)
+        }
+    }
 }
 
 class ScorekeepingSessionInterfaceController: WKInterfaceController {
@@ -47,21 +53,7 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        // DEBUG
-        
-        let player1 = try! Player.newOrExistingPlayer(name: "Jason Ji", managedObjectContext: SmashStackManager.shared.managedObjectContext)
-        let player2 = try! Player.newOrExistingPlayer(name: "Kevin Ji", managedObjectContext: SmashStackManager.shared.managedObjectContext)
-        
-        
         model = ScorekeepingSessionModel(session: ScorekeepingSession(date: Date()))
-        
-        model?.addMatch(ScorekeepingMatch(player1: player1, player2: player2, games: [
-            Game(player1: player1, player2: player2, player1Score: 11, player2Score: 8),
-            Game(player1: player1, player2: player2, player1Score: 11, player2Score: 7),
-            Game(player1: player1, player2: player2, player1Score: 5, player2Score: 11),
-            Game(player1: player1, player2: player2, player1Score: 12, player2Score: 14),
-            Game(player1: player1, player2: player2, player1Score: 11, player2Score: 9)
-            ]))
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
@@ -107,6 +99,11 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
 extension ScorekeepingSessionInterfaceController: MatchDetailDelegate {
     func didSaveMatch(_ match: ScorekeepingMatch) {
         model?.addMatch(match)
+        pop()
+    }
+    
+    func didDeleteMatch(_ match: ScorekeepingMatch) {
+        model?.delete(match)
         pop()
     }
 }

@@ -47,6 +47,7 @@ class NewMatchModel {
 
 protocol MatchDetailDelegate: class {
     func didSaveMatch(_ match: ScorekeepingMatch)
+    func didDeleteMatch(_ match: ScorekeepingMatch)
 }
 
 class NewMatchInterfaceController: WKInterfaceController {
@@ -54,6 +55,10 @@ class NewMatchInterfaceController: WKInterfaceController {
     @IBOutlet weak var matchLabel: WKInterfaceLabel!
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     @IBOutlet weak var table: WKInterfaceTable!
+    
+    
+    @IBOutlet weak var saveMatchButton: WKInterfaceButton!
+    @IBOutlet weak var deleteMatchButton: WKInterfaceButton!
     
     var model: NewMatchModel?
     weak var delegate: MatchDetailDelegate?
@@ -64,8 +69,16 @@ class NewMatchInterfaceController: WKInterfaceController {
         if let (number, match, delegate) = context as? (Int, ScorekeepingMatch, MatchDetailDelegate) {
             self.delegate = delegate
             model = NewMatchModel(match: match)
+            if match.games.count == 0 {
+                deleteMatchButton.setHidden(true)
+                saveMatchButton.setHidden(false)
+            }
+            else {
+                deleteMatchButton.setHidden(false)
+                saveMatchButton.setHidden(true)
+            }
             
-            matchLabel.setText("Match \(number)")
+            matchLabel.setText("Match #\(number)")
         }
     }
     
@@ -113,6 +126,11 @@ class NewMatchInterfaceController: WKInterfaceController {
     @IBAction func saveMatch() {
         guard let model = model else { return }
         delegate?.didSaveMatch(model.match)
+    }
+    
+    @IBAction func deleteMatch() {
+        guard let model = model else { return }
+        delegate?.didDeleteMatch(model.match)
     }
 }
 
