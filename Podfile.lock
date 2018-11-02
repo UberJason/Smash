@@ -1,5 +1,5 @@
 PODS:
-  - CoreDataStackManager (0.6.4)
+  - CoreDataStackManager (0.9.0)
   - SwiftSoup (1.7.4)
 
 DEPENDENCIES:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - SwiftSoup
 
 SPEC CHECKSUMS:
-  CoreDataStackManager: 327fd3a0d5950be256b748bb0373da8920e4b53a
+  CoreDataStackManager: 00b890d5c9a933c7c92142f7ab199c491c05c9da
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
 
-PODFILE CHECKSUM: 0b7c37e9d3201ad5f99032b2efc67f490a3ecc5c
+PODFILE CHECKSUM: 7e487930e5e469a9e09aa124c9dfd5aaf1add56c
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.5.3

@@ -16,52 +16,68 @@ public enum StoreLocation {
 open class CoreDataStackManager: NSObject {
     public static let sharedInstance = CoreDataStackManager()
     
-    private var applicationDocumentsDirectory = {
+    public static var applicationDocumentsDirectory = {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
     }()
     public let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     private let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-    private let modelName: String
-    private let storeType: String
-    private let bundle: Bundle
-    private let storeLocation: StoreLocation
+    
+    public let modelName: String
+    public let storeType: String
+    public let bundle: Bundle
+    public let storeLocation: StoreLocation
+    public let modelURL: URL
+    public private(set) var storeURL: URL?
+    public var coordinator: NSPersistentStoreCoordinator?
     
     public init(modelName: String = "Model", storeType: String = NSSQLiteStoreType, bundle: Bundle = Bundle.main, storeLocation: StoreLocation = .standard) {
         self.modelName = modelName
         self.storeType = storeType
         self.bundle = bundle
         self.storeLocation = storeLocation
+        guard let modelURL = bundle.url(forResource: modelName, withExtension: "momd") else { fatalError("Invalid model URL") }
+        self.modelURL = modelURL
         super.init()
+        
         initializeCoreData()
     }
     
     private func initializeCoreData() {
-        guard let modelURL = bundle.url(forResource: modelName, withExtension: "momd") else { fatalError("Invalid model URL") }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else { fatalError("Invalid model") }
-        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        
-        let storeURL: URL
+        coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
         switch storeLocation {
         case .standard:
-            storeURL = applicationDocumentsDirectory.appendingPathComponent("\(modelName).sqlite")
+            storeURL = type(of: self).standardStoreURL(forModelNamed: modelName)
         case .appGroup(let identifier):
-            guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: identifier) else {
+            storeURL = type(of: self).appGroupURL(forModelNamed: modelName, securityGroupIdentifier: identifier)
+            guard storeURL != nil else {
                 fatalError("Could not find the container for security group: \(identifier). Did you add the App Groups capability to your app's provisioning profile?")
             }
-            storeURL = containerURL.appendingPathComponent("\(modelName).sqlite")
         }
         
         do {
             let options = [NSMigratePersistentStoresAutomaticallyOption: true,
                            NSInferMappingModelAutomaticallyOption: true]
-            try coordinator.addPersistentStore(ofType: storeType, configurationName: nil, at: storeURL, options: options)
-        }catch {
+            try coordinator?.addPersistentStore(ofType: storeType, configurationName: nil, at: storeURL, options: options)
+        } catch {
             fatalError("Could not add the persistent store: \(error).")
         }
         
         privateContext.persistentStoreCoordinator = coordinator
         managedObjectContext.parent = privateContext
+    }
+
+    public static func standardStoreURL(forModelNamed name: String) -> URL? {
+        return CoreDataStackManager.applicationDocumentsDirectory.appendingPathComponent("\(name).sqlite")
+    }
+    
+    public static func appGroupURL(forModelNamed name: String, securityGroupIdentifier identifier: String) -> URL? {
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: identifier) else {
+            print("Could not find the container for security group: \(identifier). Did you add the App Groups capability to your app's provisioning profile?")
+            return nil
+        }
+        return containerURL.appendingPathComponent("\(name).sqlite")
     }
     
     open func createTemporaryContext() -> NSManagedObjectContext {
@@ -71,7 +87,7 @@ open class CoreDataStackManager: NSObject {
     }
     
     
-    open func save(andCheckForChanges check: Bool = true) {
+    open func save(andCheckForChanges check: Bool = true, fullySynchronous: Bool = false) {
         
         if check && !managedObjectContext.hasChanges {
             return
@@ -79,12 +95,18 @@ open class CoreDataStackManager: NSObject {
         managedObjectContext.performAndWait {
             do {
                 try self.managedObjectContext.save()
-                self.privateContext.perform {
+                let saveBlock = { [weak self] in
                     do {
-                        try self.privateContext.save()
+                        try self?.privateContext.save()
                     } catch let error as NSError {
                         print(error.localizedDescription)
                     }
+                }
+                if fullySynchronous {
+                    privateContext.performAndWait(saveBlock)
+                }
+                else {
+                    privateContext.perform(saveBlock)
                 }
             } catch let error as NSError {
                 print(error.localizedDescription)

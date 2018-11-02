@@ -1,0 +1,6 @@
+framework module CoreDataStackManager {
+  umbrella header "CoreDataStackManager-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

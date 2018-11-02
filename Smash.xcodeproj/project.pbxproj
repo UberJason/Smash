@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0B48652A9B9CCD725D88943B /* Pods_Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */; };
+		1DBA9745D0F1967703AC815F /* Pods_SmashKitWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABED33B716805363455BA9AD /* Pods_SmashKitWatch.framework */; };
 		3A10FC51499789E5F40A6C90 /* Pods_SmashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */; };
+		3A45C9AFCA8E736BDCC7E063 /* Pods_SmashWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D20D2F84B33B6EDBF6FFE0 /* Pods_SmashWatch_Extension.framework */; };
 		96064130207851DB00EE6BDF /* PlayerResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9606412F207851DB00EE6BDF /* PlayerResultCell.xib */; };
 		96064132207853CC00EE6BDF /* PlayerResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96064131207853CC00EE6BDF /* PlayerResultCell.swift */; };
 		960641342078598300EE6BDF /* PlayerResultCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960641332078598300EE6BDF /* PlayerResultCellExtension.swift */; };
@@ -35,6 +37,20 @@
 		960948A62049DB99009086CE /* UIView+AddSubviewFullFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */; };
 		960948A82049E868009086CE /* PlayerDetailsViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960948A72049E868009086CE /* PlayerDetailsViewExtension.swift */; };
 		961C8BDC218BED6900542CD6 /* NewMatchInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */; };
+		961C8BE6218CC5A300542CD6 /* SmashKitWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 961C8BE4218CC5A300542CD6 /* SmashKitWatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		961C8BE9218CC5A300542CD6 /* SmashKitWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C8BE2218CC5A300542CD6 /* SmashKitWatch.framework */; };
+		961C8BEA218CC5A300542CD6 /* SmashKitWatch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961C8BE2218CC5A300542CD6 /* SmashKitWatch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		961C8BEF218CC5C600542CD6 /* TableTennisError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A12040E8570011C908 /* TableTennisError.swift */; };
+		961C8BF0218CC5C600542CD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663AB2040E8D30011C908 /* Constants.swift */; };
+		961C8BF1218CC5C600542CD6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A32040E8620011C908 /* Player.swift */; };
+		961C8BF2218CC5C600542CD6 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A52040E8700011C908 /* Match.swift */; };
+		961C8BF3218CC5C600542CD6 /* LeagueSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609489320450A5F009086CE /* LeagueSession.swift */; };
+		961C8BF4218CC5C600542CD6 /* GroupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A5A320474989008AC39F /* GroupResult.swift */; };
+		961C8BF5218CC5C600542CD6 /* ScorekeepingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */; };
+		961C8BF6218CC5CA00542CD6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD42048CF7900E1FBC1 /* Model.xcdatamodeld */; };
+		961C8BF8218CC74400542CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961C8BF7218CC74400542CD6 /* Assets.xcassets */; };
+		961C8BFA218CC86600542CD6 /* GameRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961C8BF9218CC86600542CD6 /* GameRowController.swift */; };
+		961C8BFB218CCA0B00542CD6 /* SmashStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD72048DC8900E1FBC1 /* SmashStackManager.swift */; };
 		9641A599204747FD008AC39F /* MatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A598204747FD008AC39F /* MatchExtension.swift */; };
 		9641A59B20474805008AC39F /* MatchResultCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59A20474805008AC39F /* MatchResultCellExtension.swift */; };
 		9641A59D2047484E008AC39F /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A59C2047484E008AC39F /* CellIdentifiers.swift */; };
@@ -80,6 +96,13 @@
 			remoteGlobalIDString = 960948792043B3C3009086CE;
 			remoteInfo = SmashUIKit;
 		};
+		961C8BE7218CC5A300542CD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9646636E2040E6B20011C908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 961C8BE1218CC5A300542CD6;
+			remoteInfo = SmashKitWatch;
+		};
 		964663982040E7F20011C908 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9646636E2040E6B20011C908 /* Project object */;
@@ -104,6 +127,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		961C8BEE218CC5A300542CD6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				961C8BEA218CC5A300542CD6 /* SmashKitWatch.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9646639F2040E7F20011C908 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -171,6 +205,11 @@
 		960948A52049DB99009086CE /* UIView+AddSubviewFullFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviewFullFrame.swift"; sourceTree = "<group>"; };
 		960948A72049E868009086CE /* PlayerDetailsViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewExtension.swift; sourceTree = "<group>"; };
 		961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMatchInterfaceController.swift; sourceTree = "<group>"; };
+		961C8BE2218CC5A300542CD6 /* SmashKitWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmashKitWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		961C8BE4218CC5A300542CD6 /* SmashKitWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmashKitWatch.h; sourceTree = "<group>"; };
+		961C8BE5218CC5A300542CD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961C8BF7218CC74400542CD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		961C8BF9218CC86600542CD6 /* GameRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRowController.swift; sourceTree = "<group>"; };
 		9641A598204747FD008AC39F /* MatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchExtension.swift; sourceTree = "<group>"; };
 		9641A59A20474805008AC39F /* MatchResultCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultCellExtension.swift; sourceTree = "<group>"; };
 		9641A59C2047484E008AC39F /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
@@ -212,7 +251,13 @@
 		96C29DD22048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PreferredPlayer.swift"; sourceTree = "<group>"; };
 		96C29DD52048CF7900E1FBC1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		96C29DD72048DC8900E1FBC1 /* SmashStackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SmashStackManager.swift; path = SmashKit/Model/SmashStackManager.swift; sourceTree = SOURCE_ROOT; };
+		997E851DD14DE014B4D9283F /* Pods-SmashWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashWatch Extension/Pods-SmashWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		9F1C07A5DF225CB1F5AE4E29 /* Pods-SmashKitWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKitWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKitWatch/Pods-SmashKitWatch.release.xcconfig"; sourceTree = "<group>"; };
+		A71FC007B7454C83041C2089 /* Pods-SmashWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmashWatch Extension/Pods-SmashWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
+		ABED33B716805363455BA9AD /* Pods_SmashKitWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmashKitWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6935E7A12165B6645C7947A /* Pods-SmashKitWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKitWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKitWatch/Pods-SmashKitWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKit/Pods-SmashKit.debug.xcconfig"; sourceTree = "<group>"; };
+		F8D20D2F84B33B6EDBF6FFE0 /* Pods_SmashWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmashWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +265,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961C8BDF218CC5A300542CD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DBA9745D0F1967703AC815F /* Pods_SmashKitWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +295,15 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		96986357218BDF9900F78A1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961C8BE9218CC5A300542CD6 /* SmashKitWatch.framework in Frameworks */,
+				3A45C9AFCA8E736BDCC7E063 /* Pods_SmashWatch_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E56177AE71D6F928C95C7198 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,6 +359,15 @@
 				964663852040E6B20011C908 /* LaunchScreen.storyboard */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		961C8BE3218CC5A300542CD6 /* SmashKitWatch */ = {
+			isa = PBXGroup;
+			children = (
+				961C8BE4218CC5A300542CD6 /* SmashKitWatch.h */,
+				961C8BE5218CC5A300542CD6 /* Info.plist */,
+			);
+			path = SmashKitWatch;
 			sourceTree = "<group>";
 		};
 		9641A594204747C5008AC39F /* Extensions */ = {
@@ -358,6 +429,7 @@
 				96700EAE20460BF50029F7C1 /* TODO.md */,
 				964663782040E6B20011C908 /* Smash */,
 				964663942040E7F20011C908 /* SmashKit */,
+				961C8BE3218CC5A300542CD6 /* SmashKitWatch */,
 				9609487B2043B3C3009086CE /* SmashUIKit */,
 				9698634F218BDF9700F78A1B /* SmashWatch */,
 				9698635E218BDF9900F78A1B /* SmashWatch Extension */,
@@ -375,6 +447,7 @@
 				9609487A2043B3C3009086CE /* SmashUIKit.framework */,
 				9698634E218BDF9700F78A1B /* SmashWatch.app */,
 				9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */,
+				961C8BE2218CC5A300542CD6 /* SmashKitWatch.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -397,6 +470,7 @@
 			children = (
 				964663952040E7F20011C908 /* SmashKit.h */,
 				964663962040E7F20011C908 /* Info.plist */,
+				961C8BF7218CC74400542CD6 /* Assets.xcassets */,
 				9641A5A12047495F008AC39F /* Dummy Data */,
 				964663A02040E8440011C908 /* Model */,
 				9641A5A020474949008AC39F /* Networking & Parsing */,
@@ -433,8 +507,9 @@
 			isa = PBXGroup;
 			children = (
 				96986361218BDF9900F78A1B /* ExtensionDelegate.swift */,
-				96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */,
 				961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */,
+				96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */,
+				961C8BF9218CC86600542CD6 /* GameRowController.swift */,
 				96986379218BE38000F78A1B /* Extensions */,
 				96986378218BE37400F78A1B /* Utilities */,
 			);
@@ -474,6 +549,8 @@
 			children = (
 				964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */,
 				10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */,
+				ABED33B716805363455BA9AD /* Pods_SmashKitWatch.framework */,
+				F8D20D2F84B33B6EDBF6FFE0 /* Pods_SmashWatch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -485,6 +562,10 @@
 				66795013838C4CDCF7DD0259 /* Pods-Smash.release.xcconfig */,
 				ED739E0D57EE68B54CC39F70 /* Pods-SmashKit.debug.xcconfig */,
 				0F2A091F09B58E6526ACE7E5 /* Pods-SmashKit.release.xcconfig */,
+				E6935E7A12165B6645C7947A /* Pods-SmashKitWatch.debug.xcconfig */,
+				9F1C07A5DF225CB1F5AE4E29 /* Pods-SmashKitWatch.release.xcconfig */,
+				997E851DD14DE014B4D9283F /* Pods-SmashWatch Extension.debug.xcconfig */,
+				A71FC007B7454C83041C2089 /* Pods-SmashWatch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -497,6 +578,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9609487E2043B3C3009086CE /* SmashUIKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961C8BDD218CC5A300542CD6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961C8BE6218CC5A300542CD6 /* SmashKitWatch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +616,25 @@
 			name = SmashUIKit;
 			productName = SmashUIKit;
 			productReference = 9609487A2043B3C3009086CE /* SmashUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		961C8BE1218CC5A300542CD6 /* SmashKitWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 961C8BEB218CC5A300542CD6 /* Build configuration list for PBXNativeTarget "SmashKitWatch" */;
+			buildPhases = (
+				AA571ECC35C16378553BF898 /* [CP] Check Pods Manifest.lock */,
+				961C8BDD218CC5A300542CD6 /* Headers */,
+				961C8BDE218CC5A300542CD6 /* Sources */,
+				961C8BDF218CC5A300542CD6 /* Frameworks */,
+				961C8BE0218CC5A300542CD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmashKitWatch;
+			productName = SmashKitWatch;
+			productReference = 961C8BE2218CC5A300542CD6 /* SmashKitWatch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		964663752040E6B20011C908 /* Smash */ = {
@@ -578,6 +686,7 @@
 			buildPhases = (
 				9698634C218BDF9700F78A1B /* Resources */,
 				9698636F218BDF9900F78A1B /* Embed App Extensions */,
+				E56177AE71D6F928C95C7198 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -593,13 +702,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9698636C218BDF9900F78A1B /* Build configuration list for PBXNativeTarget "SmashWatch Extension" */;
 			buildPhases = (
+				2DA050C7E66F9900AC2E2EC7 /* [CP] Check Pods Manifest.lock */,
 				96986356218BDF9900F78A1B /* Sources */,
 				96986357218BDF9900F78A1B /* Frameworks */,
 				96986358218BDF9900F78A1B /* Resources */,
+				961C8BEE218CC5A300542CD6 /* Embed Frameworks */,
+				DA78086303EF54EB56AD1704 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				961C8BE8218CC5A300542CD6 /* PBXTargetDependency */,
 			);
 			name = "SmashWatch Extension";
 			productName = "SmashWatch Extension";
@@ -619,6 +732,10 @@
 					960948792043B3C3009086CE = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
+					961C8BE1218CC5A300542CD6 = {
+						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
 					964663752040E6B20011C908 = {
@@ -656,6 +773,7 @@
 			targets = (
 				964663752040E6B20011C908 /* Smash */,
 				964663922040E7F20011C908 /* SmashKit */,
+				961C8BE1218CC5A300542CD6 /* SmashKitWatch */,
 				960948792043B3C3009086CE /* SmashUIKit */,
 				9698634D218BDF9700F78A1B /* SmashWatch */,
 				96986359218BDF9900F78A1B /* SmashWatch Extension */,
@@ -676,6 +794,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		961C8BE0218CC5A300542CD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		964663742040E6B20011C908 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -692,6 +817,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961C8BF8218CC74400542CD6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +841,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2DA050C7E66F9900AC2E2EC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmashWatch Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		330756A21034BB863FEE97A0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -751,14 +899,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AA571ECC35C16378553BF898 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmashKitWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA78086303EF54EB56AD1704 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SmashWatch Extension/Pods-SmashWatch Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CoreDataStackManager-watchOS/CoreDataStackManager.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreDataStackManager.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmashWatch Extension/Pods-SmashWatch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DCF95557CE54946F0139805D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Smash/Pods-Smash-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CoreDataStackManager/CoreDataStackManager.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Smash/Pods-Smash-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CoreDataStackManager-iOS/CoreDataStackManager.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -768,7 +960,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smash/Pods-Smash-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smash/Pods-Smash-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -786,6 +978,22 @@
 				96064132207853CC00EE6BDF /* PlayerResultCell.swift in Sources */,
 				960948882043B412009086CE /* MatchResultCell.swift in Sources */,
 				96094892204504E6009086CE /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961C8BDE218CC5A300542CD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961C8BEF218CC5C600542CD6 /* TableTennisError.swift in Sources */,
+				961C8BF3218CC5C600542CD6 /* LeagueSession.swift in Sources */,
+				961C8BF4218CC5C600542CD6 /* GroupResult.swift in Sources */,
+				961C8BF6218CC5CA00542CD6 /* Model.xcdatamodeld in Sources */,
+				961C8BF1218CC5C600542CD6 /* Player.swift in Sources */,
+				961C8BF5218CC5C600542CD6 /* ScorekeepingSession.swift in Sources */,
+				961C8BF0218CC5C600542CD6 /* Constants.swift in Sources */,
+				961C8BF2218CC5C600542CD6 /* Match.swift in Sources */,
+				961C8BFB218CCA0B00542CD6 /* SmashStackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +1043,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961C8BFA218CC86600542CD6 /* GameRowController.swift in Sources */,
 				961C8BDC218BED6900542CD6 /* NewMatchInterfaceController.swift in Sources */,
 				96986362218BDF9900F78A1B /* ExtensionDelegate.swift in Sources */,
 				96986375218BE17F00F78A1B /* GameScoreInterfaceController.swift in Sources */,
@@ -849,6 +1058,11 @@
 			isa = PBXTargetDependency;
 			target = 960948792043B3C3009086CE /* SmashUIKit */;
 			targetProxy = 9609487F2043B3C3009086CE /* PBXContainerItemProxy */;
+		};
+		961C8BE8218CC5A300542CD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 961C8BE1218CC5A300542CD6 /* SmashKitWatch */;
+			targetProxy = 961C8BE7218CC5A300542CD6 /* PBXContainerItemProxy */;
 		};
 		964663992040E7F20011C908 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -945,6 +1159,67 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		961C8BEC218CC5A300542CD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6935E7A12165B6645C7947A /* Pods-SmashKitWatch.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SmashKitWatch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashKitWatch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		961C8BED218CC5A300542CD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F1C07A5DF225CB1F5AE4E29 /* Pods-SmashKitWatch.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SmashKitWatch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.SmashKitWatch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
@@ -1152,6 +1427,7 @@
 		};
 		9698636D218BDF9900F78A1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 997E851DD14DE014B4D9283F /* Pods-SmashWatch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1173,6 +1449,7 @@
 		};
 		9698636E218BDF9900F78A1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A71FC007B7454C83041C2089 /* Pods-SmashWatch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1242,6 +1519,15 @@
 			buildConfigurations = (
 				960948842043B3C3009086CE /* Debug */,
 				960948852043B3C3009086CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		961C8BEB218CC5A300542CD6 /* Build configuration list for PBXNativeTarget "SmashKitWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				961C8BEC218CC5A300542CD6 /* Debug */,
+				961C8BED218CC5A300542CD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

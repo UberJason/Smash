@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import SmashUIKit
 
 public class Player: NSManagedObject {
     public var name: String {
@@ -54,11 +53,13 @@ public class Player: NSManagedObject {
         self.init(context: managedObjectContext)
         self.name = name
         
+        #if os(iOS)
         // Just for me :)
         if name == "Jason Ji" {
             initials = "JJ"
-            profileImage = UIImage(named: "jason", in: Bundle.smashUIKit, compatibleWith: nil)
+            profileImage = UIImage(named: "jason", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
+        #endif
     }
 }
 

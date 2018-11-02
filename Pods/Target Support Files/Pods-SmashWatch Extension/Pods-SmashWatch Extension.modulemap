@@ -1,0 +1,6 @@
+framework module Pods_SmashWatch_Extension {
+  umbrella header "Pods-SmashWatch Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

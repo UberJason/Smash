@@ -11,43 +11,56 @@
         <!--New Match Interface Controller-->
         <scene sceneID="5MK-ZR-GnR">
             <objects>
-                <controller fullBounds="YES" fullScreen="YES" id="GRf-LZ-5Mh" customClass="NewMatchInterfaceController" customModule="SmashWatch_Extension">
+                <controller id="GRf-LZ-5Mh" customClass="NewMatchInterfaceController" customModule="SmashWatch_Extension">
                     <items>
-                        <group width="1" height="1" heightAdjustment="-5" alignment="left" layout="vertical" spacing="4" id="pNy-sM-YWW">
+                        <group width="1" alignment="left" layout="vertical" spacing="9" id="6mg-yv-tYJ">
                             <items>
-                                <label alignment="center" text="New Match" textAlignment="center" id="MTB-BY-hGz">
-                                    <color key="textColor" red="0.81906270979999996" green="0.21740751720000001" blue="0.14019091259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <fontDescription key="font" type="system" weight="heavy" pointSize="22"/>
-                                </label>
-                                <label alignment="center" text="W, 3-1" textAlignment="center" id="USC-GI-Hke">
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                </label>
-                                <table alignment="left" id="Mqa-4S-BTx">
+                                <group width="1" alignment="left" layout="vertical" spacing="4" id="pNy-sM-YWW">
                                     <items>
-                                        <tableRow identifier="gameRow" id="xRN-6p-wYH">
-                                            <group key="rootItem" width="1" height="0.0" alignment="left" spacing="0.0" id="UvJ-Bs-1Qb">
-                                                <items>
-                                                    <label alignment="left" text="Game 1" id="I7e-ax-jP3"/>
-                                                    <label alignment="right" text="W, 11-7" id="swE-id-V0p"/>
-                                                </items>
-                                                <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
-                                            </group>
-                                        </tableRow>
+                                        <label alignment="center" text="New Match" textAlignment="center" id="MTB-BY-hGz">
+                                            <color key="textColor" red="0.81906270979999996" green="0.21740751720000001" blue="0.14019091259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <fontDescription key="font" type="system" weight="heavy" pointSize="22"/>
+                                        </label>
+                                        <label alignment="center" text="W, 3-1" textAlignment="center" id="USC-GI-Hke">
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </label>
+                                        <table alignment="left" id="Mqa-4S-BTx">
+                                            <items>
+                                                <tableRow identifier="gameRow" id="xRN-6p-wYH" customClass="GameRowController" customModule="SmashWatch_Extension">
+                                                    <group key="rootItem" width="1" height="40" alignment="left" spacing="0.0" id="UvJ-Bs-1Qb">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="Game 1" id="I7e-ax-jP3"/>
+                                                            <label alignment="right" verticalAlignment="center" text="W, 11-7" id="swE-id-V0p"/>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
+                                                    </group>
+                                                    <connections>
+                                                        <outlet property="primaryLabel" destination="I7e-ax-jP3" id="xey-zK-v27"/>
+                                                        <outlet property="secondaryLabel" destination="swE-id-V0p" id="LBp-SI-qhB"/>
+                                                    </connections>
+                                                </tableRow>
+                                            </items>
+                                        </table>
                                     </items>
-                                </table>
-                                <group width="1" alignment="left" verticalAlignment="bottom" radius="17" id="u0y-nH-IhQ">
+                                </group>
+                                <group width="1" alignment="left" layout="vertical" id="hZd-eJ-yec">
                                     <items>
-                                        <button width="1" alignment="left" verticalAlignment="bottom" title="Add Game" id="CyQ-rL-Hxl">
-                                            <connections>
-                                                <segue destination="AgC-eL-Hgc" kind="push" id="Ozr-sa-Gkg"/>
-                                            </connections>
-                                        </button>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="u0y-nH-IhQ">
+                                            <items>
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Add Game" id="CyQ-rL-Hxl">
+                                                    <connections>
+                                                        <segue destination="AgC-eL-Hgc" kind="push" id="Ozr-sa-Gkg"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
                                     </items>
                                 </group>
                             </items>
                         </group>
                     </items>
                     <connections>
+                        <outlet property="summaryLabel" destination="USC-GI-Hke" id="Axm-vD-YPE"/>
                         <outlet property="table" destination="Mqa-4S-BTx" id="Kej-oS-c4B"/>
                     </connections>
                 </controller>
