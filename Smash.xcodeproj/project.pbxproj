@@ -493,6 +493,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		964EE492218CD2E3005315DF /* Interface Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */,
+				96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */,
+			);
+			path = "Interface Controllers";
+			sourceTree = "<group>";
+		};
+		964EE493218CD2F7005315DF /* Row Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				961C8BF9218CC86600542CD6 /* GameRowController.swift */,
+			);
+			path = "Row Controllers";
+			sourceTree = "<group>";
+		};
 		9698634F218BDF9700F78A1B /* SmashWatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,9 +524,8 @@
 			isa = PBXGroup;
 			children = (
 				96986361218BDF9900F78A1B /* ExtensionDelegate.swift */,
-				961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */,
-				96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */,
-				961C8BF9218CC86600542CD6 /* GameRowController.swift */,
+				964EE492218CD2E3005315DF /* Interface Controllers */,
+				964EE493218CD2F7005315DF /* Row Controllers */,
 				96986379218BE38000F78A1B /* Extensions */,
 				96986378218BE37400F78A1B /* Utilities */,
 			);

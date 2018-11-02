@@ -17,7 +17,7 @@
                             <items>
                                 <group width="1" alignment="left" layout="vertical" spacing="4" id="pNy-sM-YWW">
                                     <items>
-                                        <label alignment="center" text="New Match" textAlignment="center" id="MTB-BY-hGz">
+                                        <label alignment="center" text="Match #1" textAlignment="center" id="MTB-BY-hGz">
                                             <color key="textColor" red="0.81906270979999996" green="0.21740751720000001" blue="0.14019091259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="font" type="system" weight="heavy" pointSize="22"/>
                                         </label>
@@ -33,6 +33,9 @@
                                                             <label alignment="right" verticalAlignment="center" text="W, 11-7" id="swE-id-V0p"/>
                                                         </items>
                                                         <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
+                                                        <connections>
+                                                            <segue destination="AgC-eL-Hgc" kind="push" id="0qp-30-Dub"/>
+                                                        </connections>
                                                     </group>
                                                     <connections>
                                                         <outlet property="primaryLabel" destination="I7e-ax-jP3" id="xey-zK-v27"/>
@@ -85,7 +88,11 @@
                                                 <label alignment="center" text="Jason" textAlignment="center" id="zg2-C4-leY">
                                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                                 </label>
-                                                <picker height="50" alignment="left" focusStyle="stack" id="pZA-v6-ZIy"/>
+                                                <picker height="50" alignment="left" focusStyle="stack" id="pZA-v6-ZIy">
+                                                    <connections>
+                                                        <action selector="changePlayer1Score:" destination="AgC-eL-Hgc" id="mD2-PX-T5f"/>
+                                                    </connections>
+                                                </picker>
                                             </items>
                                         </group>
                                         <group width="0.5" alignment="left" layout="vertical" id="NYJ-xO-jdv">
@@ -93,18 +100,29 @@
                                                 <label alignment="center" text="Kevin" id="nUd-ea-H9D">
                                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                                 </label>
-                                                <picker height="50" alignment="left" focusStyle="stack" id="JTI-it-XcT"/>
+                                                <picker height="50" alignment="left" focusStyle="stack" id="JTI-it-XcT">
+                                                    <connections>
+                                                        <action selector="changePlayer2Score:" destination="AgC-eL-Hgc" id="cFF-Yt-Ue2"/>
+                                                    </connections>
+                                                </picker>
                                             </items>
                                         </group>
                                     </items>
                                 </group>
                                 <group width="1" height="8" alignment="left" id="lSO-mH-WKl"/>
-                                <button width="1" alignment="left" title="Save" id="f6C-wk-lH1"/>
+                                <button width="1" alignment="left" title="Save" id="f6C-wk-lH1">
+                                    <connections>
+                                        <action selector="saveGame" destination="AgC-eL-Hgc" id="ieu-g5-1Zm"/>
+                                    </connections>
+                                </button>
                             </items>
                         </group>
                     </items>
                     <connections>
+                        <outlet property="gameLabel" destination="9gg-Rt-4bd" id="AlH-wv-UcE"/>
+                        <outlet property="player1NameLabel" destination="zg2-C4-leY" id="nlg-jE-glJ"/>
                         <outlet property="player1ScorePicker" destination="pZA-v6-ZIy" id="iGs-z5-CDd"/>
+                        <outlet property="player2NameLabel" destination="nUd-ea-H9D" id="XDu-cY-020"/>
                         <outlet property="player2ScorePicker" destination="JTI-it-XcT" id="VV0-Wp-B5o"/>
                     </connections>
                 </controller>
@@ -112,4 +130,7 @@
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ozr-sa-Gkg"/>
+    </inferredMetricsTieBreakers>
 </document>
