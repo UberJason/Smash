@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GRf-LZ-5Mh">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A6y-rd-5hv">
     <device id="watch40" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,7 +34,7 @@
                                                         </items>
                                                         <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
                                                         <connections>
-                                                            <segue destination="AgC-eL-Hgc" kind="push" id="0qp-30-Dub"/>
+                                                            <segue destination="AgC-eL-Hgc" kind="push" identifier="showGameDetail" id="0qp-30-Dub"/>
                                                         </connections>
                                                     </group>
                                                     <connections>
@@ -52,7 +52,16 @@
                                             <items>
                                                 <button width="1" alignment="left" verticalAlignment="bottom" title="Add Game" id="CyQ-rL-Hxl">
                                                     <connections>
-                                                        <segue destination="AgC-eL-Hgc" kind="push" id="Ozr-sa-Gkg"/>
+                                                        <segue destination="AgC-eL-Hgc" kind="push" identifier="showGameDetail" id="Ozr-sa-Gkg"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="OPc-TC-SwV">
+                                            <items>
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Save Match" id="gze-cg-Fd7" userLabel="Save Match">
+                                                    <connections>
+                                                        <action selector="saveMatch" destination="GRf-LZ-5Mh" id="6FO-cT-ULO"/>
                                                     </connections>
                                                 </button>
                                             </items>
@@ -63,6 +72,7 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="matchLabel" destination="MTB-BY-hGz" id="bYy-FS-xux"/>
                         <outlet property="summaryLabel" destination="USC-GI-Hke" id="Axm-vD-YPE"/>
                         <outlet property="table" destination="Mqa-4S-BTx" id="Kej-oS-c4B"/>
                     </connections>
@@ -129,8 +139,68 @@
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
+        <!--Scorekeeping Session Interface Controller-->
+        <scene sceneID="ahN-bJ-LAq">
+            <objects>
+                <controller id="A6y-rd-5hv" customClass="ScorekeepingSessionInterfaceController" customModule="SmashWatch_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" spacing="9" id="Kha-n1-nsP">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" spacing="4" id="Qkn-QW-Yv1">
+                                    <items>
+                                        <label alignment="center" text="November 2, 2018" textAlignment="center" minimumScaleFactor="0.5" id="8rI-gT-vkU">
+                                            <color key="textColor" red="0.81906270979999996" green="0.21740751720000001" blue="0.14019091259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <fontDescription key="font" type="system" weight="heavy" pointSize="20"/>
+                                        </label>
+                                        <table alignment="left" id="I9J-NP-7gW">
+                                            <items>
+                                                <tableRow identifier="matchRow" id="ag2-63-UBS" customClass="MatchRowController" customModule="SmashWatch_Extension">
+                                                    <group key="rootItem" width="1" height="40" alignment="left" spacing="0.0" id="oHb-Z1-XJV">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="Match #1" id="dWY-sA-AhK"/>
+                                                            <label alignment="right" verticalAlignment="center" text="W, 3-0" id="xea-hv-EXu"/>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
+                                                        <connections>
+                                                            <segue destination="GRf-LZ-5Mh" kind="push" identifier="showMatchDetail" id="VMW-FH-YkP"/>
+                                                        </connections>
+                                                    </group>
+                                                    <connections>
+                                                        <outlet property="primaryLabel" destination="dWY-sA-AhK" id="LbW-3E-y3I"/>
+                                                        <outlet property="secondaryLabel" destination="xea-hv-EXu" id="wG9-OB-SOM"/>
+                                                    </connections>
+                                                </tableRow>
+                                            </items>
+                                        </table>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" layout="vertical" id="pWk-xY-coU">
+                                    <items>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="37N-63-1Z9">
+                                            <items>
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Add Match" id="RBm-IT-Pru">
+                                                    <connections>
+                                                        <segue destination="GRf-LZ-5Mh" kind="push" identifier="showMatchDetail" id="epI-GM-PQO"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="sessionLabel" destination="8rI-gT-vkU" id="jvi-UU-xIW"/>
+                        <outlet property="table" destination="I9J-NP-7gW" id="yvQ-MV-0GG"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-310" y="345"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ozr-sa-Gkg"/>
+        <segue reference="epI-GM-PQO"/>
     </inferredMetricsTieBreakers>
 </document>

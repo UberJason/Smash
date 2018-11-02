@@ -46,7 +46,6 @@
 		961C8BF2218CC5C600542CD6 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A52040E8700011C908 /* Match.swift */; };
 		961C8BF3218CC5C600542CD6 /* LeagueSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609489320450A5F009086CE /* LeagueSession.swift */; };
 		961C8BF4218CC5C600542CD6 /* GroupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641A5A320474989008AC39F /* GroupResult.swift */; };
-		961C8BF5218CC5C600542CD6 /* ScorekeepingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */; };
 		961C8BF6218CC5CA00542CD6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD42048CF7900E1FBC1 /* Model.xcdatamodeld */; };
 		961C8BF8218CC74400542CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961C8BF7218CC74400542CD6 /* Assets.xcassets */; };
 		961C8BFA218CC86600542CD6 /* GameRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961C8BF9218CC86600542CD6 /* GameRowController.swift */; };
@@ -68,8 +67,11 @@
 		964663A62040E8700011C908 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A52040E8700011C908 /* Match.swift */; };
 		964663AA2040E8AB0011C908 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663A92040E8AB0011C908 /* Parser.swift */; };
 		964663AC2040E8D30011C908 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964663AB2040E8D30011C908 /* Constants.swift */; };
+		964EE495218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EE494218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift */; };
+		964EE498218CDC68005315DF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EE497218CDC68005315DF /* Game.swift */; };
+		964EE49C218CDFC2005315DF /* ScorekeepingMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EE499218CDEB0005315DF /* ScorekeepingMatch.swift */; };
+		964EE49D218CE02E005315DF /* ScorekeepingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */; };
 		96700EAF20460BF50029F7C1 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 96700EAE20460BF50029F7C1 /* TODO.md */; };
-		9698634B218BDE0500F78A1B /* ScorekeepingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */; };
 		96986352218BDF9700F78A1B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96986350218BDF9700F78A1B /* Interface.storyboard */; };
 		96986354218BDF9900F78A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96986353218BDF9900F78A1B /* Assets.xcassets */; };
 		9698635B218BDF9900F78A1B /* SmashWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -86,6 +88,7 @@
 		96C29DD32048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD22048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift */; };
 		96C29DD62048CF7900E1FBC1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD42048CF7900E1FBC1 /* Model.xcdatamodeld */; };
 		96C29DD82048DC8900E1FBC1 /* SmashStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C29DD72048DC8900E1FBC1 /* SmashStackManager.swift */; };
+		96DB795E218CE262008EC55F /* MatchRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB795D218CE262008EC55F /* MatchRowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +234,9 @@
 		964663A92040E8AB0011C908 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		964663AB2040E8D30011C908 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964EE494218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingSessionInterfaceController.swift; sourceTree = "<group>"; };
+		964EE497218CDC68005315DF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		964EE499218CDEB0005315DF /* ScorekeepingMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingMatch.swift; sourceTree = "<group>"; };
 		96700EAE20460BF50029F7C1 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingSession.swift; sourceTree = "<group>"; };
 		9698634E218BDF9700F78A1B /* SmashWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +257,7 @@
 		96C29DD22048435E00E1FBC1 /* UserDefaults+PreferredPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PreferredPlayer.swift"; sourceTree = "<group>"; };
 		96C29DD52048CF7900E1FBC1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		96C29DD72048DC8900E1FBC1 /* SmashStackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SmashStackManager.swift; path = SmashKit/Model/SmashStackManager.swift; sourceTree = SOURCE_ROOT; };
+		96DB795D218CE262008EC55F /* MatchRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRowController.swift; sourceTree = "<group>"; };
 		997E851DD14DE014B4D9283F /* Pods-SmashWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmashWatch Extension/Pods-SmashWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1C07A5DF225CB1F5AE4E29 /* Pods-SmashKitWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashKitWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmashKitWatch/Pods-SmashKitWatch.release.xcconfig"; sourceTree = "<group>"; };
 		A71FC007B7454C83041C2089 /* Pods-SmashWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmashWatch Extension/Pods-SmashWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -487,7 +494,6 @@
 				964663A52040E8700011C908 /* Match.swift */,
 				9609489320450A5F009086CE /* LeagueSession.swift */,
 				9641A5A320474989008AC39F /* GroupResult.swift */,
-				9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */,
 				96C29DD42048CF7900E1FBC1 /* Model.xcdatamodeld */,
 			);
 			path = Model;
@@ -496,6 +502,7 @@
 		964EE492218CD2E3005315DF /* Interface Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				964EE494218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift */,
 				961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */,
 				96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */,
 			);
@@ -506,8 +513,19 @@
 			isa = PBXGroup;
 			children = (
 				961C8BF9218CC86600542CD6 /* GameRowController.swift */,
+				96DB795D218CE262008EC55F /* MatchRowController.swift */,
 			);
 			path = "Row Controllers";
+			sourceTree = "<group>";
+		};
+		964EE496218CDC62005315DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				964EE497218CDC68005315DF /* Game.swift */,
+				964EE499218CDEB0005315DF /* ScorekeepingMatch.swift */,
+				9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9698634F218BDF9700F78A1B /* SmashWatch */ = {
@@ -523,6 +541,7 @@
 		9698635E218BDF9900F78A1B /* SmashWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				964EE496218CDC62005315DF /* Model */,
 				96986361218BDF9900F78A1B /* ExtensionDelegate.swift */,
 				964EE492218CD2E3005315DF /* Interface Controllers */,
 				964EE493218CD2F7005315DF /* Row Controllers */,
@@ -1006,7 +1025,6 @@
 				961C8BF4218CC5C600542CD6 /* GroupResult.swift in Sources */,
 				961C8BF6218CC5CA00542CD6 /* Model.xcdatamodeld in Sources */,
 				961C8BF1218CC5C600542CD6 /* Player.swift in Sources */,
-				961C8BF5218CC5C600542CD6 /* ScorekeepingSession.swift in Sources */,
 				961C8BF0218CC5C600542CD6 /* Constants.swift in Sources */,
 				961C8BF2218CC5C600542CD6 /* Match.swift in Sources */,
 				961C8BFB218CCA0B00542CD6 /* SmashStackManager.swift in Sources */,
@@ -1038,7 +1056,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */,
-				9698634B218BDE0500F78A1B /* ScorekeepingSession.swift in Sources */,
 				96C29DD82048DC8900E1FBC1 /* SmashStackManager.swift in Sources */,
 				9609489420450A5F009086CE /* LeagueSession.swift in Sources */,
 				96C29DCF20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift in Sources */,
@@ -1059,10 +1076,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DB795E218CE262008EC55F /* MatchRowController.swift in Sources */,
 				961C8BFA218CC86600542CD6 /* GameRowController.swift in Sources */,
+				964EE495218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift in Sources */,
+				964EE498218CDC68005315DF /* Game.swift in Sources */,
 				961C8BDC218BED6900542CD6 /* NewMatchInterfaceController.swift in Sources */,
 				96986362218BDF9900F78A1B /* ExtensionDelegate.swift in Sources */,
 				96986375218BE17F00F78A1B /* GameScoreInterfaceController.swift in Sources */,
+				964EE49C218CDFC2005315DF /* ScorekeepingMatch.swift in Sources */,
+				964EE49D218CE02E005315DF /* ScorekeepingSession.swift in Sources */,
 				96986377218BE36300F78A1B /* WKPickerItem+InitWithTitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

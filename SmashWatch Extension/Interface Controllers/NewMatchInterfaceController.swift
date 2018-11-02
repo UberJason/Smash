@@ -10,107 +10,63 @@ import WatchKit
 import SmashKitWatch
 import CoreData
 
-class Game: Equatable {
-    let id: UUID = UUID()
-    var player1: Player
-    var player2: Player
-    
-    var player1Score: Int
-    var player2Score: Int
-    
-    init(player1: Player, player2: Player, player1Score: Int, player2Score: Int) {
-        self.player1 = player1
-        self.player2 = player2
-        self.player1Score = player1Score
-        self.player2Score = player2Score
-    }
-    
-    func outcomeDescription(for primaryPlayer: Player) -> String? {
-        guard primaryPlayer == player1 || primaryPlayer == player2 else { return nil }
-        if primaryPlayer == player1 {
-            return "\(winner == player1 ? "W" : "L"), \(player1Score)-\(player2Score)"
-        }
-        else {
-            return "\(winner == player2 ? "W" : "L"), \(player2Score)-\(player1Score)"
-        }
-    }
-    
-    var winner: Player {
-        return player1Score > player2Score ? player1 : player2
-    }
-    
-    public static func ==(lhs: Game, rhs: Game) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-}
-
 class NewMatchModel {
-    private var games = [Game]()
-    public let primaryPlayer: Player
-    public let opponent: Player
+    var match: ScorekeepingMatch
+
+    public var primaryPlayer: Player { return match.player1 }
+    public var opponent: Player { return match.player2 }
     
-    init(primaryPlayer: Player, opponent: Player) {
-        self.primaryPlayer = primaryPlayer
-        self.opponent = opponent
+    init(match: ScorekeepingMatch) {
+        self.match = match
     }
     
     var numberOfGames: Int {
-        return games.count
+        return match.games.count
     }
     
     func game(at index: Int) -> Game? {
-        guard index < games.count else { return nil }
-        return games[index]
+        guard index < match.games.count else { return nil }
+        return match.games[index]
     }
     
     func addGame(_ game: Game) {
-        if !games.contains(game) {
-            games.append(game)
+        if !match.games.contains(game) {
+            match.games.append(game)
         }
     }
     
     func delete(at index: Int) {
-        games.remove(at: index)
+        match.games.remove(at: index)
     }
     
     var summaryDescription: String {
-        let wins = games.filter { $0.winner == primaryPlayer }.count
-        let losses = games.filter { $0.winner != primaryPlayer }.count
-        
-        let net = wins - losses
-        switch net {
-        case _ where net > 0:
-            return "W, \(wins)-\(losses)"
-        case _ where net == 0:
-            return "T, \(wins)-\(losses)"
-        case _ where net < 0:
-            return "L, \(wins)-\(losses)"
-        default: fatalError("Impossible arithmetic?")
-        }
+        return match.summaryDescription(for: primaryPlayer)
     }
+    
+}
+
+protocol MatchDetailDelegate: class {
+    func didSaveMatch(_ match: ScorekeepingMatch)
 }
 
 class NewMatchInterfaceController: WKInterfaceController {
 
+    @IBOutlet weak var matchLabel: WKInterfaceLabel!
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     @IBOutlet weak var table: WKInterfaceTable!
     
     var model: NewMatchModel?
+    weak var delegate: MatchDetailDelegate?
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // DEBUG
-        
-        let player1 = try! Player.newOrExistingPlayer(name: "Jason Ji", managedObjectContext: SmashStackManager.shared.managedObjectContext)
-        let player2 = try! Player.newOrExistingPlayer(name: "Kevin Ji", managedObjectContext: SmashStackManager.shared.managedObjectContext)
-    
-        model = NewMatchModel(primaryPlayer: player1, opponent: player2)
-        
-        model?.addGame(Game(player1: player1, player2: player2, player1Score: 11, player2Score: 7))
-        model?.addGame(Game(player1: player1, player2: player2, player1Score: 11, player2Score: 9))
-        model?.addGame(Game(player1: player1, player2: player2, player1Score: 10, player2Score: 12))
+
+        if let (number, match, delegate) = context as? (Int, ScorekeepingMatch, MatchDetailDelegate) {
+            self.delegate = delegate
+            model = NewMatchModel(match: match)
+            
+            matchLabel.setText("Match \(number)")
+        }
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
@@ -151,9 +107,13 @@ class NewMatchInterfaceController: WKInterfaceController {
     
     func configureSummaryLabel() {
         guard let model = model else { return }
-        summaryLabel.setText(model.summaryDescription)	
+        summaryLabel.setText(model.summaryDescription)
     }
     
+    @IBAction func saveMatch() {
+        guard let model = model else { return }
+        delegate?.didSaveMatch(model.match)
+    }
 }
 
 extension NewMatchInterfaceController: GameScoreDelegate {

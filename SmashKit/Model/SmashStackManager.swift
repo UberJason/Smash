@@ -22,4 +22,11 @@ public class SmashStackManager: CoreDataStackManager {
         let fetchRequest: NSFetchRequest<LeagueSession> = LeagueSession.fetchRequest()
         return try? SmashStackManager.shared.managedObjectContext.fetch(fetchRequest).filter { $0.date != nil }.sorted { $0.date! > $1.date! }
     }
+    
+//    public func latestScorekeepingSession() -> ScorekeepingSession {
+//        let fetchRequest: NSFetchRequest<ScorekeepingSession> = ScorekeepingSession.fetchRequest()
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCD", ascending: true)]
+//        
+//        return try! SmashStackManager.shared.managedObjectContext.fetch(fetchRequest).first ?? ScorekeepingSession(date: Date(), matches: [], managedObjectContext: managedObjectContext)
+//    }
 }
