@@ -50,16 +50,17 @@
                                     <items>
                                         <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="u0y-nH-IhQ">
                                             <items>
-                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Add Game" id="CyQ-rL-Hxl">
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Next Game" id="CyQ-rL-Hxl">
                                                     <connections>
-                                                        <segue destination="AgC-eL-Hgc" kind="push" identifier="showGameDetail" id="Ozr-sa-Gkg"/>
+                                                        <segue destination="AgC-eL-Hgc" kind="modal" identifier="showGameDetail" id="Ozr-sa-Gkg"/>
                                                     </connections>
                                                 </button>
                                             </items>
                                         </group>
                                         <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="OPc-TC-SwV">
                                             <items>
-                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Save Match" id="gze-cg-Fd7" userLabel="Save Match">
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="End Match" id="gze-cg-Fd7" userLabel="Save Match">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <connections>
                                                         <action selector="saveMatch" destination="GRf-LZ-5Mh" id="6FO-cT-ULO"/>
                                                     </connections>
@@ -94,9 +95,9 @@
         <!--Game Score Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller fullBounds="YES" fullScreen="YES" id="AgC-eL-Hgc" customClass="GameScoreInterfaceController" customModule="SmashWatch_Extension">
+                <controller id="AgC-eL-Hgc" customClass="GameScoreInterfaceController" customModule="SmashWatch_Extension">
                     <items>
-                        <group width="1" height="1" alignment="left" layout="vertical" spacing="4" id="Hew-03-J0H">
+                        <group width="1" alignment="left" layout="vertical" spacing="8" id="Hew-03-J0H">
                             <items>
                                 <label alignment="center" text="Game 1" textAlignment="center" id="9gg-Rt-4bd">
                                     <color key="textColor" red="0.81906270980834961" green="0.21740751719144297" blue="0.14019091262687813" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -130,17 +131,21 @@
                                         </group>
                                     </items>
                                 </group>
-                                <group width="1" height="8" alignment="left" id="lSO-mH-WKl"/>
-                                <button width="1" alignment="left" title="Save Game" id="f6C-wk-lH1">
-                                    <connections>
-                                        <action selector="saveGame" destination="AgC-eL-Hgc" id="ieu-g5-1Zm"/>
-                                    </connections>
-                                </button>
-                                <button width="1" alignment="left" title="Delete Game" id="uR7-Hf-fez">
-                                    <connections>
-                                        <action selector="deleteGame" destination="AgC-eL-Hgc" id="NnB-iZ-SJu"/>
-                                    </connections>
-                                </button>
+                                <group width="1" alignment="left" layout="vertical" id="YNr-jT-HqI">
+                                    <items>
+                                        <button width="1" alignment="left" title="Save Game" id="f6C-wk-lH1">
+                                            <connections>
+                                                <action selector="saveGame" destination="AgC-eL-Hgc" id="ieu-g5-1Zm"/>
+                                            </connections>
+                                        </button>
+                                        <button width="1" alignment="left" title="Delete Game" id="uR7-Hf-fez">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <connections>
+                                                <action selector="deleteGame" destination="AgC-eL-Hgc" id="NnB-iZ-SJu"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
                             </items>
                         </group>
                     </items>
@@ -196,7 +201,7 @@
                                     <items>
                                         <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="37N-63-1Z9">
                                             <items>
-                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Add Match" id="RBm-IT-Pru">
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Start a Match" id="RBm-IT-Pru">
                                                     <connections>
                                                         <segue destination="GRf-LZ-5Mh" kind="push" identifier="showMatchDetail" id="epI-GM-PQO"/>
                                                     </connections>
@@ -218,7 +223,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ozr-sa-Gkg"/>
+        <segue reference="0qp-30-Dub"/>
         <segue reference="epI-GM-PQO"/>
     </inferredMetricsTieBreakers>
 </document>

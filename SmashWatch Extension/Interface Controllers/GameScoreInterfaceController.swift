@@ -12,6 +12,8 @@ import SmashKitWatch
 struct GameScoreModel {
     var gameNumber: Int
     var game: Game
+    var player1Score: Int
+    var player2Score: Int
 }
 
 protocol GameScoreDelegate: class {
@@ -33,6 +35,7 @@ class GameScoreInterfaceController: WKInterfaceController {
     @IBOutlet weak var deleteGameButton: WKInterfaceButton!
     
     var model: GameScoreModel?
+    var isNewGame: Bool = false
     
     weak var delegate: GameScoreDelegate?
     
@@ -41,25 +44,19 @@ class GameScoreInterfaceController: WKInterfaceController {
         
         initializePickers()
         
-        if let (number, game, delegate) = context as? (Int, Game, GameScoreDelegate) {
+        if let (number, game, delegate, isNew) = context as? (Int, Game, GameScoreDelegate, Bool) {
+            self.isNewGame = isNew
             self.delegate = delegate
-            model = GameScoreModel(gameNumber: number, game: game)
+            model = GameScoreModel(gameNumber: number, game: game, player1Score: game.player1Score, player2Score: game.player2Score)
             
             gameLabel.setText("Game \(number)")
             player1NameLabel.setText(game.player1.firstName)
             player2NameLabel.setText(game.player2.firstName)
             
-            player1ScorePicker.setSelectedItemIndex(max(game.player1Score - 1, 0))
-            player2ScorePicker.setSelectedItemIndex(max(game.player2Score - 1, 0))
+            player1ScorePicker.setSelectedItemIndex(max(game.player1Score, 0))
+            player2ScorePicker.setSelectedItemIndex(max(game.player2Score, 0))
             
-            if game.player1Score == 0 && game.player2Score == 0 {
-                deleteGameButton.setHidden(true)
-                saveGameButton.setHidden(false)
-            }
-            else {
-                deleteGameButton.setHidden(false)
-                saveGameButton.setHidden(true)
-            }
+            deleteGameButton.setHidden(isNew)
         }
     }
 
@@ -80,25 +77,39 @@ class GameScoreInterfaceController: WKInterfaceController {
     }
     
     func scorePickerItems() -> [WKPickerItem] {
-        return Array(1 ... 30).map { return WKPickerItem(title: "\($0)") }
+        return Array(0 ... 30).map { return WKPickerItem(title: "\($0)") }
     }
     
     @IBAction func changePlayer1Score(_ value: Int) {
-        model?.game.player1Score = value + 1
+        model?.player1Score = value
     }
     
     @IBAction func changePlayer2Score(_ value: Int) {
-        model?.game.player2Score = value + 1
+        model?.player2Score = value
     }
     
     @IBAction func saveGame() {
-        guard let game = model?.game else { return }
-        delegate?.didSaveGame(game)
+        guard let model = model else { return }
+        model.game.player1Score = model.player1Score
+        model.game.player2Score = model.player2Score
+        delegate?.didSaveGame(model.game)
+        if isNewGame {
+            dismiss()
+        }
+        else {
+            pop()
+        }
     }
     
     @IBAction func deleteGame() {
         guard let game = model?.game else { return }
         delegate?.didDeleteGame(game)
+        if isNewGame {
+            dismiss()
+        }
+        else {
+            pop()
+        }
     }
     
 }

@@ -50,10 +50,17 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
     
     var model: ScorekeepingSessionModel?
     
+    lazy var dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        return f
+    }()
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         model = ScorekeepingSessionModel(session: ScorekeepingSession(date: Date()))
+        sessionLabel.setText(dateFormatter.string(from: Date()))
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
@@ -63,7 +70,8 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
         
         guard let model = model else { return nil }
         let newMatch = ScorekeepingMatch(player1: player1, player2: player2)
-        return (model.numberOfMatches + 1, newMatch, self as MatchDetailDelegate)
+        model.addMatch(newMatch)
+        return (model.numberOfMatches, newMatch, self as MatchDetailDelegate)
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {

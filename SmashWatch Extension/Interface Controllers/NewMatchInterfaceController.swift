@@ -90,13 +90,13 @@ class NewMatchInterfaceController: WKInterfaceController {
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
         guard let model = model else { return nil }
         let newGame = Game(player1: model.primaryPlayer, player2: model.opponent, player1Score: 0, player2Score: 0)
-        return (model.numberOfGames + 1, newGame, self as GameScoreDelegate)
+        return (model.numberOfGames + 1, newGame, self as GameScoreDelegate, true)
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
         guard let model = model else { return nil }
         let game = model.game(at: rowIndex)
-        return (rowIndex + 1, game, self as GameScoreDelegate)
+        return (rowIndex + 1, game, self as GameScoreDelegate, false)
     }
 
     override func willActivate() {
@@ -142,11 +142,9 @@ class NewMatchInterfaceController: WKInterfaceController {
 extension NewMatchInterfaceController: GameScoreDelegate {
     func didSaveGame(_ game: Game) {
         model?.addGame(game)
-        pop()
     }
     
     func didDeleteGame(_ game: Game) {
         model?.delete(game)
-        pop()
     }
 }
