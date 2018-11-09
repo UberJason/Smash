@@ -70,6 +70,7 @@
                                         <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="RtE-ua-Z2q">
                                             <items>
                                                 <button width="1" alignment="left" verticalAlignment="bottom" hidden="YES" title="Delete Match" id="92T-kR-xE8">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <connections>
                                                         <action selector="deleteMatch" destination="GRf-LZ-5Mh" id="NgQ-O6-jhp"/>
                                                     </connections>
