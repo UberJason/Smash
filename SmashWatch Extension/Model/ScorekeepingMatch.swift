@@ -24,8 +24,8 @@ public class ScorekeepingMatch: Equatable {
     }
     
     func summaryDescription(for primaryPlayer: Player) -> String {
-        let wins = games.filter { $0.winner == primaryPlayer }.count
-        let losses = games.filter { $0.winner != primaryPlayer }.count
+        let wins = self.wins(for: primaryPlayer)
+        let losses = self.losses(for: primaryPlayer)
         
         let net = wins - losses
         switch net {
@@ -41,5 +41,20 @@ public class ScorekeepingMatch: Equatable {
     
     public static func ==(lhs: ScorekeepingMatch, rhs: ScorekeepingMatch) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    func wins(for player: Player) -> Int {
+        return games.filter { $0.winner == player }.count
+    }
+    
+    func losses(for player: Player) -> Int {
+        return games.filter { $0.winner != player }.count
+    }
+    
+    var isComplete: Bool {
+        let wins = self.wins(for: player1)
+        let losses = self.losses(for: player1)
+        
+        return wins >= 3 || losses >= 3
     }
 }

@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="-65" y="345"/>
         </scene>
-        <!--Game Score Interface Controller-->
+        <!--gameScoreInterfaceController-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="GameScoreInterfaceController" customModule="SmashWatch_Extension">
+                <controller identifier="gameScoreInterfaceController" id="AgC-eL-Hgc" customClass="GameScoreInterfaceController" customModule="SmashWatch_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" spacing="8" id="Hew-03-J0H">
                             <items>
@@ -224,7 +224,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0qp-30-Dub"/>
+        <segue reference="Ozr-sa-Gkg"/>
         <segue reference="epI-GM-PQO"/>
     </inferredMetricsTieBreakers>
 </document>

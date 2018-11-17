@@ -49,6 +49,9 @@ class NewMatchModel {
         return match.summaryDescription(for: primaryPlayer)
     }
     
+    var isMatchComplete: Bool {
+        return match.isComplete
+    }
 }
 
 protocol MatchDetailDelegate: class {
@@ -84,12 +87,16 @@ class NewMatchInterfaceController: WKInterfaceController {
             }
             
             matchLabel.setText("Match #\(number)")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                self.presentNextGameController()
+            }
         }
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
         guard let model = model else { return nil }
-        let newGame = Game(player1: model.primaryPlayer, player2: model.opponent, player1Score: 0, player2Score: 0)
+        let newGame = Game(player1: model.primaryPlayer, player2: model.opponent, player1Score: 11, player2Score: 11)
         return (model.numberOfGames + 1, newGame, self as GameScoreDelegate, true)
     }
     
@@ -137,11 +144,21 @@ class NewMatchInterfaceController: WKInterfaceController {
         guard let match = model?.match else { return }
         delegate?.didDeleteMatch(match)
     }
+    
+    func presentNextGameController() {
+        presentController(withName: "gameScoreInterfaceController", context: contextForSegue(withIdentifier: "showGameDetail"))
+    }
 }
 
 extension NewMatchInterfaceController: GameScoreDelegate {
     func didSaveGame(_ game: Game) {
         model?.addGame(game)
+        
+        if let model = model, !model.isMatchComplete {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                self.presentNextGameController()
+            }
+        }
     }
     
     func didDeleteGame(_ game: Game) {
