@@ -74,7 +74,7 @@ class NewMatchInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
 
-        if let (number, match, delegate) = context as? (Int, ScorekeepingMatch, MatchDetailDelegate) {
+        if let (number, match, delegate, startWorkout) = context as? (Int, ScorekeepingMatch, MatchDetailDelegate, Bool) {
             self.delegate = delegate
             model = NewMatchModel(match: match)
             if match.games.count == 0 {
@@ -92,6 +92,10 @@ class NewMatchInterfaceController: WKInterfaceController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
                     self.presentNextGameController()
                 }
+            }
+            
+            if startWorkout {
+                WorkoutManager.shared.startOrResumeWorkout()
             }
         }
     }
@@ -139,6 +143,7 @@ class NewMatchInterfaceController: WKInterfaceController {
     
     @IBAction func saveMatch() {
         guard let match = model?.match else { return }
+        WorkoutManager.shared.pauseWorkoutIfNeeded()
         delegate?.didSaveMatch(match)
     }
     

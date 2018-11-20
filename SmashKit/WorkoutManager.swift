@@ -50,7 +50,7 @@ public class WorkoutManager: NSObject {
         case .notStarted, .prepared:
             startWorkout()
         case .paused:
-            resumeWorkout()
+            resumeWorkoutIfNeeded()
         case .running, .ended, .stopped:
             break
         }
@@ -73,25 +73,45 @@ public class WorkoutManager: NSObject {
         builder?.beginCollection(withStart: Date()) { (_, _) in }
     }
     
-    public func pauseWorkout() {
-        session?.pause()
+    public func pauseWorkoutIfNeeded() {
+        guard let state = session?.state else { return }
+
+        switch state {
+        case .notStarted, .prepared, .paused, .ended, .stopped:
+            break
+        case .running:
+            session?.pause()
+        }
     }
     
-    public func resumeWorkout() {
-        session?.resume()
+    public func resumeWorkoutIfNeeded() {
+        guard let state = session?.state else { return }
+        
+        switch state {
+        case .notStarted, .prepared, .running, .ended, .stopped:
+            break
+        case .paused:
+            session?.resume()
+        }
     }
     
     public func endWorkout() {
-        session?.end()
-        builder?.endCollection(withEnd: Date()) { (_, _) in
-            self.builder?.finishWorkout { (_, _) in }
-        }
+        guard let state = session?.state else { return }
         
+        switch state {
+        case .notStarted, .ended:
+            break
+        default:
+            session?.end()
+            builder?.endCollection(withEnd: Date()) { (_, _) in
+                self.builder?.finishWorkout { (_, _) in }
+            }
+        }
     }
     
     public var calories: Double {
         guard let calorieType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
-            let calorieQuantity = builder?.statistics(for: calorieType)?.sumQuantity() else { return -1.0 }
+            let calorieQuantity = builder?.statistics(for: calorieType)?.sumQuantity() else { return 0.0 }
         
         return calorieQuantity.doubleValue(for: HKUnit.kilocalorie())
     }
@@ -149,6 +169,20 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
 extension WorkoutManager: HKWorkoutSessionDelegate {
     public func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         print("workoutSession:didChange: \(toState)")
+        switch toState {
+        case .notStarted:
+            print("notStarted")
+        case .running:
+            print("running")
+        case .ended:
+            print("ended")
+        case .paused:
+            print("paused")
+        case .prepared:
+            print("prepared")
+        case .stopped:
+            print("stopped")
+        }
     }
     
     public func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {

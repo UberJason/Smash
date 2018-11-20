@@ -71,25 +71,28 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        guard segueIdentifier == "showMatchDetail", let model = model else { return nil }
         
         let player1 = try! Player.newOrExistingPlayer(name: "Jason Ji", managedObjectContext: SmashStackManager.shared.managedObjectContext)
         let player2 = try! Player.newOrExistingPlayer(name: "Opponent", managedObjectContext: SmashStackManager.shared.managedObjectContext)
         
-        guard let model = model else { return nil }
         let newMatch = ScorekeepingMatch(player1: player1, player2: player2)
         model.addMatch(newMatch)
-        return (model.numberOfMatches, newMatch, self as MatchDetailDelegate)
+        return (model.numberOfMatches, newMatch, self as MatchDetailDelegate, true)
     }
     
     override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
-        guard let model = model else { return nil }
+        guard segueIdentifier == "showMatchDetail", let model = model else { return nil }
+        
         let match = model.match(at: rowIndex)
-        return (rowIndex + 1, match, self as MatchDetailDelegate)
+        return (rowIndex + 1, match, self as MatchDetailDelegate, false)
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        WorkoutManager.shared.pauseWorkoutIfNeeded()
         
         if let model = model, model.workoutSessionComplete {
             [startWarmupButton, startMatchButton, endSessionButton].forEach { $0?.setHidden(true) }
@@ -116,6 +119,8 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
     
     @IBAction func endWorkoutSession() {
         WorkoutManager.shared.endWorkout()
+        model?.workoutSessionComplete = true
+        [startWarmupButton, startMatchButton, endSessionButton].forEach { $0?.setHidden(true) }
         
     }
     

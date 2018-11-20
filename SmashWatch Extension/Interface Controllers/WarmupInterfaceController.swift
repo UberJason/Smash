@@ -18,6 +18,13 @@ class WarmupInterfaceController: WKInterfaceController {
     @IBOutlet weak var elapsedTimeLabel: WKInterfaceLabel!
     @IBOutlet weak var heartRateLabel: WKInterfaceLabel!
     
+    lazy var elapsedTimeFormatter: DateComponentsFormatter = {
+        let f = DateComponentsFormatter()
+        f.zeroFormattingBehavior = .pad
+        f.allowedUnits = [.hour, .minute, .second]
+        return f
+    }()
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -39,16 +46,16 @@ class WarmupInterfaceController: WKInterfaceController {
     }
 
     @IBAction func endWarmup() {
-        WorkoutManager.shared.pauseWorkout()
+        WorkoutManager.shared.pauseWorkoutIfNeeded()
         timer?.invalidate()
         dismiss()
     }
     
     @objc func updateWorkoutStats() {
-        print("updateWorkoutStats()")
+        let heartRateText = WorkoutManager.shared.heartRate == -1 ? "--" : "\(WorkoutManager.shared.heartRate)"
         
         calorieLabel.setText("\(WorkoutManager.shared.calories) cal")
-        elapsedTimeLabel.setText("\(WorkoutManager.shared.elapsedTime)")
-        heartRateLabel.setText("\(WorkoutManager.shared.heartRate) BPM")
+        elapsedTimeLabel.setText("\(elapsedTimeFormatter.string(from: WorkoutManager.shared.elapsedTime)!)")
+        heartRateLabel.setText("\(heartRateText) BPM")
     }
 }

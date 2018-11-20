@@ -105,7 +105,7 @@
                         <group width="1" alignment="center" layout="vertical" id="z6e-N3-VUw">
                             <items>
                                 <label alignment="center" text="0 cal" id="Yga-gT-KAl"/>
-                                <label alignment="center" text="00:00" id="5kR-cZ-k4K"/>
+                                <label alignment="center" text="0:00:00" id="5kR-cZ-k4K"/>
                                 <label alignment="center" text="60 BPM" id="4ac-rR-uNo"/>
                             </items>
                         </group>
@@ -123,7 +123,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-65" y="700"/>
+            <point key="canvasLocation" x="-65" y="716"/>
         </scene>
         <!--gameScoreInterfaceController-->
         <scene sceneID="aou-V4-d1y">
@@ -236,14 +236,18 @@
                                             <items>
                                                 <button width="1" alignment="left" verticalAlignment="bottom" title="Start Warmup" id="RBm-IT-Pru">
                                                     <connections>
-                                                        <segue destination="Bug-Mo-QhO" kind="modal" id="K2Z-Za-spl"/>
+                                                        <segue destination="Bug-Mo-QhO" kind="modal" identifier="showWarmup" id="K2Z-Za-spl"/>
                                                     </connections>
                                                 </button>
                                             </items>
                                         </group>
                                         <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="Ty6-8F-Cf3">
                                             <items>
-                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Start a Match" id="Wsh-Gi-yjr"/>
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Start a Match" id="Wsh-Gi-yjr">
+                                                    <connections>
+                                                        <segue destination="GRf-LZ-5Mh" kind="push" identifier="showMatchDetail" id="c3C-hP-qy7"/>
+                                                    </connections>
+                                                </button>
                                             </items>
                                         </group>
                                         <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="pkv-b0-9FD">
@@ -275,5 +279,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ozr-sa-Gkg"/>
+        <segue reference="c3C-hP-qy7"/>
     </inferredMetricsTieBreakers>
 </document>
