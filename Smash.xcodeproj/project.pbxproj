@@ -77,6 +77,7 @@
 		965C550721A09066007CF054 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965C550621A09066007CF054 /* HealthKit.framework */; };
 		96700EAF20460BF50029F7C1 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 96700EAE20460BF50029F7C1 /* TODO.md */; };
 		9677235B21A4A549008951A9 /* WarmupInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677235A21A4A549008951A9 /* WarmupInterfaceController.swift */; };
+		9677235E21A4B421008951A9 /* WorkoutSummaryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677235C21A4B41E008951A9 /* WorkoutSummaryInterfaceController.swift */; };
 		96986352218BDF9700F78A1B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96986350218BDF9700F78A1B /* Interface.storyboard */; };
 		96986354218BDF9900F78A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96986353218BDF9900F78A1B /* Assets.xcassets */; };
 		9698635B218BDF9900F78A1B /* SmashWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -249,6 +250,7 @@
 		965C550621A09066007CF054 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		96700EAE20460BF50029F7C1 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		9677235A21A4A549008951A9 /* WarmupInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmupInterfaceController.swift; sourceTree = "<group>"; };
+		9677235C21A4B41E008951A9 /* WorkoutSummaryInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryInterfaceController.swift; sourceTree = "<group>"; };
 		9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingSession.swift; sourceTree = "<group>"; };
 		9698634E218BDF9700F78A1B /* SmashWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96986351218BDF9700F78A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 		964EE492218CD2E3005315DF /* Interface Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9677235C21A4B41E008951A9 /* WorkoutSummaryInterfaceController.swift */,
 				964EE494218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift */,
 				9677235A21A4A549008951A9 /* WarmupInterfaceController.swift */,
 				961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */,
@@ -1107,6 +1110,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9677235E21A4B421008951A9 /* WorkoutSummaryInterfaceController.swift in Sources */,
 				96DB795E218CE262008EC55F /* MatchRowController.swift in Sources */,
 				961C8BFA218CC86600542CD6 /* GameRowController.swift in Sources */,
 				964EE495218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift in Sources */,

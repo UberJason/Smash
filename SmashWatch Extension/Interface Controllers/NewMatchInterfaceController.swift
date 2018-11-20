@@ -143,7 +143,6 @@ class NewMatchInterfaceController: WKInterfaceController {
     
     @IBAction func saveMatch() {
         guard let match = model?.match else { return }
-        WorkoutManager.shared.pauseWorkoutIfNeeded()
         delegate?.didSaveMatch(match)
     }
     
