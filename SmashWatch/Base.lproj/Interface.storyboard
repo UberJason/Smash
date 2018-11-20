@@ -93,6 +93,38 @@
             </objects>
             <point key="canvasLocation" x="-65" y="345"/>
         </scene>
+        <!--Warmup Interface Controller-->
+        <scene sceneID="Rk0-lL-hhZ">
+            <objects>
+                <controller id="Bug-Mo-QhO" customClass="WarmupInterfaceController" customModule="SmashWatch_Extension">
+                    <items>
+                        <label alignment="center" text="Warming Up" textAlignment="center" minimumScaleFactor="0.5" id="CEe-Om-Oxv">
+                            <color key="textColor" red="0.81906270979999996" green="0.21740751720000001" blue="0.14019091259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="font" type="system" weight="heavy" pointSize="20"/>
+                        </label>
+                        <group width="1" alignment="center" layout="vertical" id="z6e-N3-VUw">
+                            <items>
+                                <label alignment="center" text="0 cal" id="Yga-gT-KAl"/>
+                                <label alignment="center" text="00:00" id="5kR-cZ-k4K"/>
+                                <label alignment="center" text="60 BPM" id="4ac-rR-uNo"/>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="End Warmup" id="Sbe-oZ-3MN" userLabel="Save Match">
+                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="endWarmup" destination="Bug-Mo-QhO" id="9mD-od-mcg"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="calorieLabel" destination="Yga-gT-KAl" id="i2C-gj-E1F"/>
+                        <outlet property="elapsedTimeLabel" destination="5kR-cZ-k4K" id="EvX-rl-JQc"/>
+                        <outlet property="heartRateLabel" destination="4ac-rR-uNo" id="5rs-k5-uOw"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-65" y="700"/>
+        </scene>
         <!--gameScoreInterfaceController-->
         <scene sceneID="aou-V4-d1y">
             <objects>
@@ -202,9 +234,24 @@
                                     <items>
                                         <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="37N-63-1Z9">
                                             <items>
-                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Start a Match" id="RBm-IT-Pru">
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Start Warmup" id="RBm-IT-Pru">
                                                     <connections>
-                                                        <segue destination="GRf-LZ-5Mh" kind="push" identifier="showMatchDetail" id="epI-GM-PQO"/>
+                                                        <segue destination="Bug-Mo-QhO" kind="modal" id="K2Z-Za-spl"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="Ty6-8F-Cf3">
+                                            <items>
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="Start a Match" id="Wsh-Gi-yjr"/>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" radius="20" id="pkv-b0-9FD">
+                                            <items>
+                                                <button width="1" alignment="left" verticalAlignment="bottom" title="End Session" id="8c3-Gn-Bw7">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <connections>
+                                                        <action selector="endWorkoutSession" destination="A6y-rd-5hv" id="X5i-m9-RwF"/>
                                                     </connections>
                                                 </button>
                                             </items>
@@ -215,16 +262,18 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="endSessionButton" destination="8c3-Gn-Bw7" id="Z3x-jf-eXC"/>
                         <outlet property="sessionLabel" destination="8rI-gT-vkU" id="jvi-UU-xIW"/>
+                        <outlet property="startMatchButton" destination="Wsh-Gi-yjr" id="sdl-b6-TZc"/>
+                        <outlet property="startWarmupButton" destination="RBm-IT-Pru" id="QYs-8U-enl"/>
                         <outlet property="table" destination="I9J-NP-7gW" id="yvQ-MV-0GG"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-310" y="345"/>
+            <point key="canvasLocation" x="-361" y="345"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ozr-sa-Gkg"/>
-        <segue reference="epI-GM-PQO"/>
     </inferredMetricsTieBreakers>
 </document>

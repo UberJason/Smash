@@ -8,6 +8,7 @@
 
 import UIKit
 import SmashKit
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UserDefaults.standard.preferredPlayer = "Jason Ji"
+        
+        WorkoutManager.shared.requestHealthKitAuthorization {
+            print("got HealthKit authorization")
+        }
         
         return true
     }
@@ -43,6 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+    }
+    
+    func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+        let healthStore = HKHealthStore()
+        healthStore.handleAuthorizationForExtension { (success, error) -> Void in
+            
+        }
     }
 }
 

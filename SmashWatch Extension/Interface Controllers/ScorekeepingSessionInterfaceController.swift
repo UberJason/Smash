@@ -13,8 +13,11 @@ import CoreData
 class ScorekeepingSessionModel {
     private var session: ScorekeepingSession
     
+    public var workoutSessionComplete: Bool
+    
     init(session: ScorekeepingSession) {
         self.session = session
+        workoutSessionComplete = false
     }
     
     var numberOfMatches: Int {
@@ -47,6 +50,10 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
 
     @IBOutlet weak var sessionLabel: WKInterfaceLabel!
     @IBOutlet weak var table: WKInterfaceTable!
+    
+    @IBOutlet weak var startWarmupButton: WKInterfaceButton!
+    @IBOutlet weak var startMatchButton: WKInterfaceButton!
+    @IBOutlet weak var endSessionButton: WKInterfaceButton!
     
     var model: ScorekeepingSessionModel?
     
@@ -84,6 +91,10 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
+        if let model = model, model.workoutSessionComplete {
+            [startWarmupButton, startMatchButton, endSessionButton].forEach { $0?.setHidden(true) }
+        }
+        
         configureMatchTable()
     }
 
@@ -102,6 +113,12 @@ class ScorekeepingSessionInterfaceController: WKInterfaceController {
             row.configure(with: match, number: i + 1, primaryPlayer: match.player1)
         }
     }
+    
+    @IBAction func endWorkoutSession() {
+        WorkoutManager.shared.endWorkout()
+        
+    }
+    
 }
 
 extension ScorekeepingSessionInterfaceController: MatchDetailDelegate {

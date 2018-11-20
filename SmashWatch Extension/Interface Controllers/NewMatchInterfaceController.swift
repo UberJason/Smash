@@ -88,8 +88,10 @@ class NewMatchInterfaceController: WKInterfaceController {
             
             matchLabel.setText("Match #\(number)")
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-                self.presentNextGameController()
+            if let model = model, !model.isMatchComplete {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                    self.presentNextGameController()
+                }
             }
         }
     }

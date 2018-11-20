@@ -71,7 +71,12 @@
 		964EE498218CDC68005315DF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EE497218CDC68005315DF /* Game.swift */; };
 		964EE49C218CDFC2005315DF /* ScorekeepingMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EE499218CDEB0005315DF /* ScorekeepingMatch.swift */; };
 		964EE49D218CE02E005315DF /* ScorekeepingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */; };
+		965C550021A08F3C007CF054 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C54FE21A08ECD007CF054 /* WorkoutManager.swift */; };
+		965C550121A08F40007CF054 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C54FE21A08ECD007CF054 /* WorkoutManager.swift */; };
+		965C550421A09059007CF054 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965C550321A09059007CF054 /* HealthKit.framework */; };
+		965C550721A09066007CF054 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965C550621A09066007CF054 /* HealthKit.framework */; };
 		96700EAF20460BF50029F7C1 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 96700EAE20460BF50029F7C1 /* TODO.md */; };
+		9677235B21A4A549008951A9 /* WarmupInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677235A21A4A549008951A9 /* WarmupInterfaceController.swift */; };
 		96986352218BDF9700F78A1B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96986350218BDF9700F78A1B /* Interface.storyboard */; };
 		96986354218BDF9900F78A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96986353218BDF9900F78A1B /* Assets.xcassets */; };
 		9698635B218BDF9900F78A1B /* SmashWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9698635A218BDF9900F78A1B /* SmashWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -237,7 +242,13 @@
 		964EE494218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingSessionInterfaceController.swift; sourceTree = "<group>"; };
 		964EE497218CDC68005315DF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		964EE499218CDEB0005315DF /* ScorekeepingMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingMatch.swift; sourceTree = "<group>"; };
+		965C54FE21A08ECD007CF054 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		965C550221A09059007CF054 /* Smash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smash.entitlements; sourceTree = "<group>"; };
+		965C550321A09059007CF054 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		965C550521A09066007CF054 /* SmashWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SmashWatch Extension.entitlements"; sourceTree = "<group>"; };
+		965C550621A09066007CF054 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		96700EAE20460BF50029F7C1 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		9677235A21A4A549008951A9 /* WarmupInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmupInterfaceController.swift; sourceTree = "<group>"; };
 		9698634A218BDE0500F78A1B /* ScorekeepingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorekeepingSession.swift; sourceTree = "<group>"; };
 		9698634E218BDF9700F78A1B /* SmashWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96986351218BDF9700F78A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -288,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				960948812043B3C3009086CE /* SmashUIKit.framework in Frameworks */,
+				965C550421A09059007CF054 /* HealthKit.framework in Frameworks */,
 				9646639A2040E7F20011C908 /* SmashKit.framework in Frameworks */,
 				0B48652A9B9CCD725D88943B /* Pods_Smash.framework in Frameworks */,
 			);
@@ -305,6 +317,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965C550721A09066007CF054 /* HealthKit.framework in Frameworks */,
 				961C8BE9218CC5A300542CD6 /* SmashKitWatch.framework in Frameworks */,
 				3A45C9AFCA8E736BDCC7E063 /* Pods_SmashWatch_Extension.framework in Frameworks */,
 			);
@@ -462,6 +475,7 @@
 		964663782040E6B20011C908 /* Smash */ = {
 			isa = PBXGroup;
 			children = (
+				965C550221A09059007CF054 /* Smash.entitlements */,
 				9646637D2040E6B20011C908 /* Main.storyboard */,
 				964663792040E6B20011C908 /* AppDelegate.swift */,
 				9641A5A5204749BA008AC39F /* Constants */,
@@ -478,6 +492,7 @@
 				964663952040E7F20011C908 /* SmashKit.h */,
 				964663962040E7F20011C908 /* Info.plist */,
 				961C8BF7218CC74400542CD6 /* Assets.xcassets */,
+				965C54FE21A08ECD007CF054 /* WorkoutManager.swift */,
 				9641A5A12047495F008AC39F /* Dummy Data */,
 				964663A02040E8440011C908 /* Model */,
 				9641A5A020474949008AC39F /* Networking & Parsing */,
@@ -503,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				964EE494218CDC33005315DF /* ScorekeepingSessionInterfaceController.swift */,
+				9677235A21A4A549008951A9 /* WarmupInterfaceController.swift */,
 				961C8BDB218BED6900542CD6 /* NewMatchInterfaceController.swift */,
 				96986374218BE17F00F78A1B /* GameScoreInterfaceController.swift */,
 			);
@@ -541,6 +557,7 @@
 		9698635E218BDF9900F78A1B /* SmashWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				965C550521A09066007CF054 /* SmashWatch Extension.entitlements */,
 				964EE496218CDC62005315DF /* Model */,
 				96986361218BDF9900F78A1B /* ExtensionDelegate.swift */,
 				964EE492218CD2E3005315DF /* Interface Controllers */,
@@ -582,6 +599,8 @@
 		C2256BF1E7D71B04B5C91ED1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				965C550621A09066007CF054 /* HealthKit.framework */,
+				965C550321A09059007CF054 /* HealthKit.framework */,
 				964D7DE42A1FB4AD624A694C /* Pods_Smash.framework */,
 				10EA1FA6A8529564575F992D /* Pods_SmashKit.framework */,
 				ABED33B716805363455BA9AD /* Pods_SmashKitWatch.framework */,
@@ -777,6 +796,11 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					964663922040E7F20011C908 = {
 						CreatedOnToolsVersion = 9.2;
@@ -790,6 +814,11 @@
 					96986359218BDF9900F78A1B = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1022,6 +1051,7 @@
 			files = (
 				961C8BEF218CC5C600542CD6 /* TableTennisError.swift in Sources */,
 				961C8BF3218CC5C600542CD6 /* LeagueSession.swift in Sources */,
+				965C550121A08F40007CF054 /* WorkoutManager.swift in Sources */,
 				961C8BF4218CC5C600542CD6 /* GroupResult.swift in Sources */,
 				961C8BF6218CC5CA00542CD6 /* Model.xcdatamodeld in Sources */,
 				961C8BF1218CC5C600542CD6 /* Player.swift in Sources */,
@@ -1057,6 +1087,7 @@
 			files = (
 				96C29DC820478F9900E1FBC1 /* NetworkController.swift in Sources */,
 				96C29DD82048DC8900E1FBC1 /* SmashStackManager.swift in Sources */,
+				965C550021A08F3C007CF054 /* WorkoutManager.swift in Sources */,
 				9609489420450A5F009086CE /* LeagueSession.swift in Sources */,
 				96C29DCF20479B6800E1FBC1 /* DownloadSessionDetailsOperation.swift in Sources */,
 				9641A5A420474989008AC39F /* GroupResult.swift in Sources */,
@@ -1086,6 +1117,7 @@
 				964EE49C218CDFC2005315DF /* ScorekeepingMatch.swift in Sources */,
 				964EE49D218CE02E005315DF /* ScorekeepingSession.swift in Sources */,
 				96986377218BE36300F78A1B /* WKPickerItem+InitWithTitle.swift in Sources */,
+				9677235B21A4A549008951A9 /* WarmupInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1378,6 +1410,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Smash/Smash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = "$(SRCROOT)/Smash/Utilities/Info.plist";
@@ -1396,6 +1429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Smash/Smash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = "$(SRCROOT)/Smash/Utilities/Info.plist";
@@ -1469,6 +1503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "SmashWatch Extension/SmashWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = "$(SRCROOT)/SmashWatch Extension/Utilities/Info.plist";
@@ -1491,6 +1526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "SmashWatch Extension/SmashWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = "$(SRCROOT)/SmashWatch Extension/Utilities/Info.plist";

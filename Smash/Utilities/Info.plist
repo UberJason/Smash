@@ -41,6 +41,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We create a workout while you&apos;re playing a match.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>We might display your past workouts in the app someday.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
